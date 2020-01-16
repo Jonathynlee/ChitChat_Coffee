@@ -1,15 +1,35 @@
 
 
+html{
+    height:100%;
+}
+body{
+    font-family: Pacifico;
+    height:100%;
+}
+#page-container{
+    
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: stretch;
+    width:100%;
+  
+    
+}
+.content{
+    flex-grow:1;
+}
 .footer{
     height:auto;
     width:100%;
     margin:0px!important;
     background-color:#ffafbc;
-    position:fixed;
-    bottom:0px;
     border-top:2px solid rgb(58, 58, 58);
     padding-top:10px;
-    
+    clear:both;
+    flex-shrink: 0;
+
 
 }
 
