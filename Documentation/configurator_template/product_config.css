@@ -1,0 +1,140 @@
+
+*{
+    font-family:Pacifico;
+}
+html{
+    height:100%;
+}
+body{
+    font-family: Pacifico;
+    height:100%;
+}
+#page-container{
+    
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: stretch;
+    width:100%;
+  
+    
+}
+.content{
+    flex-grow:1;
+}
+.footer{
+    height:auto;
+    width:100%;
+    margin:0px!important;
+    background-color:#ffafbc;
+    border-top:2px solid rgb(58, 58, 58);
+    padding-top:10px;
+    clear:both;
+    flex-shrink: 0;
+
+
+}
+
+.fa-facebook, .fa-instagram{
+    color:#858585;
+    transition:.3s;
+    margin:0px 8px;
+    
+ }
+
+.fa-facebook:hover, .fa-instagram:hover{
+   color:white; 
+   transition:.3s;
+}
+.fa-facebook:link .fa-instagram:link{
+    color:#858585;
+    transition:.3s;
+ }
+ .rights{
+    color:#858585;
+    margin-left:10px;
+    font-size: 15px;
+    text-align: center;
+ }
+ .bottom_text{
+    font-family: Pacifico;
+    text-align:center;
+    color:#858585;
+ }
+ .icons{
+     padding-top:2px;
+     height: auto;
+     width:100px;
+     margin:5px auto;
+ }
+.address{
+    color:#858585;
+    text-align: center;
+    font-family:pacifico;
+    font-size:15px;
+}
+.firstRow{
+    padding-top:20px;
+}
+#pictureBox{
+    background-color: rgb(223, 223, 223);
+    height:150px;
+    width:90%;
+    margin:0px 5%;
+    border: 2px solid rgb(85, 85, 85);
+    border-radius: 5px;
+}
+.sizeCost{
+    height:25px!important;
+    width:50%!important;
+}
+.sizeCostSign{
+    height:25px!important;
+    width:20%!important;
+}
+.firstRow{
+    padding:20px;
+}
+#addProduct{
+    border:none;
+    background-color:rgba(0, 0, 0, 0);
+    border-bottom: 2px solid grey;
+    margin-left:10px;
+    
+}
+.addProductInformation{
+    padding:20px;
+}
+.question p{
+margin:2px;
+}
+.answerBox, .answerAdditionalCost{
+    padding:5px!important;
+}
+.addAnswerButton{
+    height:25px;
+}
+#submitProductButton{
+    margin-top:30px;
+    width: 100%;
+    height:40px;
+    border-radius: 3px;
+    margin-bottom:20px;
+    background-color: #ffafbc;
+    border:2px solid rgb(99, 99, 99);
+    
+
+}
+#submitProductButton:hover{
+    background-color: grey;
+}
+ @media only screen and (max-width: 576px){
+    .icons{
+        height: auto;
+        width:100px;
+        margin:5px auto;
+     }
+     .footer{
+         height:auto;
+     }
+ }
