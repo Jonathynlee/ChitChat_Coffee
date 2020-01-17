@@ -49,38 +49,49 @@ select,option{
     font-size:1rem;
 }
 .h-divider{
-    margin-right:2rem;
+   /* margin-right:2rem;*/
     height:1rem;
     width:100%;
     border-top:0.2rem solid #f48968;
    }
-.h-divider2{
-    position:absolute;
-    right:3rem;
+/*.h-divider2{
+    /*position:absolute;
+    right:3rem;*/
+/*    display:d-flex;
     width:10%;
     border-top:0.2rem dashed #f48968;
-}  
+} */
 .subtotal,.Total,.Tax{
-    position:absolute;
+    /*position:absolute;*/
+    margin-right:1rem;
     font-size:1rem;
-    right:3rem;
+   /* right:3rem;*/
  }
  .price,.sprice,.txvalue,.tvalue{
-     right:2rem;
+     /*right:2rem;*/
      font-size:1rem;
+     margin-right:1rem;
+ }
+
+ .Total{
+     border-top: 0.2rem dashed #f48968
  }
  
  
- #checkout,#continue{
+ /*#checkout,#continue{
      position:absolute;
      top:5rem;   
      
- }
+ }*/
  #continue{
-     left:1rem;
+     /*left:1rem;*/
+     margin-left:2rem;
+     margin-top:1rem;
  }
  #checkout{
-     right:3rem;
+     /*right:3rem;*/
+     margin-right:2rem;
+     margin-top:1rem;
  }
  span{
      font-size:1.5rem;
@@ -110,6 +121,20 @@ select,option{
     }
     .quantity{
         margin-top:5rem;
+    }
+    #continue{
+        position:relative;
+        bottom:-5rem;
+        flex:none;
+
+       
+    }
+    #checkout{
+        position:relative;
+        bottom:0.7rem;
+        margin-right:1rem;
+        flex:none;
+       
     }
     
  }  
