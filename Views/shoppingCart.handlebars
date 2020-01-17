@@ -1,0 +1,71 @@
+
+
+<div class="container-fluid cart">
+	
+	<div class="row">
+		{{#each item}}
+		<div class="col-xs-12 col-sm-12  ml-5 mt-3">
+			 <img src="{{this.image}}">
+            <div class='detail'>
+              <span class='item'> {{this.name}}({{this.quantity}}) </span>  
+
+              {{#if flag}}
+              <br><span class='left'>{{this.inventory}} left</span>  
+              {{/if}}
+           
+             <br> <select class="ml-4 quantity">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10+</option>
+             </select>
+             
+             <button type="submit" class="btn btn-info shadow-sm border-danger p-2 ml-1 del " id={{this.id}}>Delete</button>
+             <label class="extra">PRICE:<span class="price"> ${{this.price}}</span><br>
+                    <ul>
+                        <li>Add ons Here</li>
+                    </ul>
+             </label>
+          
+
+           </div>
+	  </div>
+        
+	  {{/each}}
+    </div>  
+
+     
+     
+         <div class="row">
+            <div class="col-xs-12 col-sm-12 ">   
+                <hr class="h-divider">    
+                <label class="subtotal">SUBTOTAL: <span class="sprice"> $5</span></label><br>
+                <label class="Tax">TAX: <span class="txvalue"> $2</span></label> <br>
+                <hr class="h-divider2"><br>
+                <label class="Total"><b>TOTAL:</b> <span class="tvalue">$7</span> </label>
+            </div>   
+         </div>
+     <div class="row">
+            <div class="col-xs-12 col-sm-12">
+
+		      <a href="#"><button type="submit" class="btn btn-info" id="continue">
+          
+               Continue Shopping</button> </a>
+            </div>  
+
+             <div class="col-xs-12 col-sm-12 ">
+
+               <a href="#"> <button type="submit" class="btn btn-info" id="checkout">
+          
+               Continue Checkout</button> </a>
+             </div>      
+	<!--<button id="add-trip-button" data-toggle="modal" data-target="#squarespaceModal" type="button" class="btn btn-circle"><i class="glyphicon glyphicon-plus"></i></button>-->
+	</div>
+</div>
+

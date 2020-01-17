@@ -1,0 +1,115 @@
+body{
+    background-color:#ffffff !important;
+    background-position:center !important;
+    font-family:'Pacifico',Arial, Helvetica, sans-serif;
+    font-size:1rem;
+}
+
+img{
+    width:10rem;
+    height:10rem;
+    border-radius:50%;
+    float:left;
+    
+}
+.imgAdmin{
+    width: 15%;
+    height: 15%;
+    border-radius:50%;
+
+}
+.detail{
+   font-size:1rem;
+}
+.item{
+    margin-left:2rem;
+    font-size:1rem;
+    font-family:'Pacifico'
+}
+.left{
+    color:red;
+    font-size:1rem;
+    margin-left:2rem;
+}
+
+select,option{
+    font-size:1.5rem;
+    margin-left:1rem;
+    margin-top:4rem
+
+}
+.btn{
+    margin-left:3rem;
+    margin-bottom:1rem;
+    padding:1rem;
+}
+.extra{
+    position:absolute;
+    right:6rem;
+    font-size:1rem;
+}
+.h-divider{
+    margin-right:2rem;
+    height:1rem;
+    width:100%;
+    border-top:0.2rem solid #f48968;
+   }
+.h-divider2{
+    position:absolute;
+    right:3rem;
+    width:10%;
+    border-top:0.2rem dashed #f48968;
+}  
+.subtotal,.Total,.Tax{
+    position:absolute;
+    font-size:1rem;
+    right:3rem;
+ }
+ .price,.sprice,.txvalue,.tvalue{
+     right:2rem;
+     font-size:1rem;
+ }
+ 
+ 
+ #checkout,#continue{
+     position:absolute;
+     top:5rem;   
+     
+ }
+ #continue{
+     left:1rem;
+ }
+ #checkout{
+     right:3rem;
+ }
+ span{
+     font-size:1.5rem;
+     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+ }
+ p{
+     font-family:Arial;
+     font-size:1.5rem;
+ }
+ .btn-success,.btn-danger{
+    font-family:Arial;
+     
+ }
+ table {
+    table-layout: fixed;
+    word-wrap: break-word;
+ } 
+ td{
+     width:2rem;
+     text-align:center;
+ }
+ 
+ @media only screen and (max-width: 600px) {
+    .extra {
+      margin-top:1rem;
+      margin-bottom:1rem;
+    }
+    .quantity{
+        margin-top:5rem;
+    }
+    
+ }  
