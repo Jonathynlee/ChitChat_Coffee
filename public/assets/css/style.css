@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 html{
     width: 100%;
@@ -373,6 +374,11 @@ body{
      }
  }
 =======
+=======
+*{
+    font-family: Pacifico;
+}
+>>>>>>> master
 body{
     background-color:#ffffff !important;
     background-position:center !important;
@@ -409,8 +415,7 @@ img{
 
 select,option{
     font-size:1.5rem;
-    margin-left:1rem;
-    margin-top:4rem
+
 
 }
 .btn{
@@ -473,7 +478,7 @@ select,option{
      font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
  }
  p{
-     font-family:Arial;
+     font-family:Pacifico;
      font-size:1.5rem;
  }
  .btn-success,.btn-danger{
