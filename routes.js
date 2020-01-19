@@ -5,12 +5,16 @@ module.exports = function(app){
     const shoppingCard = require('./routes/shoppingCard');
     const createProductAdmin = require('./routes/createProductAdmin');
     const checkout = require('./routes/checkout');
+
+    const users = require('./routes/users');
     
     app.use('/shoppingCard', shoppingCard);
     app.use('/orderAdminList', orderAdminList);
     app.use('/orderAdminDetails', orderAdminDetails);
     app.use('/createProductAdmin', createProductAdmin);
     app.use('/checkout', checkout);
+
+    app.use('/users', users);
     
 //other routes..
 }
