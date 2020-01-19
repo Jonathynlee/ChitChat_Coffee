@@ -76,8 +76,8 @@ flex-direction: column;
     padding-right: 15px;
 }
 
-.headIcon{
-    font-size: 25px;
+.navIcons {
+    font-size: 37px;
 }
 
 .fa-coffee {
@@ -159,7 +159,7 @@ a:focus { color: pink !important; }
 .orderCoffeeButton {
     display: inline-block;
     border: solid;
-    color: white;
+    color: black;
     font-size: 50px;
     text-decoration: none;
     background-color: transparent;
