@@ -1,10 +1,7 @@
 var db=require("../models");
 
-exports.OrderFill=function(req,res){
+exports.mainPage=function(req,res){
     
-    res.render("orderFullfill");
+    res.render("mainPage");
 }
 
-exports.OrderList=function(req,res){
-   res.render("orderList");
-}
