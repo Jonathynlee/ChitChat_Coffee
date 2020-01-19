@@ -5,7 +5,7 @@ var router  = express.Router();
 var users_controller = require('../controllers/users_controller');
 var isAuthenticated = require("../config/middleware/isAuthenticated");*/
 
-var admin_controller = require('../controllers/orderAdmin_controller');
-router.get('/main', admin_controller.OrderList);
+var mainPage_controller = require('../controllers/mainPage_controller');
+router.get('/', mainPage_controller.index);
 
 module.exports=router;
