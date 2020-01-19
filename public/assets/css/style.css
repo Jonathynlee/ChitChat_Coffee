@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 
 html{
     width: 100%;
@@ -13,7 +12,7 @@ body{
     height: 100%;
     font-family: 'Pacifico', cursive;
     font-size: 25px;
-    color: rgb(248, 234, 234);
+    color: black(248, 234, 234);
 }
 
 .background{
@@ -373,12 +372,13 @@ body{
          height:auto;
      }
  }
-=======
-=======
+
+/*//// ORDER ADMIN DETAILS ////*/
+
 *{
     font-family: Pacifico;
 }
->>>>>>> master
+
 body{
     background-color:#ffffff !important;
     background-position:center !important;
@@ -393,6 +393,7 @@ img{
     float:left;
     
 }
+
 .imgAdmin{
     width: 15%;
     height: 15%;

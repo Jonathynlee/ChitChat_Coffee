@@ -33,22 +33,28 @@ flex-direction: column;
 
 
 .navbar {
-    background: transparent;
+    background: #F48968!important;
     border-bottom: solid 1px black;
     margin: 0px;
     padding: 19px;
+    margin-top: -18px;
 }
 
 
-
+/*
 .bg-light {
     background-color: transparent!important;
 }
+*/
 
 
 .navbar-light .navbar-nav .nav-link {
     color: black;
     background-color: transparent;
+}
+
+.nav-link{
+    font-size: 25px;
 }
   
 .navbar-trans {
@@ -68,6 +74,10 @@ flex-direction: column;
 .fa, .fas {
     font-weight: 900;
     padding-right: 15px;
+}
+
+.headIcon{
+    font-size: 25px;
 }
 
 .fa-coffee {
@@ -130,8 +140,12 @@ a:focus { color: pink !important; }
     display: none;
 }
 
-.cart{
+.carts{
     display: none;
+}
+
+.logo {
+    font-size: 40px;
 }
 
 @media only screen and (max-width: 991px) {
@@ -175,7 +189,7 @@ a:focus { color: pink !important; }
     display: block;
 }
 
-.cart{
+.carts{
     display: block;
 }
 
@@ -378,3 +392,154 @@ body{
          height:auto;
      }
  }
+
+ 
+
+/*////AYSENS CODE////*/
+
+
+
+*{
+    font-family: Pacifico;
+}
+
+body{
+    background-color:#ffffff !important;
+    background-position:center !important;
+    font-family:'Pacifico',Arial, Helvetica, sans-serif;
+    font-size:1rem;
+}
+
+img{
+    width:10rem;
+    height:10rem;
+    border-radius:50%;
+    float:left;
+    
+}
+
+.imgAdmin{
+    width: 15%;
+    height: 15%;
+    border-radius:50%;
+
+}
+.detail{
+   font-size:1rem;
+}
+.item{
+    margin-left:2rem;
+    font-size:1rem;
+    font-family:'Pacifico'
+}
+.left{
+    color:red;
+    font-size:1rem;
+    margin-left:2rem;
+}
+
+select,option{
+    font-size:1.5rem;
+
+
+}
+.btn{
+    margin-left:3rem;
+    margin-bottom:1rem;
+    padding:1rem;
+}
+.extra{
+    position:absolute;
+    right:6rem;
+    font-size:1rem;
+}
+.h-divider{
+   /* margin-right:2rem;*/
+    height:1rem;
+    width:100%;
+    border-top:0.2rem solid #f48968;
+   }
+/*.h-divider2{
+    /*position:absolute;
+    right:3rem;*/
+/*    display:d-flex;
+    width:10%;
+    border-top:0.2rem dashed #f48968;
+} */
+.subtotal,.Total,.Tax{
+    /*position:absolute;*/
+    margin-right:1rem;
+    font-size:1rem;
+   /* right:3rem;*/
+ }
+ .price,.sprice,.txvalue,.tvalue{
+     /*right:2rem;*/
+     font-size:1rem;
+     margin-right:1rem;
+ }
+
+ .Total{
+     border-top: 0.2rem dashed #f48968
+ }
+ 
+ 
+ /*#checkout,#continue{
+     position:absolute;
+     top:5rem;   
+     
+ }*/
+ #continue{
+     /*left:1rem;*/
+     margin-left:2rem;
+     margin-top:1rem;
+ }
+ #checkout{
+     /*right:3rem;*/
+     margin-right:2rem;
+     margin-top:1rem;
+ }
+ span{
+     font-size:1.5rem;
+     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+ }
+ p{
+     font-family:Pacifico;
+     font-size:1.5rem;
+ }
+ .btn-success,.btn-danger{
+    font-family:Arial;
+     
+ }
+ table {
+    table-layout: fixed;
+    word-wrap: break-word;
+ } 
+ td{
+     width:2rem;
+     text-align:center;
+ }
+ 
+ @media only screen and (max-width: 600px) {
+    .extra {
+      margin-top:1rem;
+      margin-bottom:1rem;
+    }
+    .quantity{
+        margin-top:5rem;
+    }
+    #continue{
+        position:relative;
+        bottom:-5rem;
+        flex:none;
+
+       
+    }
+    #checkout{
+        position:relative;
+        bottom:0.7rem;
+        margin-right:1rem;
+        flex:none;
+       
+    }
+    
+ }  
