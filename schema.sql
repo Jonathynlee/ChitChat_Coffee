@@ -1,72 +1,60 @@
-CREATE TABLE users (
-    userID INT AUTO_INCREMENT,
-    name VARCHAR(255),
-    email VARCHAR(255),
-    password VARCHAR(255),
-    phoneNumber VARCHAR(255),
-    addressLineOne VARCHAR(255),
-    addressLineTwo VARCHAR(255),
-    city VARCHAR(255),
-    state VARCHAR(255),
-    zip VARCHAR(255),
-    country VARCHAR(255), 
-    PRIMARY KEY (userID)
-);
+
 
 CREATE TABLE categories (
-    categoryID INT AUTO_INCREMENT, 
-    name VARCHAR(255), 
+    id INT AUTO_INCREMENT, 
+    name VARCHAR(255) NOT NULL, 
     description TEXT, 
-    PRIMARY KEY (categoryID)
+    PRIMARY KEY (id)
 );
 
 
 CREATE TABLE products(
-    productID INT AUTO_INCREMENT, 
-    name VARCHAR(255), 
+    id INT AUTO_INCREMENT NOT NULL, 
+    name VARCHAR(255 NOT NULL), 
     quantity INT, 
-    basePrice FLOAT, 
-    category INT, 
-    addOns TEXT, 
+    basePrice FLOAT NOT NULL, 
+    category INT NOT NULL, 
+    addOns TEXT NOT NULL, 
     image VARCHAR(255), 
     description TEXT, 
-    seasonal VARCHAR(255),
 
-    FOREIGN KEY (category) REFERENCES categories (categoryID), 
-    PRIMARY KEY (productID)
+    seasonal VARCHAR(255) DEFAULT FALSE,
+    FOREIGN KEY (category) REFERENCES categories (id), 
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE orders(
-    orderID int AUTO_INCREMENT, 
+    id int AUTO_INCREMENT NOT NULL, 
     orderDate DATETIME, 
-    userID INT, 
-    status VARCHAR(255), 
+    user INT NOT NULL, 
+    status VARCHAR(255) NOT NULL, 
     pickUpDate DATETIME, 
-    total FLOAT, 
-    FOREIGN KEY userID REFERENCES users (userID),
-    PRIMARY KEY (orderID)
+    total FLOAT NOT NULL, 
+    FOREIGN KEY (user) REFERENCES users (id),
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE orderItem (
-    orderItemID INT AUTO_INCREMENT, 
-    orderID INT, 
-    productID INT, 
-    quantity INT, 
-    unitPrice FLOAT, 
-    addOns TEXT, 
-    subTotal FLOAT, 
-    PRIMARY KEY (orderItemID), 
-    FOREIGN KEY (orderID) REFERENCES orders (orderID),
-    FOREIGN KEY (productID) REFERENCES products (productID)
+    id INT AUTO_INCREMENT NOT NULL, 
+    order INT NOT NULL, 
+    product INT NOT NULL, 
+    quantity INT DEFAULT 1, 
+    unitPrice FLOAT NOT NULL, 
+    addOns TEXT NOT NULL, 
+    subTotal FLOAT NOT NULL, 
+    PRIMARY KEY (id), 
+    FOREIGN KEY (order) REFERENCES orders (id),
+    FOREIGN KEY (product) REFERENCES products (id)
 );
 
 CREATE TABLE past_orders (
-orderID INT, 
-userID INT, 
+id INT, 
+user INT NOT NULL, 
 orderDate DATETIME, 
-paymentType VARCHAR(255), 
-amount FLOAT, 
-PRIMARY KEY (orderID), 
-FOREIGN KEY (userID) REFERENCES users (userID)
+paymentType VARCHAR(255) DEFAULT , 
+amount FLOAT NOT NULL, 
+PRIMARY KEY (id), 
+addon
+FOREIGN KEY (user) REFERENCES users (id)
 
 );
