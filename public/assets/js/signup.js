@@ -122,7 +122,7 @@ $(document).ready(function() {
     }
 
     // If we have an email and password, run the signUpUser function
-    signinUser(userData.username, userData.email, userData.password, userData.phone);
+    signUpUser(userData.username, userData.email, userData.password, userData.phone);
     emailInput.val("");
     passwordInput.val("");
     usernameInput.val("");

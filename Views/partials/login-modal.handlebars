@@ -1,42 +1,19 @@
-<!--<a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
 
-<div class="modal fade " id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-	<div class="modal-dialog">
-		<div class="loginmodal-container">
-		  <h1 class="">Log In to Your Account</h1><br>
-		  <form class="login">
-		  	<div id="username-form" class="form-group col-lg-12">
-					<label>Username</label>
-					<input id="username-input" type="text" name="user" placeholder="Username">
-					<small id="username-feedback" class=""></small>
-				</div>
-				<div id="password-form" class="form-group col-lg-12">
-					<label>Password</label>
-					<input id="password-input" type="password" name="pass" placeholder="Password">
-					<small id="password-feedback" class=""></small>
-				</div>
-				<input type="submit" name="login" class="login loginmodal-submit" value="Login">
-		  </form>
-		  <div class="login-help">
-				<a href="/users/signup">Register</a> - <a href="#">Forgot Password</a>
-		  </div>
-		</div>
-	</div>
-  </div>-->
-
-  <div id="sign-in-container" class="container-fluid d-flex align-self-center">
+  <div class="signbg"> 
+    <div id="signin-container" class="container-fluid d-flex align-self-center">
     	
 			<form class="login">
-  				<div class="form-group">
+  				<div class="form-group signin">
     				<label for="email">Email address</label>
     				<input type="email" class="form-control" id="email" aria-describedby="emailHelp">
    				    <small id="useremail-feedback" class="form-text text-muted">We'll never share your email with anyone else.</small>
  				 </div>
-  				<div class="form-group">
+  				<div class="form-group signin">
     				<label for="password">Password</label>
     				<input type="password" class="form-control" id="password">
-					<small id="password-feedback" class="form-text text-muted">We'll never share your email with anyone else.</small>
+					<small id="password-feedback" class="form-text text-muted"></small>
   				</div>
-  				<button type="submit" class="btn btn-primary">Submit</button>
+  				<button type="submit" class="btn-block btn-success btn-small" id="siginSubmit">Submit</button>
 			</form>
- </div>			
+    </div>
+ </div>
