@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var categories = sequelize.define("categories", {
+    var categories = sequelize.define("category", {
         name: {
             type: DataTypes.STRING, 
             allowNull: false,
@@ -7,8 +7,9 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1]
             }
         },
-        descritpion: {
-            type: DataTypes.TEXT
+        description: {
+            type: DataTypes.TEXT,
+            allowNull: true
 
 
         }
@@ -17,8 +18,8 @@ module.exports = function (sequelize, DataTypes) {
   categories.associate = function(models) {
     // Associating Categories with Posts
     // When an Categories is deleted, also delete any associated Posts
-    categories.hasMany(models.products, {
-      
+    categories.hasMany(models.product,{
+    
     });
   };
 
