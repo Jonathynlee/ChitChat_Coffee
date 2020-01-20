@@ -25,22 +25,19 @@ module.exports = function(sequelize, DataTypes) {
 
     phone: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       validate:{
         is:/^(\d{3}\-)?(\(\d{3}\))?\d{3}\-\d{4}$/
       }
     },
-    addr1:{
+    addressLineOne:{
         type:DataTypes.STRING,
         allowNull:true
     },
 
-    AptNo:{
-        type:DataTypes.INTEGER,
+    addressLineTwo:{
+        type:DataTypes.STRING,
         allowNull:true,
-        validate:{
-          isNumeric:true
-        }
     },
 
     city:{
@@ -58,7 +55,7 @@ module.exports = function(sequelize, DataTypes) {
         is:/^(?:A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|PA|RI|S[CD]|T[NX]|UT|V[AT]|W[AIVY])*$/
       }
     },
-    zipcode:{      
+    zip:{      
       type:DataTypes.INTEGER,
       allowNull:true,
       validate:{

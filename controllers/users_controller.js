@@ -47,7 +47,9 @@ exports.signUpUser = function(req,res) {
         username: req.body.username,
         email: req.body.email,
         password: req.body.password,
-        phone:req.body.phone
+        if(phone){
+           phone:req.body.phone
+        }   
       }).then(function() {
         res.send({redirect:'/shoppingCard'});/////////
       }).catch(function(err) {
