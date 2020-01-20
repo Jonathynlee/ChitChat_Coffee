@@ -21,8 +21,12 @@ app.set('views', path.join(__dirname, 'views'));
 //set up handlebars
 const exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({
-    defaultLayout: 'main'
+    defaultLayout: 'main',
+    extname: '.handlebars'
 }));
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'handlebars');
 
 const isAuth 				 = require("./config/middleware/isAuthenticated");

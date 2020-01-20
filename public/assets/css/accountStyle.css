@@ -1,5 +1,4 @@
 
-
 html{
     width: 100%;
     height: 100%;
@@ -12,11 +11,11 @@ body{
     height: 100%;
     font-family: 'Pacifico', cursive;
     font-size: 25px;
-    color: black(248, 234, 234);
+    color: rgb(248, 234, 234);
 }
 
 .background{
-background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(espressoV3.jpg) no-repeat;
+background: linear-gradient( rgb(255, 255, 255), rgb(255, 255, 255) );
 background-size: cover;
 min-width: 100%;
 min-height: 100%;
@@ -29,20 +28,33 @@ flex-direction: column;
     flex-grow: 1;
 }
 
-.navbar{
-    background: transparent;
-    border-bottom: solid 1px;
-    margin: 10px;
+
+
+
+
+.navbar {
+    background: #F48968!important;
+    border-bottom: solid 1px black;
+    margin: 0px;
+    padding: 19px;
+    margin-top: -18px;
 }
 
+
+/*
 .bg-light {
     background-color: transparent!important;
 }
+*/
 
 
 .navbar-light .navbar-nav .nav-link {
-    color: white;
+    color: black;
     background-color: transparent;
+}
+
+.nav-link{
+    font-size: 25px;
 }
   
 .navbar-trans {
@@ -55,13 +67,17 @@ flex-direction: column;
   height: auto;
   border-radius: 0;
   width: 100%;
-  color: #fff;
+  color: black;
   padding-top: 1rem; }
 
 
 .fa, .fas {
     font-weight: 900;
     padding-right: 15px;
+}
+
+.headIcon{
+    font-size: 25px;
 }
 
 .fa-coffee {
@@ -78,7 +94,7 @@ flex-direction: column;
 }
 
 a{
-    color:white !important;
+    color:black !important;
  
 }
 
@@ -88,7 +104,7 @@ a:hover { color: pink !important;
 a:focus { color: pink !important; }
 
 .navbar-light .navbar-toggler {
-    color: white;
+    color: black;
     border: none;
     outline: none;
 }
@@ -124,8 +140,12 @@ a:focus { color: pink !important; }
     display: none;
 }
 
-.cart{
+.carts{
     display: none;
+}
+
+.logo {
+    font-size: 40px;
 }
 
 @media only screen and (max-width: 991px) {
@@ -169,7 +189,7 @@ a:focus { color: pink !important; }
     display: block;
 }
 
-.cart{
+.carts{
     display: block;
 }
 
@@ -192,7 +212,7 @@ a:focus { color: pink !important; }
 }
 
 hr{
-    border-top: solid white 1px;
+    border-top: solid black 1px;
 }
 
 .proPic{
@@ -373,7 +393,11 @@ body{
      }
  }
 
-/*//// ORDER ADMIN DETAILS ////*/
+ 
+
+/*////AYSENS CODE////*/
+
+
 
 *{
     font-family: Pacifico;
@@ -435,7 +459,13 @@ select,option{
     width:100%;
     border-top:0.2rem solid #f48968;
    }
-
+/*.h-divider2{
+    /*position:absolute;
+    right:3rem;*/
+/*    display:d-flex;
+    width:10%;
+    border-top:0.2rem dashed #f48968;
+} */
 .subtotal,.Total,.Tax{
     /*position:absolute;*/
     margin-right:1rem;
@@ -453,6 +483,11 @@ select,option{
  }
  
  
+ /*#checkout,#continue{
+     position:absolute;
+     top:5rem;   
+     
+ }*/
  #continue{
      /*left:1rem;*/
      margin-left:2rem;
@@ -483,123 +518,7 @@ select,option{
      width:2rem;
      text-align:center;
  }
- /********************LOGIN IN***************/
- #signbg{
-     width:100%;
-     height:100%;
-     background-image:url('/assets/images/defocused.jpg');
- }
-
- #sign-in-container{
-    background-color:#f48968; 
-    color: black;
-    padding: 2rem;
-    margin:0 auto;
-    box-shadow: 5px 10px #888888
-    /*border-radius: 2px;*/
- }   
-  #siginSubmit{
-      font-family:'Pacifico' !important;
-      border-radius:0.5rem !important
-
-  }  
- .login{
-     border:0.2rem solid #888888;
-     margin:10rem auto;
-     padding:2rem;
-     border-radius: 20%;
-
- }
- .signin{
- border-radius:10%;
- }
- .signin label{
-     font-size:1rem;
-     text-align:left;
-     padding:0.2rem;
- }
-
- .signin input[class="form-control"]{
-     text-align:center;
-     border-radius:20%;
-     font-size:1rem;
- }
- .signin input[class="text-muted"]{
-    text-align:center;
-    border-radius:20%;
-    font-size:2rem;
-}
-  
-  .login-help{
-    font-size: 1rem;
-  }
-  
-  /* Login CSS End */
-  /****************** Registration css */
-  #registration-container,#signin-container {
-    padding: 1.5rem;
-    /*background-color:#9cd6c0;*/
-    background-image: url('/assets/images/defocused.jpg');
-    font-size:1rem;
-    
-  }
-  .input_field{
-      margin:auto;
-      border-style:ridge;
-      border-color:#4CAF50;
-      font-family:'Pacifico';
-      display: inline-block;
-  }
-  /* Full-width input fields */
-input[type=text], input[type=password],input[type=email] {
-    width: 100%;
-    padding:0;
-    display: inline-block;
-    border: none;
-    background: #f1f1f1;
-  }
-  
-input[type=text]:focus, input[type=password]:focus,input[type=email]:focus {
-    background-color: #ddd;
-    outline: none;
-  }
-  
-  /* Overwrite default styles of hr */
-  hr {
-    border: 1rem solid #f1f1f1;
-    /*margin-bottom: 25px;*/
-  }
-  
-  /* Set a style for the submit button */
-  .registerbtn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 1rem;
-    margin: 1rem 0;
-    border: none;
-    cursor:pointer;
-    width: 100%;
-    opacity: 0.9;
-  }
-  
-  .registerbtn:hover {
-    opacity: 1;
-  }
-  
-  /* Add a blue text color to links */
-  a {
-    color: dodgerblue;
-  }
-  
-  /* Set a grey background color and center the text of the "sign in" section */
-  .signin {
-    background-color: #f1f1f1;
-    text-align: center;
-  }
-  nav{
-      background-color:#ffafbc;
-  }
-  /*/////////////////////////////////////////////////*/
+ 
  @media only screen and (max-width: 600px) {
     .extra {
       margin-top:1rem;
@@ -624,4 +543,3 @@ input[type=text]:focus, input[type=password]:focus,input[type=email]:focus {
     }
     
  }  
->>>>>>> master

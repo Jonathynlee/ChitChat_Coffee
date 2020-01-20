@@ -1,7 +1,9 @@
+
+
 {
   "development": {
     "username": "root",
-    "password": "orhanpamuk77",
+    "password": "",
     "database": "chitchat",
     "host": "localhost",
     "port":"3306",
@@ -17,11 +19,15 @@
     "operatorsAliases": false
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "b920b45bf491df",
+    "password": "4574ee04",
+    "database": "heroku_79585f282200611",
+    "host": "us-cdbr-iron-east-05.cleardb.net",
     "dialect": "mysql",
     "operatorsAliases": false
   }
 }
+
+
+
+
