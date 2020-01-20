@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var orders = sequelize.define("Products", {
+    var orders = sequelize.define("order", {
  
         orderDate: {
             type: DataTypes.DATE,
@@ -27,12 +27,12 @@ module.exports = function (sequelize, DataTypes) {
     orders.associate = function(models) {
         // We're saying that a orders should belong to an Author
         // A orders can't be created without an Author due to the foreign key constraint
-        orders.belongsTo(models.users, {
+        orders.belongsTo(models.user, {
           foreignKey: {
             allowNull: false
           }
         })
-        orders.hasMany(models.orderitem, {
+        orders.hasMany(models.orderItem, {
             
           })
         };

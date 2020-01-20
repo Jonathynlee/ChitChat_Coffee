@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var products = sequelize.define("Products", {
+    var products = sequelize.define("product", {
         
         name: {
             type: DataTypes.STRING,
@@ -9,7 +9,8 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
         quantity: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: true
             
 
 
@@ -24,11 +25,14 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
             
         }, 
-        images:{
-            type: DataTypes.STRING
+        image:{
+            type: DataTypes.STRING,
+            allowNull: true
+
         }, 
-        descritpion:{
-            type: DataTypes.TEXT
+        description:{
+            type: DataTypes.TEXT,
+            allowNull: true
         }, 
         seasonal:{
             type:DataTypes.BOOLEAN
@@ -39,12 +43,12 @@ module.exports = function (sequelize, DataTypes) {
     products.associate = function(models) {
         // We're saying that a products should belong to an Author
         // A products can't be created without an Author due to the foreign key constraint
-        products.belongsTo(models.categories, {
+        products.belongsTo(models.category, {
           foreignKey: {
-            allowNull: false
+            allowNull: true
           }
         })
-        products.hasMany(models.orderitem, {
+        products.hasMany(models.orderItem, {
 
           })
         };
