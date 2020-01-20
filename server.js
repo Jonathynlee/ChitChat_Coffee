@@ -2,10 +2,10 @@
 // ============
 const express        = require('express');
 const path           = require('path');
-//const logger         = require('morgan');
-//const session        = require('express-session'); 
-//const passport 			 = require("./config/passport");
-//const config				 = require("./config/extra-config");
+const logger         = require('morgan');
+const session        = require('express-session'); 
+const passport 		 = require("./config/passport");
+const config		 = require("./config/extra-config");
 // Express settings
 // ================
 
@@ -29,40 +29,40 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'handlebars');
 
-//const isAuth 				 = require("./config/middleware/isAuthenticated");
-//onst authCheck 		 = require('./config/middleware/attachAuthenticationStatus');
+const isAuth 				 = require("./config/middleware/isAuthenticated");
+const authCheck 		 = require('./config/middleware/attachAuthenticationStatus');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
-//app.use(logger('dev'));
+app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-//app.use(session({ secret: config.sessionKey, resave: true, saveUninitialized: true }));
-//app.use(passport.initialize());
-//app.use(passport.session());
-//app.use(authCheck);
+app.use(session({ secret: config.sessionKey, resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(authCheck);
 
 
 require('./routes')(app);
 
 // // catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-//   const err = new Error('Not Found');
-//   err.status = 404;
-//   next(err);
-// });
+app.use(function(req, res, next) {
+   const err = new Error('Not Found');
+   err.status = 404;
+   next(err);
+ });
 
 // // error handler
 // // no stacktraces leaked to user unless in development environment
-// app.use(function(err, req, res, next) {
-//   res.status(err.status || 500);
-//   res.render('error', {
-//     message: err.message,
-//     error: (app.get('env') === 'development') ? err : {}
-//   })
-// });
+ app.use(function(err, req, res, next) {
+   res.status(err.status || 500);
+   res.render('error', {
+   message: err.message,
+   error: (app.get('env') === 'development') ? err : {}
+  })
+ });
 
 // our module get's exported as app.
 
