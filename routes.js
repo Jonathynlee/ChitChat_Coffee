@@ -8,7 +8,7 @@ module.exports = function (app) {
 
     const users = require('./routes/users');
     const mainPage = require('./routes/mainPage');
-
+    const menu = require('./routes/menu');
 
     app.use('/shoppingCard', shoppingCard);
     app.use('/orderAdminList', orderAdminList);
@@ -17,6 +17,7 @@ module.exports = function (app) {
     app.use('/checkout', checkout);
     app.use('/users', users);
     app.use('/', mainPage);
+    app.use('/menu', menu);
 
 
     //other routes..
