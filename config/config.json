@@ -1,0 +1,33 @@
+
+
+{
+  "development": {
+    "username": "root",
+    "password": "orhanpamuk77",
+    "database": "chitchat",
+    "host": "localhost",
+    "port":"3306",
+    "dialect": "mysql"
+    
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  },
+  "production": {
+    "username": "b920b45bf491df",
+    "password": "4574ee04",
+    "database": "heroku_79585f282200611",
+    "host": "us-cdbr-iron-east-05.cleardb.net",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  }
+}
+
+
+
+

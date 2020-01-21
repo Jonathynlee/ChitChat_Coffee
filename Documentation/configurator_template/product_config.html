@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="product_config.css">
+    <!-- Requiring Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Font Awesome Icons-->
+    <script src="https://kit.fontawesome.com/70fe2499f8.js" crossorigin="anonymous"></script>
+    <!-- Google Font Pacifico-->
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div id="page-container">
+        <div class="content">
+
+            <div class="row firstRow">
+                <div class="col-md-3 productPicture">
+                    <div id="pictureBox">
+
+
+                    </div>
+                </div>
+                <div class="col-md-5 productTextInputs">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Product Title</label>
+                                <input type="text" class="form-control" id="productTitle" placeholder="e.g. 'Latte'">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+
+                                <label>Product Base Price</label>
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">$</div>
+                                    <input type="text" class="form-control" id="productPrice" placeholder="">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+
+                                <label>Est. To Make</label>
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="far fa-clock"></i></div>
+                                    <input type="text" class="form-control" id="productETM" placeholder="">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 productSize">
+                    <div class="form-check form-check">
+                        <input class="form-check-input" type="checkbox" id="smallAdd" value="small">
+                        <label class="form-check-label" for="smallAdd">Small </label>
+
+
+
+                    </div>
+                    <div class="form-check form-check">
+                        <input class="form-check-input" type="checkbox" id="mediumAdd" value="medium">
+                        <label class="form-check-label" for="mediumAdd">Medium</label>
+                        <div class="input-group-prepend">
+                            <div class="input-group-text sizeCostSign">$</div>
+                            <input type="text" class="form-control sizeCost" id="medAdd" placeholder="Cost"></input>
+                        </div>
+                    </div>
+                    <div class="form-check form-check">
+                        <input class="form-check-input" type="checkbox" id="largeAdd" value="large">
+                        <label class="form-check-label" for="largeAdd">Large</label>
+                        <div class="input-group-prepend">
+                            <div class="input-group-text sizeCostSign">$</div>
+                            <input type="text" class="form-control sizeCost" id="lgAdd" placeholder="Cost"></input>
+                        </div>
+                    </div>
+                    <div class="form-check form-check">
+                        <input class="form-check-input" type="checkbox" id="xLargeAdd" value="xlarge">
+                        <label class="form-check-label" for="xLargeAdd">X-Large</label>
+                        <div class="input-group-prepend">
+                            <div class="input-group-text sizeCostSign">$</div>
+                            <input type="text" class="form-control sizeCost" id="xlAdd" placeholder="Cost"></input>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 productTemp">
+                    <div class="form-check form-check">
+                        <input class="form-check-input" type="checkbox" id="icedCheck" value="iced">
+                        <label class="form-check-label" for="icedCheck">Iced</label>
+                        <div class="input-group-prepend">
+                            <div class="input-group-text sizeCostSign">$</div>
+                            <input type="text" class="form-control sizeCost" id="icedAdd" placeholder="Cost"></input>
+                        </div>
+                    </div>
+                    <div class="form-check form-check">
+                        <input class="form-check-input" type="checkbox" id="hotCheck" value="hot">
+                        <label class="form-check-label" for="hotCheck">hot</label>
+                        <div class="input-group-prepend">
+                            <div class="input-group-text sizeCostSign">$</div>
+                            <input type="text" class="form-control sizeCost" id="hotAdd" placeholder="Cost"></input>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row additionalRow">
+                <div class="col-md-12">
+                    <div id="questionsArea">
+                        <div class="addProductInformation row" questionNumber="1">
+
+                            <div class="col-md-4 selectionTypeSection">
+                                <label>Question Type</label>
+                                <select class="form-control">
+
+                                    <option value="pickOne">Pick One</option>
+                                    <option value="pickMult">Pick Multiple</option>
+
+
+                                </select>
+                            </div>
+                            <div class="col-md-4 questionTitleSection">
+                                <div class="form-group">
+
+                                    <label>Question Title</label>
+                                    <input type="text" class="form-control questionTitle"
+                                        placeholder="e.g. Creamer Type">
+                                </div>
+                            </div>
+                            <div class="col-md-4 questionAnswersSection">
+                                <div class="answersWrapper1">
+                                    <div class="row question">
+                                        <div class="col-sm-6">
+                                            <p>Answers</p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p>Additional Price</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row question">
+                                        <div class="col-sm-6 answerBox">
+
+                                            <input type="text" class="form-control addAnswer"
+                                                placeholder="e.g. Almond Milk">
+                                        </div>
+
+
+                                        <div class="col-sm-6 answerAdditionalCost">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text ">$</div>
+                                                <input type="text" class="form-control addCost" placeholder="e.g. 0.50">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row addAnswer">
+                                    <button class="addAnswerButton">
+                                        <p>+ Add Answer</p>
+                                    </button>
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <button id="addProduct">
+                        <h2> + Add Question</h2>
+                    </button>
+                </div>
+            </div>
+            <div class="row additionalRow">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <button id="submitProductButton" onclick=submitProduct();>
+                        <h3>Submit Product</h3>
+                    </button>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <!----------------------- Footer Starts Here------------------------>
+        <!------------------------------------------------------------------>
+        <footer class="footer">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="icons">
+                        <a href="https://www.facebook.com/chitchatcoffeematcha/"><i
+                                class="fab fa-facebook fa-2x"></i></a>
+                        <a href="https://www.instagram.com/chitchatla/"><i class="fab fa-instagram fa-2x"></i></i></a>
+                    </div>
+
+                </div>
+                <div class="col-sm-4">
+
+                    <h1 class="bottom_text">Chitchat</h1>
+                </div>
+                <div class="col-sm-4">
+                    <p class="address">(310) 820-9191 <br>1854 Sawtelle Blvd <br> Los Angeles, CA 90025</p>
+                </div>
+            </div>
+            <div class="row rights">
+                <div class="col-sm-12">
+                    <p class=rights>© 2020 ChitChat Coffee. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- https://www.instagram.com/chitchatla/ Instagram link-->
+    <!--https://www.facebook.com/chitchatcoffeematcha/ facebook link-->
+
+
+    <!-- Bootstrap & Jquery-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <script>
+        let itemDetail = {};
+        let questionCount = 1;
+        let answerCount = [];
+        $(".addAnswerButton").on("click", function (event) {
+
+            $(event.target).parent().parent().parent().find(".answersWrapper1").append(`    
+            <div class="row question">
+                                <div class="col-sm-6 answerBox">
+
+                                    <input type="text" class="form-control addAnswer"  placeholder="e.g. Almond Milk">
+                                </div>
+
+
+                                <div class="col-sm-6 answerAdditionalCost">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text ">$</div>
+                                        <input type="text" class="form-control addCost" 
+                                            placeholder="e.g. 0.50">
+                                    </div>
+                                </div>
+
+                            </div>
+                            `)
+        })
+
+        $("#addProduct").on("click", function (event) {
+            questionCount++;
+            $("#questionsArea").append(`
+
+            <div class="addProductInformation row" questionNumber = "${questionCount}">
+
+<div class="col-md-4 selectionTypeSection">
+    <label>Question Type</label>
+    <select class="form-control">
+
+        <option value="pickOne">Pick One</option>
+        <option value="pickMult">Pick Multiple</option>
+        
+
+    </select>
+</div>
+<div class="col-md-4 questionTitleSection">
+    <div class="form-group">
+
+        <label>Question Title</label>
+        <input type="text" class="form-control questionTitle"
+            placeholder="e.g. Creamer Type">
+    </div>
+</div>
+<div class="col-md-4 questionAnswersSection">
+    <div class="answersWrapper${questionCount}">
+        <div class="row question">
+            <div class="col-sm-6">
+                <p>Answers</p>
+            </div>
+            <div class="col-sm-6">
+                <p>Additional Price</p>
+            </div>
+        </div>
+
+        <div class="row question">
+            <div class="col-sm-6 answerBox">
+
+                <input type="text" class="form-control addAnswer" 
+                    placeholder="e.g. Almond Milk">
+            </div>
+
+
+            <div class="col-sm-6 answerAdditionalCost">
+                <div class="input-group-prepend">
+                    <div class="input-group-text ">$</div>
+                    <input type="text" class="form-control addCost" 
+                        placeholder="e.g. 0.50">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row addAnswer">
+        <button class="addAnswerButton">
+            <p>+ Add Answer</p>
+        </button>
+    </div>
+
+
+</div>    
+                            `
+
+            )
+            $(".addAnswerButton").on("click", function (event) {
+
+                $(event.target).parent().parent().parent().find(".answersWrapper" + questionCount).append(`    
+            <div class="row question">
+                                <div class="col-sm-6 answerBox">
+
+                                    <input type="text" class="form-control addAnswer"  placeholder="e.g. Almond Milk">
+                                </div>
+
+
+                                <div class="col-sm-6 answerAdditionalCost">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text ">$</div>
+                                        <input type="text" class="form-control addCost" 
+                                            placeholder="e.g. 0.50">
+                                    </div>
+                                </div>
+
+                            </div>
+                            `)
+            })
+
+        })
+
+
+        const submitProduct = function () {
+            console.log("Product Added")
+        }
+
+    </script>
+</body>
+
+</html>

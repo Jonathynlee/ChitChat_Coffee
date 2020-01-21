@@ -1,0 +1,545 @@
+
+html{
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    
+    
+    width: 100%;
+    height: 100%;
+    font-family: 'Pacifico', cursive;
+    font-size: 25px;
+    color: rgb(248, 234, 234);
+}
+
+.background{
+background: linear-gradient( rgb(255, 255, 255), rgb(255, 255, 255) );
+background-size: cover;
+min-width: 100%;
+min-height: 100%;
+display:flex;
+align-items: stretch;
+flex-direction: column;
+}
+
+.content{
+    flex-grow: 1;
+}
+
+
+
+
+
+.navbar {
+    background: #F48968!important;
+    border-bottom: solid 1px black;
+    margin: 0px;
+    padding: 19px;
+    margin-top: -18px;
+}
+
+
+/*
+.bg-light {
+    background-color: transparent!important;
+}
+*/
+
+
+.navbar-light .navbar-nav .nav-link {
+    color: black;
+    background-color: transparent;
+}
+
+.nav-link{
+    font-size: 25px;
+}
+  
+.navbar-trans {
+  background: transparent; }
+
+.cover {
+ /* background: pink url(http://dev.turquoiseltd.com/wp-content/uploads/2017/05/081020159999_1_slide-970x677.jpg) center*/
+
+  min-height: 50rem;
+  height: auto;
+  border-radius: 0;
+  width: 100%;
+  color: black;
+  padding-top: 1rem; }
+
+
+.fa, .fas {
+    font-weight: 900;
+    padding-right: 15px;
+}
+
+.headIcon{
+    font-size: 25px;
+}
+
+.fa-coffee {
+    margin-left: -20px!important;
+}
+
+.fa-mug-hot:hover{color: pink!important;}
+.fa-mug-hot:focus { color: pink !important;}
+
+
+.fa-mug-hot{
+    font-size: 45px;
+    text-decoration: none;
+}
+
+a{
+    color:black !important;
+ 
+}
+
+a:hover { color: pink !important;
+          text-decoration: none; } 
+
+a:focus { color: pink !important; }
+
+.navbar-light .navbar-toggler {
+    color: black;
+    border: none;
+    outline: none;
+}
+
+/*
+.orderCoffeeButton{
+    margin-left: 40%;
+    margin-right: auto;
+}
+*/
+
+
+
+
+.coffeeWidth{
+    border: solid;
+    /* width: 41%; */
+    /* border: solid; */
+    margin-left: 40%;
+    margin-right: 40%;
+    text-align: center;
+}
+
+.coffeeWidth:hover{
+    color: pink;
+}
+
+.orderCoffeeButton{
+    display: none;
+}
+
+.user{
+    display: none;
+}
+
+.carts{
+    display: none;
+}
+
+.logo {
+    font-size: 40px;
+}
+
+@media only screen and (max-width: 991px) {
+.coffeeButton{
+    margin-top: 250px;
+    background-color: transparent;
+    text-align: center;
+
+}
+
+.orderCoffeeButton {
+    display: inline-block;
+    border: solid;
+    color: white;
+    font-size: 50px;
+    text-decoration: none;
+    background-color: transparent;
+    outline: none;
+    padding: 30px;
+    border-radius: 30px;
+}
+.orderCoffeeButton:focus {
+    border: solid;
+    color: pink;
+}
+
+.orderCoffeeButton:hover {
+    border: solid;
+    color: pink;
+}
+
+.fa-user{
+    display: none;
+}
+
+.fa-shopping-cart{
+    display: none;
+}
+
+.user{
+    display: block;
+}
+
+.carts{
+    display: block;
+}
+
+}
+
+
+/*////MANAGE ACCOUNTS STYLES////*/
+
+.manageAccount{
+    color: black
+}
+
+
+.accItem{
+    margin: 20px;
+}
+
+.products{
+    margin:1px;
+}
+
+hr{
+    border-top: solid black 1px;
+}
+
+.proPic{
+    background: url(headShotExampleV4.jpeg);
+    background-size: cover;
+    /*background-color: black;*/
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    margin-left: -20px;
+}
+
+.coffeePic{
+    background: url(regularCoffeeExample.jpeg);
+    background-size: cover;
+    /*background-color: black;*/
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    margin-left: -20px;
+}
+
+.lattePic{
+    background: url(LatteV2.jpeg);
+    background-size: cover;
+    /*background-color: black;*/
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    margin-left: -20px;
+}
+
+.espressoPic{
+    background: url(espresso.jpeg);
+    background-size: cover;
+    /*background-color: black;*/
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    margin-left: -20px;
+}
+
+.capPic{
+    background: url(capp.jpg);
+    background-size: cover;
+    /*background-color: black;*/
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    margin-left: -20px;
+}
+
+.itemTitle{
+    margin: 20px;
+    text-align: center;
+}
+
+
+@media only screen and (max-width: 767px){
+    .proPic {
+        background: url(headShotExampleV4.jpeg);
+        background-size: cover;
+        /* background-color: black; */
+        height: 250px;
+        width: 250px;
+        border-radius: 50%;
+        margin-left: 24%;
+    }
+
+    .eAndP {
+        margin-left: 10%;
+    }
+
+    .personsName {
+        text-align: center;
+    }  
+
+
+.itemList {
+    margin-left: 24%;
+}
+
+.orderArea {
+    text-align: center;
+}
+
+.orderHist {
+    text-align: center;
+}
+
+ }
+
+
+/*////FOOTER////*/
+
+
+
+html{
+    height:100%;
+}
+body{
+    font-family: Pacifico;
+    height:100%;
+}
+#page-container{
+    
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: stretch;
+    width:100%;
+  
+    
+}
+.content{
+    flex-grow:1;
+}
+.footer{
+    height:auto;
+    width:100%;
+    margin:0px!important;
+    background-color:#ffafbc;
+    border-top:2px solid rgb(58, 58, 58);
+    padding-top:10px;
+    clear:both;
+    flex-shrink: 0;
+
+
+}
+
+.fa-facebook, .fa-instagram{
+    color:#858585;
+    transition:.3s;
+    margin:0px 8px;
+    
+ }
+
+.fa-facebook:hover, .fa-instagram:hover{
+   color:white; 
+   transition:.3s;
+}
+.fa-facebook:link .fa-instagram:link{
+    color:#858585;
+    transition:.3s;
+ }
+ .rights{
+    color:#858585;
+    margin-left:10px;
+    font-size: 15px;
+    text-align: center;
+ }
+ .bottom_text{
+    font-family: Pacifico;
+    text-align:center;
+    color:#858585;
+ }
+ .icons{
+     padding-top:2px;
+     height: auto;
+     width:100px;
+     margin:5px auto;
+ }
+.address{
+    color:#858585;
+    text-align: center;
+    font-family:pacifico;
+    font-size:15px;
+}
+
+ @media only screen and (max-width: 576px){
+    .icons{
+        height: auto;
+        width:100px;
+        margin:5px auto;
+     }
+     .footer{
+         height:auto;
+     }
+ }
+
+ 
+
+/*////AYSENS CODE////*/
+
+
+
+*{
+    font-family: Pacifico;
+}
+
+body{
+    background-color:#ffffff !important;
+    background-position:center !important;
+    font-family:'Pacifico',Arial, Helvetica, sans-serif;
+    font-size:1rem;
+}
+
+img{
+    width:10rem;
+    height:10rem;
+    border-radius:50%;
+    float:left;
+    
+}
+
+.imgAdmin{
+    width: 15%;
+    height: 15%;
+    border-radius:50%;
+
+}
+.detail{
+   font-size:1rem;
+}
+.item{
+    margin-left:2rem;
+    font-size:1rem;
+    font-family:'Pacifico'
+}
+.left{
+    color:red;
+    font-size:1rem;
+    margin-left:2rem;
+}
+
+select,option{
+    font-size:1.5rem;
+
+
+}
+.btn{
+    margin-left:3rem;
+    margin-bottom:1rem;
+    padding:1rem;
+}
+.extra{
+    position:absolute;
+    right:6rem;
+    font-size:1rem;
+}
+.h-divider{
+   /* margin-right:2rem;*/
+    height:1rem;
+    width:100%;
+    border-top:0.2rem solid #f48968;
+   }
+/*.h-divider2{
+    /*position:absolute;
+    right:3rem;*/
+/*    display:d-flex;
+    width:10%;
+    border-top:0.2rem dashed #f48968;
+} */
+.subtotal,.Total,.Tax{
+    /*position:absolute;*/
+    margin-right:1rem;
+    font-size:1rem;
+   /* right:3rem;*/
+ }
+ .price,.sprice,.txvalue,.tvalue{
+     /*right:2rem;*/
+     font-size:1rem;
+     margin-right:1rem;
+ }
+
+ .Total{
+     border-top: 0.2rem dashed #f48968
+ }
+ 
+ 
+ /*#checkout,#continue{
+     position:absolute;
+     top:5rem;   
+     
+ }*/
+ #continue{
+     /*left:1rem;*/
+     margin-left:2rem;
+     margin-top:1rem;
+ }
+ #checkout{
+     /*right:3rem;*/
+     margin-right:2rem;
+     margin-top:1rem;
+ }
+ span{
+     font-size:1.5rem;
+     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+ }
+ p{
+     font-family:Pacifico;
+     font-size:1.5rem;
+ }
+ .btn-success,.btn-danger{
+    font-family:Arial;
+     
+ }
+ table {
+    table-layout: fixed;
+    word-wrap: break-word;
+ } 
+ td{
+     width:2rem;
+     text-align:center;
+ }
+ 
+ @media only screen and (max-width: 600px) {
+    .extra {
+      margin-top:1rem;
+      margin-bottom:1rem;
+    }
+    .quantity{
+        margin-top:5rem;
+    }
+    #continue{
+        position:relative;
+        bottom:-5rem;
+        flex:none;
+
+       
+    }
+    #checkout{
+        position:relative;
+        bottom:0.7rem;
+        margin-right:1rem;
+        flex:none;
+       
+    }
+    
+ }  
