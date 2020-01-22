@@ -32,7 +32,7 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
           }
         })
-        past_orders.hasMany(models.orderItem, {
+        past_orders.hasMany(models.orderitem, {
             
           })
         };
