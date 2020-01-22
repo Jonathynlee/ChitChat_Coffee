@@ -124,9 +124,9 @@ a:focus { color: pink !important; }
     display: none;
 }
 
-.cart{
+/*.cart{
     display: none;
-}
+}*/
 
 @media only screen and (max-width: 991px) {
 .coffeeButton{
@@ -431,7 +431,7 @@ select,option{
 }
 .h-divider{
    /* margin-right:2rem;*/
-    height:1rem;
+   height:1rem;
     width:100%;
     border-top:0.2rem solid #f48968;
    }
@@ -442,7 +442,7 @@ select,option{
     font-size:1rem;
    /* right:3rem;*/
  }
- .price,.sprice,.txvalue,.tvalue{
+ .price,#sprice,.txvalue,.tvalue{
      /*right:2rem;*/
      font-size:1rem;
      margin-right:1rem;
@@ -624,4 +624,5 @@ input[type=text]:focus, input[type=password]:focus,input[type=email]:focus {
     }
     
  }  
-
+ /**********Shopping Card*/
+ 
