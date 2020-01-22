@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var orders = sequelize.define("order", {
+    var orders = sequelize.define("orders", {
  
         orderDate: {
             type: DataTypes.DATE,
@@ -32,7 +32,7 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
           }
         })
-        orders.hasMany(models.orderItem, {
+        orders.hasMany(models.orderitem, {
             
           })
         };
