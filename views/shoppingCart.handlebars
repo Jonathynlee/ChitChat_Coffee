@@ -5,36 +5,29 @@
 	<div class="row">
 		{{#each item}}
 		<div class="col-xs-12 col-sm-12  ml-5 mt-3">
-			 <img src="{{this.image}}">
+      
+			 <img src="{{this.product.image}}">
+           <!-- <div class='detail d-flex justify-content-left'>-->
             <div class='detail'>
-              <span class='item'> {{this.name}}({{this.quantity}}) </span>  
+              <span class='item'> {{this.product.name}}({{this.quantity}}) </span>  
 
-              {{#if flag}}
-              <br><span class='left'>{{this.inventory}} left</span>  
+              {{#if this.product.flag}}
+              <br><span class='left'>{{this.product.quantity}} left</span>  
               {{/if}}
-           
-             <br> <select class="ml-4 quantity">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10+</option>
+              <br>
+                <select class="ml-4 quantity"  id="s{{this.id}}">
+               
              </select>
+            
              
-             <button type="submit" class="btn btn-info shadow-sm border-danger p-2 ml-1 del " id={{this.id}}>Delete</button>
-             <label class="extra">PRICE:<span class="price"> ${{this.price}}</span><br>
-                    <ul>
-                        <li>Add ons Here</li>
-                    </ul>
+             <button type="submit" class="btn btn-info shadow-sm p-2 ml-1 del " id="d{{this.id}}"">Delete</button>
+            
+             <label class="extra mb-3 mr-2" id='l{{this.id}}' > PRICE:<span class="price"> ${{this.basePrice}}x{{this.quantity}}</span>
+                    
              </label>
           
-
-           </div>
+          </div> 
+          
 	  </div>
         
 	  {{/each}}
@@ -43,20 +36,18 @@
      
      
     <div class="row">
-           <hr class="h-divider">  
+           <div class="h-divider mt-3"></div>
             <div class="col-xs-12 col-sm-12 d-flex justify-content-end ">     
-                <label class="subtotal">SUBTOTAL: <span class="sprice"> $5</span></label>
+                <label class="subtotal">SUBTOTAL: $<span id="sprice"> </span></label>
             </div>    
 
-             <div class="col-xs-12 col-sm-12 d-flex justify-content-end">   
+          <!--   <div class="col-xs-12 col-sm-12 d-flex justify-content-end">   
                 <label class="Tax">TAX: <span class="txvalue"> $2</span></label> 
              </div>  
- 
-             <hr>
                 
             <div class="col-xs-12 col-sm-12 d-flex justify-content-end ">   
                 <label class="Total"><b>TOTAL:</b> <span class="tvalue">$7</span> </label>
-            </div>   
+            </div>   -->
     </div>
      <div class="row">
             <div class="col-xs-12 col-sm-6  d-flex justify-content-start">
@@ -75,4 +66,8 @@
 	<!--<button id="add-trip-button" data-toggle="modal" data-target="#squarespaceModal" type="button" class="btn btn-circle"><i class="glyphicon glyphicon-plus"></i></button>-->
 	</div>
 </div>
+
+<script type="javascript/text" src="/assets/js/cart.js"> //Functionality for showing cart items
+
+</script>
 

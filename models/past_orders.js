@@ -31,11 +31,8 @@ module.exports = function (sequelize, DataTypes) {
           foreignKey: {
             allowNull: false
           }
-        })
-        past_orders.hasMany(models.orderItem, {
-            
-          })
-        };
+        });
+    }    
     
     return past_orders;
 };

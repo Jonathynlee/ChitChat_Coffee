@@ -9,8 +9,13 @@ module.exports = function (app) {
     const users = require('./routes/users');
     const mainPage = require('./routes/mainPage');
 
+    const shoppingCardAPI = require('./routes/shoppingCardAPI');
+
+
 
     app.use('/shoppingCard', shoppingCard);
+    app.use('/api/shoppingCard', shoppingCardAPI);
+
     app.use('/orderAdminList', orderAdminList);
     app.use('/orderAdminDetails', orderAdminDetails);
     app.use('/createProductAdmin', createProductAdmin);
