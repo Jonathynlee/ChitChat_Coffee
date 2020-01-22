@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var products = sequelize.define("product", {
+    var products = sequelize.define("products", {
         
         name: {
             type: DataTypes.STRING,
@@ -48,7 +48,7 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: true
           }
         })
-        products.hasMany(models.orderItem, {
+        products.hasMany(models.orderitem, {
 
           })
         };
