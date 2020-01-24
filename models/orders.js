@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var orders = sequelize.define("orders", {
+    var orders = sequelize.define("order", {
  
         orderDate: {
             type: DataTypes.DATE,

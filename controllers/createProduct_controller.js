@@ -22,7 +22,7 @@ exports.addCategory =function(req, res){
 
 exports.addProduct  =function(req, res){
    
-   db.products.create({
+   db.product.create({
       name:req.body.name,
       quantity:1,
       EstimatedTime: parseInt(req.body.EstimatedTime),

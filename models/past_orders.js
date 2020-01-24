@@ -38,6 +38,7 @@ module.exports = function (sequelize, DataTypes) {
        
         });
 
-    
+    }
     return past_orders;
+    
 };
