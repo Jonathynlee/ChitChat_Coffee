@@ -628,3 +628,14 @@ input[type=text]:focus, input[type=password]:focus,input[type=email]:focus {
  }  
  /**********Shopping Card*/
  
+ .modal-dialog{
+    position: relative;
+    overflow-y: auto;
+    overflow-x: auto;
+    max-width: 90%;
+    padding: 1rem;
+}
+#myModal,.Aspan {
+font-family:'Pacifico';
+    font-size:1.5rem;
+}    

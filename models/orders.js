@@ -32,8 +32,8 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
           }
         })
-        orders.hasMany(models.orderitem, {
-            
+        orders.hasMany(models.orderItem, {
+            onDelete: "cascade"
           })
         };
     

@@ -55,7 +55,7 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: true
           }
         })
-        products.hasMany(models.orderitem, {
+        products.hasMany(models.orderItem, {
 
           })
         };

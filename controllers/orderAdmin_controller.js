@@ -6,21 +6,56 @@ exports.OrderFill=function(req,res){
 }
 
 exports.OrderList=function(req,res){
-   res.render("orderList");
+      
+    db.order.findAll({where: {status:"placed"},order: ['orderDate'],
+                                                                        
+            include:[
+                     {
+                        model:db.orderItem,
+                        include:[db.product],
+                        group:"orderId"
+                     },
+                     db.user
+            ] 
+            
+      
+ } 
+).then(function(reslt){
+     console.log(reslt)
+
+/
+//res.render("orderList");
+res.render('orderList', {
+    layout: 'main-admin'
+   // trip: dbTrip
+  });
+  
+});
+  
+}
+ 
+ exports.apiOrderList = function (req, res) {
+
+    db.order.findAll({where: {status:"placed"},order: ['orderDate'],
+                                                                        
+    include:[
+             {
+                model:db.orderItem,
+                include:[db.product],
+                group:"orderId"
+             },
+             db.user
+    ] 
+    
+
+} 
+).then(function(reslt){
+console.log(reslt);
+  res.send(reslt);
+  
+});
 }
 
-//It's going to be fetched from database
-
-
-
- /*router.get("/orderFullfill",async function(req,res){
-     
-  console.log("here");
-  res.render("orderFullfill");
- });*/
-
- 
-
-
-
-//module.exports=router;
+exports.orderPartReady=function(req,res){
+    console.log("part of the order is ready");
+}

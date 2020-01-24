@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var orderitem = sequelize.define("orderitem", {
+    var orderitem = sequelize.define("orderItem", {
  
         quantity: {
             type: DataTypes.INTEGER,
@@ -20,7 +20,12 @@ module.exports = function (sequelize, DataTypes) {
         subtotal:{
             type: DataTypes.FLOAT, 
             allowNull:false
-        }
+        },
+        ready:{
+          type: DataTypes.BOOLEAN, 
+          allowNull:true,
+          defaultValue:0
+      }
 
         
     });

@@ -10,13 +10,18 @@ module.exports = function (app) {
     const mainPage = require('./routes/mainPage');
 
     const shoppingCardAPI = require('./routes/shoppingCardAPI');
+    const orderAdminListAPI= require('./routes/orderAdminListAPI');
 
 
-
+    app.use('/shoppingCard/:id', shoppingCard);
     app.use('/shoppingCard', shoppingCard);
     app.use('/api/shoppingCard', shoppingCardAPI);
 
     app.use('/orderAdminList', orderAdminList);
+    app.use('/api/orderAdminList', orderAdminListAPI);
+    app.use('/orderAdminList/partOrder/:id',orderAdminList);
+
+
     app.use('/orderAdminDetails', orderAdminDetails);
     app.use('/createProductAdmin', createProductAdmin);
     app.use('/checkout', checkout);

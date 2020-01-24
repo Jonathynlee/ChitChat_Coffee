@@ -5,15 +5,15 @@
       <th scope="col">#</th>
       <th scope="col">Order#</th>
       <th scope="col">Item</th>
-      <th scope="col">Estimated Time</th>
-      <th scope="col">Tentative Time</th>
+   <!--   <th scope="col">Estimated Time</th>-->
+   <!--   <th scope="col">Tentative Time</th>-->
       <th scope="col"> Details</th>
       <th scope="col">Ready</th>
       <th scope="col">Complete</th>
     </tr>
   </thead>
-  <tbody>
-    <tr class="table-danger">
+  <tbody id="table">
+   <!-- <tr class="table-danger">
       <th scope="row">1</th>
       <td>1</td>
       <td>Item1</td>
@@ -86,8 +86,138 @@
                </div>
           </div>     
       </td>
-    </tr>
+    </tr>-->
     
   </tbody>
 </table>
 </div>
+
+<div id="myModal" class="modal fade" role="dialog" tabindex="-1" style="width:%100;height:%100;color:black" aria-hidden="true" style="display:none;">
+  <div class="modal-dialog">
+   <!-- <div class="container-fluid">-->
+     <div class="modal-content">  
+
+        <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Order Details</h4>
+       </div>
+      <div class="modal-body">
+
+     <div class="row " id="admincol"> 
+        <div class="col-sm-6 " > 
+          <div class="card " style="width: 100%">
+              <h5 class="card-header mt-2"> ORDER NO: <span id="ono" class="Aspan">&nbsp </span><br>
+                                            ITEM NO: <span id="ino" class="Aspan">&nbsp </span>
+              </h5>
+              <div class="card-body">
+                        <img class="imgAdmin mt-0" src="/assets/images/ButterCroissant.jpg">
+                        <h5 class="card-title ">&nbsp&nbsp Product:&nbsp&nbsp<span id="drink" class="Aspan">ICED AMERICANO</span></h5>
+                      <!--  <h5 class="card-title">&nbsp&nbspSize:&nbsp&nbsp<span>LARGE</span></h5>-->
+                        
+              </div>
+
+              <div class="card" style="width:100%">
+                    <h5 class="card-header" > <span id="customerName"></span><a  class="btn btn-success btn-sm" id="orderComplete">COMPLETE</a> <a  class="btn btn-danger btn-sm" id="orderCancel">CANCEL</a></h5> 
+                    <div class="card-body">
+                       <h5 class="card-title">Customer ID:&nbsp<span id="customerID"class="Aspan"></span></h5>
+                       <h5 class="card-title">Phone#:&nbsp <span id="phone"class="Aspan"></span></h5> 
+
+                   </div> 
+              </div>
+
+              <div class="card" style="width:100%">
+                    <h5 class="card-header">#Number of Items in Order Left:&nbsp<span id="numILeft"class="Aspan">1</span><br>
+                                            #Total Orders Left:&nbsp<span id="numOLeft"class="Aspan">35</span></h5> 
+                    <div class="card-body">
+                       <h5 class="card-title ml-2">Estimated Time:&nbsp<span class="Aspan">5 min</span></h5>
+                       <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                        aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                                                         40%
+                            </div>
+                        </div>
+                    </div>   
+               </div>       
+           </div>
+        </div> 
+
+
+        <div class="col-sm-6" id="detcol">
+              <!--Will be Dymanically Generated-->
+              <!--Card-->
+
+     <!--         <div class="card mt-2" style="width: 35rem">
+                    <h5 class="card-header">ADD INS</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">Creamer:</h5>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked disabled>
+                                <label class="form-check-label" for="inlineCheckbox1">%1 Milk</label>
+                       </div>
+                       <h5 class="card-title">Sweetener:</h5>
+                      <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"checked disabled>
+                            <label class="form-check-label" for="inlineCheckbox2">Stevia</label>
+                     </div>
+
+                    <h5 class="card-title">Espresso/Shot Option:</h5>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" checked disabled>
+                        <label class="form-check-label" for="inlineCheckbox3">3 Shots</label>
+                    </div>
+                    <h5 class="card-title">Others</h5> 
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" checked disabled>
+                        <label class="form-check-label" for="inlineCheckbox3">Decaf</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-2" style="width: 35rem">
+                    <h5 class="card-header">FLAVORS</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">Sauces:</h5>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked disabled>
+                                <label class="form-check-label" for="inlineCheckbox1">Mocha Sauce</label>
+                       </div>
+                       <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked disabled>
+                                <label class="form-check-label" for="inlineCheckbox1">Caramel Sauce</label>
+                       </div>
+
+                       <h5 class="card-title">Syrups:</h5>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked disabled>
+                                <label class="form-check-label" for="inlineCheckbox1">Hazelnut Syrup</label>
+                       </div>
+                       <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked disabled>
+                                <label class="form-check-label" for="inlineCheckbox1">Toffee Nut Syrup</label>
+                       </div>
+                    </div>
+            </div>   
+
+            <div class="card mt-2" style="width: 35rem">
+                    <h5 class="card-header">TOPPINGS</h5>
+                    <div class="card-body">
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked disabled>
+                                <label class="form-check-label" for="inlineCheckbox1">Sprinkles</label>
+                       </div>    
+                    </div>
+             </div> -->             
+
+      </div>   
+    </div>
+           
+</div>
+
+</div>
+</div>
+</div>
+
+<script src="/assets/js/OrderAdminlist.js"></script>
