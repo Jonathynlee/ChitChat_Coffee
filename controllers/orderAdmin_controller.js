@@ -57,5 +57,41 @@ console.log(reslt);
 }
 
 exports.orderPartReady=function(req,res){
-    console.log("part of the order is ready");
+    const id=req.params.id;
+    
+       db.orderItem.update(req.body,
+         {
+           where: {
+             id:id
+           }
+         })
+         .then(function(dbPost) {
+           res.json(dbPost);
+         }); 
+    
 }
+
+exports.updateStatusOrder=function(req,res){
+    const id=req.params.id;
+    
+    
+        db.order.update(req.body,
+            {
+              where: {
+                id:id
+              }
+            })
+            .then(function(dbPost) {
+              res.json(dbPost);
+              
+            }); 
+    }
+
+    
+    
+
+ 
+    
+    
+    
+
