@@ -1,32 +1,116 @@
 $(function(){
    const cart= $(".cart");
+   const sub=$("#sprice");
+   /////////////////////DELETE FUNCTION/////////////////////////
+   $('.del').on("click",function(){
+     const id=$(this).attr("id").slice(1);
+     $.ajax({
+      method: "DELETE",
+      url: "/shoppingCard/" + id
+    })
+      .then(function() {
+        window.location.reload();
+      });
+  
+   });
+   
+   /////////////when Quantity Changes/////////////////////
+   $('select').on('change', function() {
+    id=$(this).attr("id").slice(1);
+    number=this.value;
 
-   const arr=[{image:"../public/assets/images/englishbreakfastTea.jpg",
-               name:"English Breakfast Tea",
-               inventory:20,
-               quantity:2,
-               price:4.00},
+    const data={
+       id:id,
+       quantity:number
+    }
+
+    $.ajax({
+      method: "PUT",
+      url: "/shoppingCard",
+      data: data
+    }).then(function() {
+        window.location.reload();
+      });
+   });
+  
+   //////////////////////////////////////
+   
+   $.ajax({
+    method: "GET",
+    url: "api/shoppingCard",
+
+   }).done(function(result){
+     
+  
+     
+    /////////////////////////Price Calculations, Listing Add Ons
+     let subtotal=0.0;
+    
+    
+    for(let i=0;i<result.length;i++){
+      ////////////SELECT BUTTON FOR QUANTITY UPDATE//////////
+        let sid="#s"+result[i].id;
+        if(result[i].product.quantity===null){
+          // $(sid).empty();
+           for(let m=-1;m<10;m++){
+             let n=m+1;
+             let el= $("<option value="+n+'>'+n+'</option>');
+             $(sid).append(el);
+           }
+         }else if (result[i].product.quantity<=10){
+          
+          //$(sid).empty();
+          for(let m=-1;m<result[i].product.quantity;m++){
+            let n=m+1;
+            let el= $("<option value="+n+'>'+n+'</option>');
+            $(sid).append(el);
+          }
+        }
+        else{
+          for(let m=-1;m<10;m++){
+            let n=m+1;
+            let el= $("<option value="+n+'>'+n+'</option>');
+            $(sid).append(el);
+          }
+        }
+
+      //////////////////////////////////////////////////////
+      subtotal+=result[i].quantity*result[i].basePrice;
+      let add=JSON.parse(result[i].addons);
+      
+      let label=$("#l"+result[i].id);
+      label.append("<br>");
+     
+      const btn=$("<div class='btn-group dropleft'><button type='button' class='btn-info btn-sm dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Add On</button></div>");
+  
+      const div=$("<div>");
+      for (let j=0;j<add.length;j++){
             
-              {image:"../public/assets/images/ButterCroissant.jpg",
-               name:"Butter Croissant",
-               quantity:2,
-               inventory:10,
-               price:3.00}];
-
-    //Read it from database
-
-     for(let i=0;i<arr.length;i++){
+            div.css({"background-color":"#ffafbc"});
+            div.attr("class","dropdown-menu ");
+           
+            uEl = $("<ul>");
          
-         const item=$("<div class='row'>"+
-                         "<div class='col-sm-8'>"+
-                             "<img src='"+arr[i].image+"'>"+
-                             "<h6 class='item'>"+arr[i].name+" ("+arr[i].quantity+") </h6>"+
-                          "</div>"+
-                        "<div class='col-sm-4'>"+
-                        "</div>"+
-                      "</div>");
+            uEl.append(add[j].question.title+": ");
+            uEl.css({"color":"red"});
+            uEl.css({"font-size":"0.8rem"});
+          for(k=0;k<add[j].question.answers.length;k++){
+            let liEl=$("<li>").append(add[j].question.answers[k].title+": $"+add[j].question.answers[k].price);
+            subtotal+=parseFloat(add[j].question.answers[k].price)*result[i].quantity;
+           
+            liEl.css({"color":"black"});
+            liEl.css({"font-size":"0.8rem"});
+            uEl.append(liEl);
+            div.append(uEl);
+          }
+          btn.append(div);
+          label.append(btn);
+        
+      }
+      sub.text(subtotal);
+      
+     
+   }
+   });
 
-         cart.append(item);
-
-     }   
-});
+  }); 

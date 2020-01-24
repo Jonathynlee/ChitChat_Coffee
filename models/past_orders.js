@@ -24,18 +24,20 @@ module.exports = function (sequelize, DataTypes) {
 
         
     });
+  
     past_orders.associate = function(models) {
         // We're saying that a past_orders should belong to an Author
         // A past_orders can't be created without an Author due to the foreign key constraint
         past_orders.belongsTo(models.user, {
           foreignKey: {
             allowNull: false
-          }
-        })
-        past_orders.hasMany(models.orderItem, {
-            
-          })
-        };
+          
+ 
+
+        }
+       
+        });
+
     
     return past_orders;
 };

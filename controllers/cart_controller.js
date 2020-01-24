@@ -7,44 +7,96 @@
 var db = require("../models");
 
 exports.index = function (req, res) {
-   const arr = [{
-      image: "/assets/images/englishbreakfastTea.jpg",
-      id: 1,
-      name: "English Breakfast Tea",
-      inventory: 2,
-      quantity: 2,
-      price: 4.00, flag: true
-   },
+   console.log(req.session.name+":"+req.session.email);
 
-   {
-      id: 2,
-      image: "/assets/images/ButterCroissant.jpg",
-      name: "Butter Croissant",
-      quantity: 2,
-      inventory: 10,
-      price: 3.00,
-      flag: false
-   }];
-   res.render("shoppingCart", { item: arr });
+   //find user id from email
+   db.user.findOne({where:{email:req.session.email}}).then(function(result){
+      let userID=result.id;
+      
+     db.order.findOne({where: {status:"in_cart",
+                              userID:userID} ,
+                              include:[
+                                        {
+                                          model:db.orderItem,
+                                          include:[db.product],
+                                        }
+                               ] 
+                                    
+                               }  
+      ).then(function(reslt){
+      
+         
+            for(let i=0;i<reslt.orderItems.length;i++){
+                //console.log(reslt.orderItems[i].product);
+                if(reslt.orderItems[i].product.quantity){
+                   if(reslt.orderItems[i].product.quantity<3){
+                     reslt.orderItems[i].product.flag=true;
+                   }
+                }
+            }
+          res.render("shoppingCart",{item:reslt.orderItems});
+      });
+      
+   });
 }
-//It's going to be fetched from database
 
-
-
-/*router.get("/",async function(req,res){
-    
- 
- //res.render("shoppingCart",{item:arr})
-});
-
-router.get("/orderFullfill",async function(req,res){
-    
-  
-   res.render("orderFullfill");
-  });
-
-  router.get("/orderList",async function(req,res){
-    
+   exports.apiIndex = function (req, res) {
+      console.log(req.session.name+":"+req.session.email);
    
-   res.render("orderList");
-  });*/
+      //find user id from email
+      db.user.findOne({where:{email:req.session.email}}).then(function(result){
+         let userID=result.id;
+         
+        db.order.findOne({where: {status:"in_cart",
+                                 userID:userID} ,
+                                 include:[
+                                           {
+                                             model:db.orderItem,
+                                             include:[db.product],
+                                           }
+                                  ] 
+                                       
+                                  }  
+         ).then(function(reslt){
+         
+            
+               for(let i=0;i<reslt.orderItems.length;i++){
+                  // console.log(reslt.orderItems[i].product);
+                   if(reslt.orderItems[i].product.quantity){
+                      if(reslt.orderItems[i].product.quantity<3){
+                        reslt.orderItems[i].product.flag=true;
+                      }
+                   }
+               }
+             res.send(reslt.orderItems);
+         });
+         
+      });
+   }
+
+   exports.updateShoppingCard = function (req, res) {
+      console.log(req.session.name+":"+req.session.email);
+       const id=req.body.id;
+       const number=req.body.quantity;
+       db.orderItem.update({quantity:number},
+         {
+           where: {
+             id:id
+           }
+         })
+         .then(function(dbPost) {
+           res.json(dbPost);
+         }); 
+         
+      }
+
+      exports.deleteShoppingCard = function (req, res) {
+         db.orderItem.destroy({where: {
+            id:req.params.id
+         }}).then(function(result){
+            res.json(result);
+         });
+            
+       }
+   
+

@@ -12,10 +12,19 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^3.0.7",
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
     "ejs": "^3.0.1",
     "express": "^4.17.1",
+     "morgan": "^1.9.1",
     "express-handlebars": "^3.1.0",
     "express-session": "^1.17.0",
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
     "hbs": "^4.1.0",
     "morgan": "^1.9.1",
     "mysql2": "^2.1.0",
@@ -24,6 +33,7 @@
     "password": "^0.1.1",
     "sequelize": "^5.21.3"
   },
+<<<<<<< HEAD
   "devDependencies": {},
   "repository": {
     "type": "git",
@@ -34,4 +44,9 @@
   },
   "homepage": "https://github.com/Jonathynlee/ChitChat_Coffee#readme",
   "description": ""
+=======
+  "devDependencies": {
+    "handlebars": "^4.5.0"
+  }
+>>>>>>> master
 }
