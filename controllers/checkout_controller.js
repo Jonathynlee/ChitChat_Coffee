@@ -9,7 +9,7 @@ exports.index=function(req,res){
 
 exports.getOrderItems=function(req, res){
    //console.log(req.body)
-   db.orders.findOne({
+   db.order.findOne({
       where:{userId:parseInt(req.body.userId),
       status:"in_cart"}
    }).then(function(order){
@@ -26,7 +26,7 @@ exports.getOrderItems=function(req, res){
 
 exports.getProduct=function(req, res){
    console.log(req.body)
-   db.products.findOne({
+   db.product.findOne({
       where:{id:req.body.productId}
    }).then(function(product){
          res.json(product);

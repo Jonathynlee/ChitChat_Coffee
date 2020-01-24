@@ -17,9 +17,9 @@ INSERT INTO users (id,username,email,password,phone,addressLineOne,addressLineTw
 
 
 
-INSERT INTO products (id,name,quantity,basePrice,addOns,image,description,seasonal,createdAt,updatedAt,categoryId) values (
+INSERT INTO products (id,name,quantity,basePrice,addOns,image,description,seasonal,createdAt,updatedAt,categoryId,EstimatedTime, temp, sizes) values (
 1,"Americano",NULL,1,'[{"question":{"title": "What Kind of Creamer","answers":[{ "title": "Almond Milk","price": 0.50   },   {   "title": "Oat Milk",   "price": 0.50   }  ]}   } ,   {"question":{ "title": "What Flavor",  "answers":[{  "title": "Vanilla",  "price": 0}  ]}   }]'
-,"assets/images/Americano.jpg",NULL,NULL,"1970-01-01 00:00:01","1970-01-01 00:00:01",1);
+,"assets/images/Americano.jpg",NULL,NULL,"1970-01-01 00:00:01","1970-01-01 00:00:01",1," ", " ");
 INSERT INTO products (id,name,quantity,basePrice,addOns,image,description,seasonal,createdAt,updatedAt,categoryId) values (2,"Blonde Roast",NULL,2,'[{"question":{"title": "What Kind of Creamer","answers":[{ "title": "Almond Milk","price": 0.50   },   {   "title": "Oat Milk",   "price": 0.50   }  ]}   } ,   {"question":{ "title": "What Flavor",  "answers":[{  "title": "Vanilla",  "price": 0}  ]}   }]'
 ,"assets/images/BlondeRoast.jpg",NULL,NULL,"1970-01-01 00:00:01","1970-01-01 00:00:01",1);
 INSERT INTO products (id,name,quantity,basePrice,addOns,image,description,seasonal,createdAt,updatedAt,categoryId) values (3,"Dark Roast",NULL,3,'[{"question":{"title": "What Kind of Creamer","answers":[{ "title": "Almond Milk","price": 0.50   },   {   "title": "Oat Milk",   "price": 0.50   }  ]}   } ,   {"question":{ "title": "What Flavor",  "answers":[{  "title": "Vanilla",  "price": 0}  ]}   }]'

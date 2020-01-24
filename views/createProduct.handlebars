@@ -1,175 +1,230 @@
-     <div class="row firstRow">
-                <div class="col-md-3 productPicture">
-                    <div id="pictureBox">
+<div class="row firstRow">
+    <div class="col-md-3 productPicture">
+        <div id="pictureBox">
 
 
+        </div>
+    </div>
+    <div class="col-md-5 productTextInputs">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Product Title</label>
+                    <input type="text" class="form-control" id="productTitle" placeholder="e.g. 'Latte'">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Product Category</label>
+                    <select class="form-control" id = "categorySelect">
+                        <option class = "disable">Select Category</option id = "addCategory">
+
+                        <option value = "addCategory">Add Category</option id = "addCategory">
+                        
+
+
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+
+                    <label>Product Base Price</label>
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">$</div>
+                        <input type="text" class="form-control" id="productPrice" placeholder="">
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+
+                    <label>Est. To Make (minutes)</label>
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="far fa-clock"></i></div>
+                        <input type="text" class="form-control" id="productETM" placeholder="">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2 productSize">
+        <div class="form-check form-check">
+            <input class="form-check-input" type="checkbox" id="smallAdd" value="small">
+            <label class="form-check-label" for="smallAdd">Small </label>
+
+
+
+        </div>
+        <div class="form-check form-check">
+            <input class="form-check-input" type="checkbox" id="mediumAdd" value="medium">
+            <label class="form-check-label" for="mediumAdd">Medium</label>
+            <div class="input-group-prepend">
+                <div class="input-group-text sizeCostSign">$</div>
+                <input type="text" class="form-control sizeCost" id="medAdd" placeholder="Cost"></input>
+            </div>
+        </div>
+        <div class="form-check form-check">
+            <input class="form-check-input" type="checkbox" id="largeAdd" value="large">
+            <label class="form-check-label" for="largeAdd">Large</label>
+            <div class="input-group-prepend">
+                <div class="input-group-text sizeCostSign">$</div>
+                <input type="text" class="form-control sizeCost" id="lgAdd" placeholder="Cost"></input>
+            </div>
+        </div>
+        <div class="form-check form-check">
+            <input class="form-check-input" type="checkbox" id="xLargeAdd" value="xlarge">
+            <label class="form-check-label" for="xLargeAdd">X-Large</label>
+            <div class="input-group-prepend">
+                <div class="input-group-text sizeCostSign">$</div>
+                <input type="text" class="form-control sizeCost" id="xlAdd" placeholder="Cost"></input>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2 productTemp">
+        <div class="form-check form-check">
+            <input class="form-check-input" type="checkbox" id="icedCheck" value="iced">
+            <label class="form-check-label" for="icedCheck">Iced</label>
+            <div class="input-group-prepend">
+                <div class="input-group-text sizeCostSign">$</div>
+                <input type="text" class="form-control sizeCost" id="icedAdd" placeholder="Cost"></input>
+            </div>
+        </div>
+        <div class="form-check form-check">
+            <input class="form-check-input" type="checkbox" id="hotCheck" value="hot">
+            <label class="form-check-label" for="hotCheck">hot</label>
+            <div class="input-group-prepend">
+                <div class="input-group-text sizeCostSign">$</div>
+                <input type="text" class="form-control sizeCost" id="hotAdd" placeholder="Cost"></input>
+            </div>
+        </div>
+        <div class="form-check form-check">
+            <input class="form-check-input" type="checkbox" id="seasonalCheck" value="seasonal">
+            <label class="form-check-label" for="seasonalCheck">Seasonal</label>
+            
+        </div>
+    </div>
+
+</div>
+<div class="row additionalRow">
+    <div class="col-md-12" style="padding:10px 50px">
+
+
+<label>Product Description</label>
+                    <input type="text" class="form-control" id="productDescription" placeholder="e.g. 'Delectable swirls of caramel and chocolate...'">
+
+    </div>
+</div>
+
+<div class="row additionalRow">
+    <div class="col-md-12">
+        <div id="questionsArea">
+            <div class="addProductInformation row" id="question1" questionNumber = "1">
+
+                <div class="col-md-4 selectionTypeSection">
+                    <label>Question Type</label>
+                    <select class="form-control" id="questionType1">
+
+                        <option value="pickOne">Pick One</option>
+                        <option value="pickMult">Pick Multiple</option>
+
+
+                    </select>
+                </div>
+                <div class="col-md-4 questionTitleSection">
+                    <div class="form-group">
+
+                        <label>Question Title</label>
+                        <input type="text" class="form-control questionTitle" id  = "questionTitle1" placeholder="e.g. Creamer Type">
                     </div>
                 </div>
-                <div class="col-md-5 productTextInputs">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>Product Title</label>
-                                <input type="text" class="form-control" id="productTitle" placeholder="e.g. 'Latte'">
+                <div class="col-md-4 questionAnswersSection">
+                    <div class="answersWrapper">
+                        <div class="row question">
+                            <div class="col-sm-6">
+                                <p>Answers</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p>Additional Price</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
 
-                                <label>Product Base Price</label>
+                        <div class="row question">
+                            <div class="col-sm-6 answerBox">
+
+                                <input type="text" class="form-control addAnswer" id = "answerTitle1-1" placeholder="e.g. Almond Milk">
+                            </div>
+
+
+                            <div class="col-sm-6 answerAdditionalCost">
                                 <div class="input-group-prepend">
-                                    <div class="input-group-text">$</div>
-                                    <input type="text" class="form-control" id="productPrice" placeholder="">
+                                    <div class="input-group-text ">$</div>
+                                    <input type="text" class="form-control addCost" id = "answerPrice1-1" placeholder="e.g. 0.50">
                                 </div>
-
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
 
-                                <label>Est. To Make</label>
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="far fa-clock"></i></div>
-                                    <input type="text" class="form-control" id="productETM" placeholder="">
-                                </div>
-
-                            </div>
                         </div>
                     </div>
+                    <div class="row addAnswer">
+                        <button id="addAnswerButton1" class = "addAnswerButton">
+                            <p>+ Add Answer</p>
+                        </button>
+                    </div>
+
+
                 </div>
-                <div class="col-md-2 productSize">
-                    <div class="form-check form-check">
-                        <input class="form-check-input" type="checkbox" id="smallAdd" value="small">
-                        <label class="form-check-label" for="smallAdd">Small </label>
 
-
-
-                    </div>
-                    <div class="form-check form-check">
-                        <input class="form-check-input" type="checkbox" id="mediumAdd" value="medium">
-                        <label class="form-check-label" for="mediumAdd">Medium</label>
-                        <div class="input-group-prepend">
-                            <div class="input-group-text sizeCostSign">$</div>
-                            <input type="text" class="form-control sizeCost" id="medAdd" placeholder="Cost"></input>
-                        </div>
-                    </div>
-                    <div class="form-check form-check">
-                        <input class="form-check-input" type="checkbox" id="largeAdd" value="large">
-                        <label class="form-check-label" for="largeAdd">Large</label>
-                        <div class="input-group-prepend">
-                            <div class="input-group-text sizeCostSign">$</div>
-                            <input type="text" class="form-control sizeCost" id="lgAdd" placeholder="Cost"></input>
-                        </div>
-                    </div>
-                    <div class="form-check form-check">
-                        <input class="form-check-input" type="checkbox" id="xLargeAdd" value="xlarge">
-                        <label class="form-check-label" for="xLargeAdd">X-Large</label>
-                        <div class="input-group-prepend">
-                            <div class="input-group-text sizeCostSign">$</div>
-                            <input type="text" class="form-control sizeCost" id="xlAdd" placeholder="Cost"></input>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2 productTemp">
-                    <div class="form-check form-check">
-                        <input class="form-check-input" type="checkbox" id="icedCheck" value="iced">
-                        <label class="form-check-label" for="icedCheck">Iced</label>
-                        <div class="input-group-prepend">
-                            <div class="input-group-text sizeCostSign">$</div>
-                            <input type="text" class="form-control sizeCost" id="icedAdd" placeholder="Cost"></input>
-                        </div>
-                    </div>
-                    <div class="form-check form-check">
-                        <input class="form-check-input" type="checkbox" id="hotCheck" value="hot">
-                        <label class="form-check-label" for="hotCheck">hot</label>
-                        <div class="input-group-prepend">
-                            <div class="input-group-text sizeCostSign">$</div>
-                            <input type="text" class="form-control sizeCost" id="hotAdd" placeholder="Cost"></input>
-                        </div>
-                    </div>
-                </div>
 
             </div>
-            <div class="row additionalRow">
-                <div class="col-md-12">
-                    <div id="questionsArea">
-                        <div class="addProductInformation row" questionNumber="1">
+        </div>
 
-                            <div class="col-md-4 selectionTypeSection">
-                                <label>Question Type</label>
-                                <select class="form-control">
+        <button id="addProduct">
+            <h2> + Add Question</h2>
+        </button>
+    </div>
+</div>
+<div class="row additionalRow">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <button id="submitProductButton" onclick=submitProduct();>
+            <h3>Submit Product</h3>
+        </button>
+    </div>
+    <div class="col-md-4"></div>
+</div>
 
-                                    <option value="pickOne">Pick One</option>
-                                    <option value="pickMult">Pick Multiple</option>
-
-
-                                </select>
-                            </div>
-                            <div class="col-md-4 questionTitleSection">
-                                <div class="form-group">
-
-                                    <label>Question Title</label>
-                                    <input type="text" class="form-control questionTitle"
-                                        placeholder="e.g. Creamer Type">
-                                </div>
-                            </div>
-                            <div class="col-md-4 questionAnswersSection">
-                                <div class="answersWrapper1">
-                                    <div class="row question">
-                                        <div class="col-sm-6">
-                                            <p>Answers</p>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <p>Additional Price</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="row question">
-                                        <div class="col-sm-6 answerBox">
-
-                                            <input type="text" class="form-control addAnswer"
-                                                placeholder="e.g. Almond Milk">
-                                        </div>
-
-
-                                        <div class="col-sm-6 answerAdditionalCost">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text ">$</div>
-                                                <input type="text" class="form-control addCost" placeholder="e.g. 0.50">
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="row addAnswer">
-                                    <button class="addAnswerButton">
-                                        <p>+ Add Answer</p>
-                                    </button>
-                                </div>
-
-
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    <button id="addProduct">
-                        <h2> + Add Question</h2>
-                    </button>
-                </div>
-            </div>
-            <div class="row additionalRow">
-                <div class="col-md-4"></div>
-                <div class="col-md-4">
-                    <button id="submitProductButton" onclick=submitProduct();>
-                        <h3>Submit Product</h3>
-                    </button>
-                </div>
-                <div class="col-md-4"></div>
-            </div>
-
-
-
+<!--
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCategoryModal" data-whatever="@mdo">Open modal for @mdo</button>
+-->
+<div class="modal fade" id="addCategoryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New Category</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Category Title:</label>
+            <input type="text" class="" id="addedCategoryName"></input>
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Category Description:</label>
+            <textarea class="form-control" id="addedCategoryDescription"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id = "finishAddCategory">Add Category</button>
+      </div>
+    </div>
+  </div>
+</div>
