@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(sequelize, DataTypes) {
-  const Trip = sequelize.define('User', {
+  const Trip = sequelize.define('test', {
     username: {
       type: DataTypes.STRING,
       allowNull: true

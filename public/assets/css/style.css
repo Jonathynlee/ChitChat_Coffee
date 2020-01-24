@@ -17,6 +17,8 @@ body{
 .row{
     margin:0px;
 }
+
+/*
 .background{
 background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(espressoV3.jpg) no-repeat;
 background-size: cover;
@@ -25,7 +27,8 @@ min-height: 100%;
 display:flex;
 align-items: stretch;
 flex-direction: column;
-}
+}*/
+
 
 .content{
     flex-grow: 1;

@@ -8,6 +8,6 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");*/
 
 
 var manageAccounts_controller = require('../controllers/manageAccounts_controller');
-router.get('/', manageAccounts_controller.manageAccounts);
+router.get('/',  manageAccounts_controller.manageAccounts);
 
 module.exports=router;
