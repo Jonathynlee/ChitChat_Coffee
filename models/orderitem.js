@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var orderitem = sequelize.define("orderitem", {
+    var orderitem = sequelize.define("orderItem", {
  
         quantity: {
             type: DataTypes.INTEGER,
@@ -27,12 +27,12 @@ module.exports = function (sequelize, DataTypes) {
     orderitem.associate = function(models) {
         // We're saying that a orderitem should belong to an Author
         // A orderitem can't be created without an Author due to the foreign key constraint
-        orderitem.belongsTo(models.orders, {
+        orderitem.belongsTo(models.order, {
           foreignKey: {
             allowNull: false
           }
         })
-        orderitem.belongsTo(models.products, {
+        orderitem.belongsTo(models.product, {
             foreignKey: {
               allowNull: false
             }

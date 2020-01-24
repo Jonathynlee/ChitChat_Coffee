@@ -8,14 +8,13 @@ module.exports = function (app) {
 
     const users = require('./routes/users');
     const mainPage = require('./routes/mainPage');
-<<<<<<< HEAD
+
     const menu = require('./routes/menu');
-=======
+
 
     const shoppingCardAPI = require('./routes/shoppingCardAPI');
 
 
->>>>>>> master
 
     app.use('/shoppingCard', shoppingCard);
     app.use('/api/shoppingCard', shoppingCardAPI);
