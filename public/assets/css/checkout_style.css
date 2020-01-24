@@ -106,8 +106,9 @@ body{
     border: 1px solid rgb(161, 161, 161);
     border-radius: 2px;
     margin:0px 7.5%;
+ 
     position: absolute;
-    bottom:0px;
+    bottom:-10px;
     left:0px;
     display:none;
 }
@@ -137,7 +138,7 @@ font-size:20px;
     min-height:50px;
     z-index :100;
     margin:0px!important;
-    padding:15px;
+    padding:3px;
     overflow: hidden;
     
 }
@@ -161,9 +162,9 @@ font-size:20px;
 }
 .itemizedList{
     width:70%;
-    
+    overflow:hidden;
     position:relative;
-    padding:20px;
+    padding:0px;
     top:30px;
     left:70px;
     display:block;
@@ -188,11 +189,15 @@ font-size:20px;
 }
 .leftText{
     text-align: left;
-    width:40%
+    width:40%;
+    white-space: nowrap;
+  overflow: hidden;
 }
 .rightText{
     text-align:right;
     width:50%;
+    white-space: nowrap;
+  overflow: hidden;
 }
 
 .subTotal{
@@ -256,6 +261,7 @@ font-size:20px;
   }   
   .horz_line_order{
       display:block;
+      
 
   }
 
