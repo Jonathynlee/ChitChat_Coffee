@@ -6,8 +6,6 @@ var users_controller = require('../controllers/users_controller');
 var isAuthenticated = require("../config/middleware/isAuthenticated");*/
 
 var admin_controller = require('../controllers/orderAdmin_controller');
-router.get('/', admin_controller.OrderList);
-
-router.put('/:id', admin_controller.orderPartReady);
+router.get('/', admin_controller.apiOrderList);
 
 module.exports=router;

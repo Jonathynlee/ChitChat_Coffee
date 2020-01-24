@@ -31,13 +31,10 @@ module.exports = function (sequelize, DataTypes) {
         past_orders.belongsTo(models.user, {
           foreignKey: {
             allowNull: false
-          
- 
-
-        }
+           }
        
         });
-
+    }
     
     return past_orders;
 };

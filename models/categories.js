@@ -18,7 +18,7 @@ module.exports = function (sequelize, DataTypes) {
   categories.associate = function(models) {
     // Associating Categories with Posts
     // When an Categories is deleted, also delete any associated Posts
-    categories.hasMany(models.products,{
+    categories.hasMany(models.product,{
     
     });
   };
