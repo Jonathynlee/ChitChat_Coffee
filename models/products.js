@@ -38,13 +38,7 @@ module.exports = function (sequelize, DataTypes) {
         seasonal:{
             type:DataTypes.STRING
         },    
-        sizes:{
-            type:DataTypes.STRING
-        },    
-        temp:{
-            type:DataTypes.STRING
-        }
-
+       
         
     });
     products.associate = function(models) {
