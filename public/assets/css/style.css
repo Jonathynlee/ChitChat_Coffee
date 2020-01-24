@@ -14,7 +14,9 @@ body{
     font-size: 25px;
     color: black(248, 234, 234);
 }
-
+.row{
+    margin:0px;
+}
 .background{
 background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(espressoV3.jpg) no-repeat;
 background-size: cover;
