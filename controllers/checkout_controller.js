@@ -14,7 +14,7 @@ exports.getOrderItems=function(req, res){
       status:"in_cart"}
    }).then(function(order){
       //console.log(order)
-      db.orderitem.findAll({
+      db.orderItem.findAll({
          where:{orderId:order.id}
       }).then(function(items){
          res.json(items);

@@ -4,13 +4,14 @@ module.exports = function (app) {
     const orderAdminDetails = require('./routes/orderAdminDetails');
     const shoppingCard = require('./routes/shoppingCard');
     const createProductAdmin = require('./routes/createProductAdmin');
-    const checkout = require('./routes/checkout');
+    //const checkout = require('./routes/checkout');
 
     const users = require('./routes/users');
     const mainPage = require('./routes/mainPage');
 
     const shoppingCardAPI = require('./routes/shoppingCardAPI');
     const orderAdminListAPI= require('./routes/orderAdminListAPI');
+    const manageAccount= require('./routes/manageAccounts');
 
 
     app.use('/shoppingCard/:id', shoppingCard);
@@ -24,8 +25,9 @@ module.exports = function (app) {
 
     app.use('/orderAdminDetails', orderAdminDetails);
     app.use('/createProductAdmin', createProductAdmin);
-    app.use('/checkout', checkout);
+    //app.use('/checkout', checkout);
     app.use('/users', users);
+    app.use('/manageAccount', manageAccount);
     app.use('/', mainPage);
 
 
