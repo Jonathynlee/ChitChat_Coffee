@@ -40,7 +40,8 @@ module.exports = function (sequelize, DataTypes) {
         orderitem.belongsTo(models.product, {
             foreignKey: {
               allowNull: false
-            }
+            },
+            
           })
           
         };

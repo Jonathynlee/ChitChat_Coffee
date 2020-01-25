@@ -1,4 +1,4 @@
-let itemDetail = { name: "",sizes:"{small:{include:false,price:0 },medium:{include:false,price:0 },large:{include:false,price:0 }, xlarge:{include:false,price:0 } }", temp:"{iced:{include:false,price:0 },hot:{include:false,price:0 }}", basePrice: 0, addOns: [], image: "", description: "", seasonal: "", EstimatedTime: 1 }
+let itemDetail = { name: "", basePrice: 0, addOns: [], image: "", description: "", seasonal: "", EstimatedTime: 1 }
 
 let questionCount = 1;
 let answersCount = [1];
@@ -30,29 +30,62 @@ function createProduct() {
     let productBasePrice = $("#productPrice").val();
     let productETM = $("#productETM").val();
     let productDescription = $("#productDescription").val();
+ //{"question":{"title":"","questionType":"pickOne","answers":[{}]}}]"
+    let sizes ={question:{title:"Size",questionType: "pickOne",answers:[{title:"small",include:"false", price:0},{title:"medium",include:"false", price:0}, {title:"large",include:"false", price:0}, {title:"xlarge",include:"false", price:0}] }};
+    
+    
+    if ($("#smallAdd").is(":checked")){
+        sizes.question.answers[0].include = true;
+        
+        
+    }
+    if ($("#mediumAdd").is(":checked")){
+        sizes.question.answers[1].include = true;
+        sizes.question.answers[1].price = $("#medAdd").val();
+    }
+    if ($("#largeAdd").is(":checked")){
+        sizes.question.answers[2].include = true;
+        sizes.question.answers[2].price = $("#lgAdd").val();
+    }
+    if ($("#xLargeAdd").is(":checked")){
+        sizes.question.answers[3].include = true;
+        sizes.question.answers[3].price = $("#xlAdd").val();
+    }
+    
+
+    //Set Up Temp
+    let temp ={question:{title:"Temp",questionType: "pickOne",answers:[{title:"Iced",include:"false", price:0},{title:"Hot",include:"false", price:0}] }};
+    if ($("#icedCheck").is(":checked")){
+        temp.question.answers[0].include = true;
+        temp.question.answers[0].price = $("#icedAdd").val();
+    }
+    if ($("#hotCheck").is(":checked")){
+        temp.question.answers[1].include = true;
+        temp.question.answers[1].price = $("#hotAdd").val();
+    }
 
 
     //Set Up Addons String
-    let addOnObject = [];
-    for (let i = 0; i < questionCount; i++) {
+    let addOnObject = [sizes,temp];
+    for (let i = 2; i < questionCount+2; i++) {
         addOnObject[i] = {};
         addOnObject[i]["question"] = {};
 
-        addOnObject[i]["question"]["title"] = $("#questionTitle" + (i+1)).val();
-        addOnObject[i]["question"]["questionType"] = $("#questionType" + (i+1)).val();
+        addOnObject[i]["question"]["title"] = $("#questionTitle" + (i-1)).val();
+        addOnObject[i]["question"]["questionType"] = $("#questionType" + (i-1)).val();
         addOnObject[i]["question"]["answers"] = [];
-        for (let o = 0; o < answersCount[i]; o++) {
+        for (let o = 0; o < answersCount[i-2]; o++) {
             
             addOnObject[i]["question"]["answers"][o] = {};
             
             
-            addOnObject[i]["question"]["answers"][o]["title"] = $("#answerTitle" + (i+1) + "-" + (o+1)).val();
-            addOnObject[i]["question"]["answers"][o]["price"] = $("#answerPrice" + (i+1) + "-" + (o+1)).val();
-            console.log("logging" + i+"-"+o);
+            addOnObject[i]["question"]["answers"][o]["title"] = $("#answerTitle" + (i-1) + "-" + (o+1)).val();
+            addOnObject[i]["question"]["answers"][o]["price"] = $("#answerPrice" + (i-1) + "-" + (o+1)).val();
+            
 
         }
     }
-
+console.log(addOnObject)
     //set Up Seasonal
    let seasonal = ""; 
    if ($("#seasonalCheck").is(":checked")){
@@ -62,37 +95,7 @@ function createProduct() {
     }
     
     //setUp sizes
-    let sizes = {small:{include:false,price:0 },medium:{include:false,price:0 },large:{include:false,price:0 }, xlarge:{include:false,price:0 } };
-    if ($("#smallAdd").is(":checked")){
-        sizes.small.include = true;
-        
-        
-    }
-    if ($("#mediumAdd").is(":checked")){
-        sizes.medium.include = true;
-        sizes.medium.price = $("#medAdd").val();
-    }
-    if ($("#largeAdd").is(":checked")){
-        sizes.large.include = true;
-        sizes.large.price = $("#lgAdd").val();
-    }
-    if ($("#xLargeAdd").is(":checked")){
-        sizes.xlarge.include = true;
-        sizes.xlarge.price = $("#xlAdd").val();
-    }
     
-
-    //Set Up Temp
-    let temp  = {iced:{include:false,price:0 },hot:{include:false,price:0 }}
-    if ($("#icedCheck").is(":checked")){
-        temp.iced.include = true;
-        temp.iced.price = $("#icedAdd").val();
-    }
-    if ($("#hotCheck").is(":checked")){
-        temp.hot.include = true;
-        temp.hot.price = $("#hotAdd").val();
-    }
-
     
 
 
@@ -103,8 +106,7 @@ function createProduct() {
     itemDetail.EstimatedTime = productETM;
     itemDetail.description = productDescription;
     itemDetail.addOns = JSON.stringify(addOnObject);
-    itemDetail.temp = JSON.stringify(temp);
-    itemDetail.sizes = JSON.stringify(sizes);
+    
     
 
     console.log(itemDetail);

@@ -8,6 +8,8 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");*/
 var admin_controller = require('../controllers/orderAdmin_controller');
 router.get('/', admin_controller.OrderList);
 
-router.put('/:id', admin_controller.orderPartReady);
+router.put('/partOrder/:id', admin_controller.orderPartReady);
+router.put('/updateStatusOrder/:id',admin_controller.updateStatusOrder);
+
 
 module.exports=router;

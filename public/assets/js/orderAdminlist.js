@@ -4,12 +4,55 @@ tbodyEl=$("#table");
 const colorme=["table-danger","table-warning"];
 let color_index=0;
 let db;
+let myVar;
+let seed;
 //let table_index=0;
 //////////////////////////////////
 /*$('#myModal').on('shown.bs.modal', function() {
     $('#myModal').modal(hide);
 }  );  */
+function isCompleted(orderId){
+    let index=0;
+    for(let i=0;i<db.length;i++){
+        if (db[i].id==orderId){
+            index=i;
+            break;
+        }
+    }
+    
+    for (let i=0;i<db[index].orderItems.length;i++){
+        if (!db[index].orderItems[i].ready){
+            
+            return false;
+        }
+        
+
+    }
+   
+    return true;
+}
+
+function hasStarted(orderId){
+    let index=0;
+    for(let i=0;i<db.length;i++){
+        if (db[i].id==orderId){
+            index=i;
+            break;
+        }
+    }
+    
+    for (let i=0;i<db[index].orderItems.length;i++){
+        if (db[index].orderItems[i].ready){
+            return true;
+        }
+        
+
+    }
+    return false;
+
+}
 $("#orderComplete").on("click",function(event){
+    clearInterval(myVar)
     const orderNo=document.getElementById("ono").innerText;
     const itemNo=document.getElementById("ino").innerText;
     const customerName=document.getElementById("customerName").innerText;
@@ -18,20 +61,72 @@ $("#orderComplete").on("click",function(event){
     let str="#"+"r"+itemNo;
     $(str).attr("disabled",true);
     $(str).attr("checked",true);
+    $("#myModal").modal("hide");
 
     //////////database functions////////////
-    $("#myModal").modal("hide");
-   
     
+       const data={
+            ready:1
+         }
+     
+         $.ajax({
+           method: "PUT",
+           url: "/orderAdminList/partOrder/"+itemNo,
+           data: data
+         }).then(function() {
+            
+             if(isCompleted(orderNo)){
+                
+                 const stat={
+                     status:"completed"
+                 }
+                 $.ajax({
+                    method: "PUT",
+                    url: "/orderAdminList/updateStatusOrder/"+orderNo,
+                    data:stat
+                  }).then(function() {
+                      window.location.reload();
+                      
+                    });
+             }
+             
+           });
+       
+
+    
+    //////////////////////////////////////// 
 
 });
 
 $("#orderCancel").on("click",function(event){
+    
     const orderNo=document.getElementById("ono").innerText;
     const itemNo=document.getElementById("ino").innerText;
     const customerName=document.getElementById("customerName").innerText;
     const customerID=document.getElementById("customerID").innerText;
     const phone=document.getElementById("phone").innerText;
+    console.log(orderNo);
+    if(hasStarted(orderNo)){
+        alert("Order is started!! Cannot cancel!!!");
+    }
+    else{
+        clearInterval(myVar)
+            const data={
+                status:"cancelled"
+            }
+
+          $.ajax({
+            method: "PUT",
+            url: "/orderAdminList/updateStatusOrder/"+orderNo,
+            data:data
+
+          }).then(function() {
+             
+              window.location.reload();
+              
+            });
+
+    }
    
 
 });
@@ -52,6 +147,8 @@ $("#table").on("click",function(event){
     $("#phone").text(db[i].user.phone);
     $("#numOLeft").text((db.length)-i-1);
     $("#numILeft").text(db[i].orderItems.length-j-1);
+    $('#et').text(db[i].orderItems[j].product.EstimatedTime);
+    
     /////////ADD ON//////////////////////////////////////
     add=JSON.parse(db[i].orderItems[j].addons);
     ////////////////Basic set up///////////////////
@@ -107,10 +204,32 @@ $("#table").on("click",function(event){
     alert("Contanct Support!!");
    }
    
+    /////////////////////////TIMER/////////
+    const pbar=$(".progress-bar");
+    pbar.attr("aria-valuenow",0)
+    pbar.attr("style","width:0%");
+    pbar.text(0);
 
+    seed=(db[i].orderItems[j].product.EstimatedTime)*600;
+     myVar = setInterval(myTimer, seed);
     $('#myModal').modal();
 
 });
+////////////////////////////////////////
+function myTimer(){
+    const pbar=$(".progress-bar");
+    const value=pbar.attr("aria-valuenow");
+    //console.log(value);
+    if(parseInt(value)==100){
+        clearInterval(myVar)
+    }
+    else{
+        pbar.attr("aria-valuenow",parseInt(value)+1);
+        pbar.attr("style","width:"+(parseInt(value)+1)+"%");
+        pbar.text(parseInt(value)+1);
+    }   
+    
+}
 
 /////////////////////////////////
 $.ajax({
@@ -166,7 +285,8 @@ $.ajax({
 
 
                    td=$("<td>");
-                   input=$("<input>");
+                   td.text(result[i].orderItems[j].product.EstimatedTime+" min");
+                  /* input=$("<input>");
                    input.attr("type","checkbox");
                    input.attr("class","form-check-input");
                    input.attr("id","c"+result[i].orderItems[j].id);
@@ -177,8 +297,8 @@ $.ajax({
                     div2=$("<div>");
                    div2.attr("class","form-group");
                    div2.append(div);
-                   td.append(div2);
-                   row.append(td);
+                   td.append(div2);*/
+                   //row.append(td);
                    row.append(td);
                    tbodyEl.append(row);
 
@@ -191,38 +311,6 @@ $.ajax({
            
 } );  
 
+
+
 });
-
-/*
-    <div class="col-sm-6">
-              <!--Will be Dymanically Generated-->
-              <!--Card-->
-
-              <div class="card mt-2" style="width: 35rem">/////div2
-                    <h5 class="card-header">ADD INS</h5>
-                    <div class="card-body">/////div3
-                        <h5 class="card-title">Creamer:</h5>........
-
-                        <div class="form-check form-check-inline"> /////div4
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked disabled>
-                                <label class="form-check-label" for="inlineCheckbox1">%1 Milk</label>
-                       </div>
-                       <h5 class="card-title">Sweetener:</h5>
-                      <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"checked disabled>
-                            <label class="form-check-label" for="inlineCheckbox2">Stevia</label>
-                     </div>
-
-                    <h5 class="card-title">Espresso/Shot Option:</h5>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" checked disabled>
-                        <label class="form-check-label" for="inlineCheckbox3">3 Shots</label>
-                    </div>
-                    <h5 class="card-title">Others</h5> 
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" checked disabled>
-                        <label class="form-check-label" for="inlineCheckbox3">Decaf</label>
-                    </div>
-                </div>
-            </div> 
-*/
