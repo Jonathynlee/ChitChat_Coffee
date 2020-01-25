@@ -10,6 +10,7 @@ module.exports = function (app) {
     const mainPage = require('./routes/mainPage');
 
     const menu = require('./routes/menu');
+    const merch = require('./routes/merch')
 
 
     const shoppingCardAPI = require('./routes/shoppingCardAPI');
@@ -26,6 +27,7 @@ module.exports = function (app) {
     app.use('/users', users);
     app.use('/', mainPage);
     app.use('/menu', menu);
+    app.use('/merch', merch);
 
 
     //other routes..
