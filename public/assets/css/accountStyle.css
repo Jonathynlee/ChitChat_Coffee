@@ -14,6 +14,9 @@ body{
     color: rgb(248, 234, 234);
 }
 
+
+/* MAIN PAGE */
+
 .backgroundMain{
 background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(espressoV3.jpg);
 background-size: cover!important;
@@ -31,11 +34,39 @@ flex-direction: column;
 .mainCard{
     margin-top: 400px;
     max-width: 100%!important;
+    border-radius: unset!important;
 }
 
 .content{
     flex-grow: 1;
 }
+
+/*///////////////////////*/
+
+.mainContainer {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+  
+  
+
+  .textCentered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+.matcha{
+    width: 100%!important;
+    height: 100%!important;
+    border-radius: unset!important;
+    float: none!important;
+    margin-top: -16px;
+}
+  /*/////////////////////*/
+
 
 
 
