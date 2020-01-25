@@ -28,7 +28,7 @@ exports.authorizedUser = function(req, res) {
   // They won't get this or even be able to access this page if they aren't authed
   req.session.email=req.user.email;
   req.session.name=req.user.name;
-  res.send("../shoppingCard");
+  res.send("/");
 /////////
 };
 

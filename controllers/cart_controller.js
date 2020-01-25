@@ -106,5 +106,17 @@ exports.index = function (req, res) {
          });
             
        }
+
+       exports.updateSubtotal=function (req,res){
+          //const id=req.params.id;
+         console.log(req.body);
+         db.order.update({subTotal:req.body.subTotal},{
+            where:{
+               id:req.body.id
+            }
+         }).then(function(dbPost) {
+           res.json(dbPost);
+         }); 
+      }
    
 
