@@ -3,7 +3,7 @@ module.exports = function (sequelize, DataTypes) {
  
         orderDate: {
             type: DataTypes.DATE,
-            allowNull: false
+            
             
         },
        
@@ -14,14 +14,14 @@ module.exports = function (sequelize, DataTypes) {
         },
         pickUpDate: {
             type: DataTypes.DATE,
-            allowNull: false
+            
             
         }, 
         total:{
             type: DataTypes.FLOAT, 
-            allowNull:false
+           
         }, 
-        subTotal:{
+        subtotal:{
             type: DataTypes.FLOAT, 
             allowNull:false
         }

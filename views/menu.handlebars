@@ -1,239 +1,88 @@
 
-<div class="row">
-        <div class="col-2">
-            <h3>Drinks</h3>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <div class="input-group-text">
-                    <input type="checkbox" aria-label="Checkbox for following text input">
-                    </div>
-                </div>
-                <p>Hot Coffees</p>
-            </div>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <div class="input-group-text">
-                    <input type="checkbox" aria-label="Checkbox for following text input">
-                    </div>
-                </div>
-                <p>Hot Chocolates</p>
-            </div>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <div class="input-group-text">
-                    <input type="checkbox" aria-label="Checkbox for following text input">
-                    </div>
-                </div>
-                <p>Hot Teas</p>
-            </div>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <div class="input-group-text">
-                    <input type="checkbox" aria-label="Checkbox for following text input">
-                    </div>
-                </div>
-                <p>Iced Drinks</p>
-            </div>
+    <div class="row mainRow">
+        <div class="col-md-3">
+            <div class="leftCol" id = "filterColumn">
+                <div class="row">
+                    <div class="col-md-12">
 
-            <h3>Pastries</h3>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <div class="input-group-text">
-                    <input type="checkbox" aria-label="Checkbox for following text input">
-                  </div>
+                        <h2> Categories</h2>
+                        <hr style="margin:0px; border:1px solid rgb(170, 170, 170);">
+                    </div>
+                    
                 </div>
-                <p>Cookies</p>
-            </div>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <div class="input-group-text">
-                    <input type="checkbox" aria-label="Checkbox for following text input">
-                  </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        
+                        <div class="form-check " id="" title="">
+                            <input class="form-check-input " type="checkbox" name="" id="icedDrinkRadio"
+                                value="icedDrink">
+                            <label class="form-check-label" for="icedDrinkRadio">Coffee</label>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        
+                        <div class="form-check " id="" title="">
+                            <input class="form-check-input " type="checkbox" name="" id="icedDrinkRadio"
+                                value="icedDrink">
+                            <label class="form-check-label" for="icedDrinkRadio">Coffee</label>
+                        </div>
+
+                    </div>
                 </div>
-                <p>Muffins</p>
-            </div>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <div class="input-group-text">
-                    <input type="checkbox" aria-label="Checkbox for following text input">
-                  </div>
-                </div>
-                <p>Cupcakes</p>
+
+
             </div>
         </div>
 
-        <div class="col">
-            <h1>Drinks</h1>
-            <div class="container">
-                <h2 id="hotCoffees">Hot Coffees</h2>
-                <div class="row">
-                    <div class="col">
-                        <img src="https://previews.123rf.com/images/volff/volff1209/volff120900030/15095938-coffee-cup-and-saucer-on-a-white-background-.jpg" alt="DrkRstCoffee" height="175" width="175">
-                        <p>Dark Roast Coffee</p>
-                        <button id="btnOrder">Order</button>
+        <div class="col-md-9">
+            <div class="rightCol">
+                <div class="row" id="productColumn">
+                    <div class="outterBox" productId="1">
+                        <div class="productBox">
+                            <div class="productTextBox">
+                                <h2>Latte</h2>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col">
-                        <img src="https://previews.123rf.com/images/volff/volff1209/volff120900030/15095938-coffee-cup-and-saucer-on-a-white-background-.jpg" alt="Latte" height="175" width="175">
-                        <p>Latte</p>
-                        <button id="btnOrder">Order</button>
-                    </div>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col">
-                        <img src="https://previews.123rf.com/images/volff/volff1209/volff120900030/15095938-coffee-cup-and-saucer-on-a-white-background-.jpg" alt="Mocha" height="175" width="175">
-                        <p>Mocha</p>
-                        <button id="btnOrder">Order</button>
-                    </div>
-                    <div class="col">
-                        <img src="https://previews.123rf.com/images/volff/volff1209/volff120900030/15095938-coffee-cup-and-saucer-on-a-white-background-.jpg" alt="Cappuccino" height="175" width="175">
-                        <p>Cappuccino</p>
-                        <button id="btnOrder">Order</button>
-                    </div>
-                </div> 
-            </div>
-    
-            <div class="container">
-                <h2 id="hotChocolates">Hot Chocolates</h2>
-                <div class="row">
-                    <div class="col">
-                        <img src="https://previews.123rf.com/images/volff/volff1209/volff120900030/15095938-coffee-cup-and-saucer-on-a-white-background-.jpg" alt="HotChoco" height="175" width="175">
-                        <p>Hot Chocolate</p>
-                        <button id="btnOrder">Order</button>
-                    </div>
-                    <div class="col">
-                        <img src="https://previews.123rf.com/images/volff/volff1209/volff120900030/15095938-coffee-cup-and-saucer-on-a-white-background-.jpg" alt="WhtChoco" height="175" width="175">
-                        <p>White Hot Chocolate</p>
-                        <button id="btnOrder">Order</button>
-                    </div>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col">
-                        <img src="https://previews.123rf.com/images/volff/volff1209/volff120900030/15095938-coffee-cup-and-saucer-on-a-white-background-.jpg" alt="PepHotChoco" height="175" width="175">
-                        <p>Peppermint Hot Chocolate</p>
-                        <button id="btnOrder">Order</button>
-                    </div>
-                    <div class="col">
-                        <img src="https://previews.123rf.com/images/volff/volff1209/volff120900030/15095938-coffee-cup-and-saucer-on-a-white-background-.jpg" alt="PepWhtChoco" height="175" width="175">
-                        <p>Peppermint White Hot Chocolate</p>
-                        <button id="btnOrder">Order</button>
-                    </div>
-                </div> 
-            </div>
+                    <div class="outterBox" productId="1">
+                        <div class="productBox">
+                            <div class="productTextBox">
+                                <h2>Latte</h2>
+                            </div>
+                        </div>
 
-            <div class="container">
-                <h2 id="hotTeas">Hot Teas</h2>
-                <div class="row">
-                    <div class="col">
-                        <img src="https://previews.123rf.com/images/volff/volff1209/volff120900030/15095938-coffee-cup-and-saucer-on-a-white-background-.jpg" alt="EngBrkTea" height="175" width="175">
-                        <p>English Breakfast Tea</p>
-                        <button id="btnOrder">Order</button>
                     </div>
-                    <div class="col">
-                        <img src="https://previews.123rf.com/images/volff/volff1209/volff120900030/15095938-coffee-cup-and-saucer-on-a-white-background-.jpg" alt="PeachTea" height="175" width="175">
-                        <p>Peach Tea</p>
-                        <button id="btnOrder">Order</button>
-                    </div>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col">
-                        <img src="https://previews.123rf.com/images/volff/volff1209/volff120900030/15095938-coffee-cup-and-saucer-on-a-white-background-.jpg" alt="ChaiLat" height="175" width="175">
-                        <p>Chai Latte</p>
-                        <button id="btnOrder">Order</button>
-                    </div>
-                    <div class="col">
-                        <img src="https://previews.123rf.com/images/volff/volff1209/volff120900030/15095938-coffee-cup-and-saucer-on-a-white-background-.jpg" alt="MtchGrnTeaLat" height="175" width="175">
-                        <p>Matcha Green Tea Latte</p>
-                        <button id="btnOrder">Order</button>
-                    </div>
-                </div> 
-            </div>
+                    <div class="outterBox" productId="1">
+                        <div class="productBox">
+                            <div class="productTextBox">
+                                <h2>Latte</h2>
+                            </div>
+                        </div>
 
-            <div class="container">
-                <h2 id="icedDrinks">Iced Drinks</h2>
-                <div class="row">
-                    <div class="col">
-                        <img src="https://previews.123rf.com/images/volff/volff1209/volff120900030/15095938-coffee-cup-and-saucer-on-a-white-background-.jpg" alt="IcedCoff" height="175" width="175">
-                        <p>Iced Coffee</p>
-                        <button id="btnOrder">Order</button>
                     </div>
-                    <div class="col">
-                        <img src="https://previews.123rf.com/images/volff/volff1209/volff120900030/15095938-coffee-cup-and-saucer-on-a-white-background-.jpg" alt="IcedLat" height="175" width="175">
-                        <p>Iced Latte</p>
-                        <button id="btnOrder">Order</button>
-                    </div>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col">
-                        <img src="https://previews.123rf.com/images/volff/volff1209/volff120900030/15095938-coffee-cup-and-saucer-on-a-white-background-.jpg" alt="IcedCarMacc" height="175" width="175">
-                        <p>Iced Caramel Macchiato</p>
-                        <button id="btnOrder">Order</button>
-                    </div>
-                    <div class="col">
-                        <img src="https://previews.123rf.com/images/volff/volff1209/volff120900030/15095938-coffee-cup-and-saucer-on-a-white-background-.jpg" alt="IcedMoch" height="175" width="175">
-                        <p>Iced Mocha</p>
-                        <button id="btnOrder">Order</button>
-                    </div>
-                </div> 
-            </div>
+                    <div class="outterBox" productId="1">
+                        <div class="productBox">
+                            <div class="productTextBox">
+                                <h2>Latte</h2>
+                            </div>
+                        </div>
 
-            <h1>Pastries</h1>
-            <div class="container">
-                <h2 id="cookies">Cookies</h2>
-                <div class="row">
-                    <div class="col">
-                        <img src="http://stock-image.mediafocus.com/images/previews/chocolate-cookies-isolated-on-white-background-sb112554.jpg" alt="SugarCook" height="175" width="175">
-                        <p>Sugar</p>
-                        <button id="btnOrder">Order</button>
                     </div>
-                    <div class="col">
-                        <img src="http://stock-image.mediafocus.com/images/previews/chocolate-cookies-isolated-on-white-background-sb112554.jpg" alt="ChocoChipCook" height="175" width="175">
-                        <p>Chocolate Chip</p>
-                        <button id="btnOrder">Order</button>
-                    </div>
-                </div>
-            </div>
 
-            <div class="container">
-                <h2 id="muffins">Muffins</h2>
-                <div class="row">
-                    <div class="col">
-                        <img src="http://stock-image.mediafocus.com/images/previews/chocolate-cookies-isolated-on-white-background-sb112554.jpg" alt="SugarCook" height="175" width="175">
-                        <p>Blueberry</p>
-                        <button id="btnOrder">Order</button>
-                    </div>
-                    <div class="col">
-                        <img src="http://stock-image.mediafocus.com/images/previews/chocolate-cookies-isolated-on-white-background-sb112554.jpg" alt="ChocoChipCook" height="175" width="175">
-                        <p>Banana Nut</p>
-                        <button id="btnOrder">Order</button>
-                    </div>
                 </div>
-            </div>
 
-            <div class="container">
-                <h2 id="cupcakes">Cupcakes</h2>
-                <div class="row">
-                    <div class="col">
-                        <img src="http://stock-image.mediafocus.com/images/previews/chocolate-cookies-isolated-on-white-background-sb112554.jpg" alt="SugarCook" height="175" width="175">
-                        <p>Red Velvet</p>
-                        <button id="btnOrder">Order</button>
-                    </div>
-                    <div class="col">
-                        <img src="http://stock-image.mediafocus.com/images/previews/chocolate-cookies-isolated-on-white-background-sb112554.jpg" alt="ChocoChipCook" height="175" width="175">
-                        <p>Chocolate</p>
-                        <button id="btnOrder">Order</button>
-                    </div>
-                </div>
             </div>
         </div>
-</div>
 
-<script type="javascript/text" src="/assets/js/menu.js"> //Functionality for showing cart items
 
-</script>
+    </div>
+
+
+
+    <!-- Bootstrap & Jquery-->
+
 
 
      
@@ -389,4 +238,3 @@
                 </div>
 
 
-<button id = "openProductModal"></button>
