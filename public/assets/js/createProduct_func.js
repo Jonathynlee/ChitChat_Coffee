@@ -24,7 +24,7 @@ function renderCategories() {
 
 }
 
-function createProduct() {
+function createProduct(cb) {
     let productTitle = $("#productTitle").val();
     let productCategory = $("#categorySelect").val();
     let productBasePrice = $("#productPrice").val();
@@ -110,6 +110,7 @@ console.log(addOnObject)
     
 
     console.log(itemDetail);
+    cb();
 }
 
 
@@ -270,14 +271,17 @@ $("#addProduct").on("click", function (event) {
 
 const submitProduct = function () {
     
-
-    $.ajax({
-        method:"post",
-        url:"/createProductAdmin/addProduct",
-        data:itemDetail,
-        success:function(data){
-            console.log("Product Added") 
-        }
-
+    createProduct(function(){
+        $.ajax({
+            method:"post",
+            url:"/createProductAdmin/addProduct",
+            data:itemDetail,
+            success:function(data){
+                console.log(itemDetail) 
+            }
+    
+        })
     })
+    
+
 }

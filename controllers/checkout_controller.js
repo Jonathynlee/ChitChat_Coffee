@@ -17,6 +17,7 @@ exports.getOrderItems=function(req, res){
          where:{orderId:parseInt(order.id)}
       }).then(function(items){
          res.json(items);
+
       })
 
    })
@@ -28,6 +29,7 @@ exports.getProduct=function(req, res){
    db.product.findOne({
       where:{id:req.body.productId}
    }).then(function(product){
+      console.log(product)
          res.json(product);
       })
 
