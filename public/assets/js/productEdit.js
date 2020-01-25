@@ -353,7 +353,7 @@ $.ajax({
 
 }).then(function(products){
 
-    console.log(products)
+   //console.log(products)
 for (i in products){
 
     productString += `<div class="outterBox" productId="${products[i].id}">
@@ -367,7 +367,7 @@ for (i in products){
     
 
 }
-console.log(productString)
+//console.log(productString)
 
 $("#productColumn").html(productString)
 $(".productBox").on("click", function(event){
