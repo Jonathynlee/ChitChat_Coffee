@@ -1,0 +1,13 @@
+body {
+    background-image: url("https://images.pexels.com/photos/851555/pexels-photo-851555.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=500&w=700");    
+    background-attachment: fixed;
+}
+
+p, h1, h2, h3, a {
+    color: darkgreen;
+    font-family: Pacifico;
+}
+
+p, a {
+    font-size: large;
+}

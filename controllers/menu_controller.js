@@ -1,9 +1,13 @@
+
+
+exports.menu=function(req,res){
+    res.render("menu");
+ }
+
 var db=require("../models");
 
 
-exports.index=function(req,res){
-   res.render("menu");
-}
+
 
 exports.getProduct = function(req, res){
     console.log(req.body)
