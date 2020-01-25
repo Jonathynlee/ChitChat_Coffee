@@ -176,7 +176,7 @@ $("#table").on("click",function(event){
       div1.empty();
     //const div1=$("<div>").attr("class","col-sm-6");
     const div2=$("<div>").attr("class","card mt-2");
-          div2.attr("style","width: 35rem");
+          div2.attr("style","width: auto");
     div1.append(div2); 
     let h5=$("<h5>").attr("class","card-header");
     h5.text("ADD INS");
