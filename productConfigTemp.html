@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>ChitChat</title>
+
+    <!-- Bootstrap Core CSS -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <script src="https://kit.fontawesome.com/02f6453d68.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/70fe2499f8.js" crossorigin="anonymous"></script>
+
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+
+    <link href="https://fonts.googleapis.com/css?family=Pacifico:400,700" rel="stylesheet" type="text/css">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="/public/assets/css/productModal.css">
+    <link rel="stylesheet" href="/public/assets/css/checkout_style.css">
+    <link rel="stylesheet" href="/public/assets/css/product_config.css">
+    <link rel="stylesheet" href="/public/assets/css/footer_style.css">
+    <link rel="stylesheet" href="/public/assets/css/style.css">
+    <link href="/public/assets/css/accountStyle.css" rel="stylesheet">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="page-container">
+        <div class="content">
+
+            <div class="background">
+                <div class="content">
+
+
+                    <!--//////////////////////////NAV BAR BEGIN//////////////////////////-->
+
+                    <!--//////////////////////////CONTENT BEGIN//////////////////////////-->
+
+                    <div class="modal fade" id="productModal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h2 class="modal-title" id="exampleModalLabel">Edit Product - Product Name</h2>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+
+
+
+
+                                    <div class="row firstRow notLastRow">
+                                        <div class="col-md-4 productPicture">
+                                            <div id="pictureBox">
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 productTextInputs">
+                                            <div class = "row subRow">
+                                                <!-- TEMP SELECTION-->
+                                                <div class="col-md-6 productTemp">
+                                                    <div class="form-check" id = "icedSelection">
+                                                        <input class="form-check-input" type="radio" name="tempSelection" id="icedDrinkRadio" value="icedDrink">
+                                                        <label class="form-check-label" for="icedDrinkRadio">
+                                                          Iced - $0.50
+                                                        </label>
+                                                      </div>
+                                                      <div class="form-check" id = "hotSelection">
+                                                        <input class="form-check-input" type="radio" name="tempSelection" id="hotDrinkRadio" value="hotDrink">
+                                                        <label class="form-check-label" for="hotDrinkRadio">
+                                                          Hot - $0.00
+                                                        </label>
+                                                      </div>
+                                                    
+                                                    <div class="form-check form-check">
+
+
+                                                    </div>
+                                                    
+                                                </div>
+                                                <!-- SIZE SELECTION-->
+                                                <div class="col-md-6 productSize">
+                                                    <div class="form-check" id = "smallSelection">
+                                                        <input class="form-check-input" type="radio" name="tempSelection" id="smallDrinkRadio" value="smallDrink">
+                                                        <label class="form-check-label" for="smallDrinkRadio">
+                                                          Small
+                                                        </label>
+                                                      </div>
+                                                      <div class="form-check" id = "mediumSelection">
+                                                        <input class="form-check-input" type="radio" name="tempSelection" id="mediumDrinkRadio" value="mediumDrink">
+                                                        <label class="form-check-label" for="mediumDrinkRadio">
+                                                          Medium - $0.25
+                                                        </label>
+                                                      </div>
+                                                      <div class="form-check" id = "largeSelection">
+                                                        <input class="form-check-input" type="radio" name="tempSelection" id="largeDrinkRadio" value="largeDrink">
+                                                        <label class="form-check-label" for="largeDrinkRadio">
+                                                          Large - $0.50
+                                                        </label>
+                                                      </div>
+                                                      <div class="form-check" id = "xLargeSelection">
+                                                        <input class="form-check-input" type="radio" name="tempSelection" id="xLargeDrinkRadio" value="xLargeDrink">
+                                                        <label class="form-check-label" for="xLargeDrinkRadio">
+                                                          X-Large - $0.75
+                                                        </label>
+                                                      </div>
+                                                    
+                                                    <div class="form-check form-check">
+
+
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+                                    <div class="row secondRow productRow " id = "addQuestionsRow">
+                                        <div class = "col-md-12">
+
+
+
+
+
+                                            <!---------------------------------------->
+                                        <div class = "row notLastRow productQuestionRow">
+                                        <div class = "col-md-6">
+                                            <h2> Multi Select:</h2>
+                                        </div>
+                                        <div class="col-md-6 productSize">
+                                            <div class="form-check" id = "option1Selection">
+                                                <input class="form-check-input" type="checkbox" name="questionSelection" id="option1Drinkcheckbox" value="option1Drink">
+                                                <label class="form-check-label" for="option1Drinkcheckbox">
+                                                  option1 - $0.15
+                                                </label>
+                                              </div>
+                                              <div class="form-check" id = "option2Selection">
+                                                <input class="form-check-input" type="checkbox" name="questionSelection" id="option2Drinkcheckbox" value="option2Drink">
+                                                <label class="form-check-label" for="option2Drinkcheckbox">
+                                                    option2 - $0.50
+                                                </label>
+                                              </div>
+                                              <div class="form-check" id = "option3Selection">
+                                                <input class="form-check-input" type="checkbox" name="questionSelection" id="option3Drinkcheckbox" value="option3Drink">
+                                                <label class="form-check-label" for="option3Drinkcheckbox">
+                                                    option3 - $0.75
+                                                </label>
+                                              </div>
+                                              <div class="form-check" id = "option4Selection">
+                                                <input class="form-check-input" type="checkbox" name="questionSelection" id="option4Drinkcheckbox" value="option4Drink">
+                                                <label class="form-check-label" for="option4Drinkcheckbox">
+                                                    option4 - $0.00
+                                                </label>
+                                              </div>
+                                            
+                                            <div class="form-check form-check">
+
+
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                    <!---------------------------------------->
+                                    <div class = "row notLastRow productQuestionRow">
+                                    <div class = "col-md-6">
+                                        <h2> Single Select:</h2>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        
+                                        <select id="singleSelectQuestion" class="form-control">
+                                          <option selected>Please Select and Option</option>
+                                          <option value = "1">Option One</option>
+                                          <option value = "2">Option Two</option>
+                                          
+                                        </select>
+                                      </div>
+                                </div>
+                                    <!---------------------------------------->
+
+
+
+                                    </div>
+                                     
+
+                                    
+
+
+
+
+
+
+
+
+                                </div>
+                                    
+
+
+
+
+                                    <div class="row finalRow productRow" id = "priceRow">
+                                        <div class = "col-md-6">
+                                            <div class = "row">
+                                            <h2>Items:</h2>
+                                        </div>
+                                        <div class = "row">
+                                            <div class = "col-md-6">Product Name</div>
+                                            <div class = "col-md-6">$2.30</div>
+                                        </div>
+                                        <div class = "row">
+                                            <div class = "col-md-6">Iced</div>
+                                            <div class = "col-md-6">$0.50</div>
+                                        </div>
+                                        </div>
+
+                                        <div class = "col-md-6">
+                                            <div class = "row"><h2>Total Price:</h2></div>
+                                            <div class = "row">
+                                                <div id = "priceBox">
+                                                $2.80
+                                            </div>
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                        
+
+                                    
+                                    
+
+                                    
+
+                                    <!--
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCategoryModal" data-whatever="@mdo">Open modal for @mdo</button>
+    -->
+
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary" id="addProductToCart">Add
+                                        to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--//////////////////////////CONTENT END//////////////////////////-->
+
+
+
+                    <!-- jQuery -->
+                    <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+                    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                        crossorigin="anonymous"></script>
+                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                        crossorigin="anonymous"></script>
+
+
+                    <!-- Bootstrap Core JavaScript -->
+                    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+                    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+
+                    <!-- Plugin JavaScript -->
+                    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>-->
+
+
+
+
+
+                    <!-- Theme JavaScript -->
+                    <!--<script src="/assets/js/grayscale.js"></script>-->
+                    <script src="/public/assets/js/productEdit.js"></script>
+
+                    <!--
+<script src="/public/assets/js/checkout_func.js"> //Functionality for Checkout... Needs to be after Jquery</script>
+<script src="/public/assets/js/createProduct_func.js"> //Functionality for Checkout... Needs to be after Jquery</script>
+ <script src="/public/assets/js/login.js"></script>
+ <script src="/public/assets/js/cart.js"> //Functionality for showing cart items</script>
+-->
+                </div>
+</body>
+
+</html>
