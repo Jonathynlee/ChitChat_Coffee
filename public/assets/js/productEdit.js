@@ -1,11 +1,22 @@
 let priceArray = [[{ title: null, price: 0, qty: 1 }], [{ title: null, price: 0, qty: 1 }]];
 let checkedArray = [null, null];
 let exportArray = [];
+let exportData = { baseProductPrice:0, userId:2,basePrice:0, addons:"",subtotal:0, productId:0}
+$("#addProductToCart").on("click",function(){
+    console.log(exportData);
+    $.ajax({
+        url:"/menu/addProductToOrder",
+        method:"POST",
+        data:exportData
 
-$("#openProductModal").on("click", function () {
+    })
+})
+
+
+function openModalProduct(inProductId) {
 
     $("#productModal").modal();
-
+    $("#addQuestionsRow").html("")
 
 function renderExport(product){
     let addOns = JSON.parse(product.addOns);
@@ -28,6 +39,7 @@ exportArray[e].question.title=addOns[e].question.title;
 
 
         }}
+        exportData.addons = JSON.stringify(exportArray);
 }
 
   function renderItems(basePrice, productName){
@@ -40,7 +52,7 @@ exportArray[e].question.title=addOns[e].question.title;
 </div>`);
 
 
-
+exportData.basePrice = basePrice;
 let totalPrice = parseFloat(basePrice);
       for(let e = 0; e< priceArray.length; e++){
           for(let o = 0; o< priceArray[e].length;o++){
@@ -61,7 +73,7 @@ let totalPrice = parseFloat(basePrice);
             
             $("#renderItems").append(listItem);
             $("#priceBox").html("$"+totalPrice.toFixed(2));
-            
+            exportData.subtotal = parseFloat(totalPrice);
           }
         }
       }
@@ -78,9 +90,9 @@ let totalPrice = parseFloat(basePrice);
     $.ajax({
         method: "POST",
         url: "/menu/getProduct",
-        data: { productId: 1 }
+        data: { productId: inProductId }
     }).then(function (product) {
-
+        exportData.productId = product.id;
         let addOns = JSON.parse(product.addOns);
 
         checkedArray.length = addOns.length + 2;
@@ -330,4 +342,47 @@ let totalPrice = parseFloat(basePrice);
     })
 
 
+}
+
+
+////--------------------------------///-----------------------------------////
+let productString = "";
+$.ajax({
+    method:"get",
+    url:"/menu/getAllProducts"
+
+}).then(function(products){
+
+    console.log(products)
+for (i in products){
+
+    productString += `<div class="outterBox" productId="${products[i].id}">
+    <div class="productBox">
+        <div class="productTextBox">
+            <h2>${products[i].name}</h2>
+        </div>
+    </div>
+
+</div>`;
+    
+
+}
+console.log(productString)
+
+$("#productColumn").html(productString)
+$(".productBox").on("click", function(event){
+    console.log("clicked")
+    if( parseInt($(event.target).parent().attr("productid")) > 0 ){
+
+    
+    openModalProduct(parseInt($(event.target).parent().attr("productid")));
+    
+    }
+
 })
+})
+
+
+
+
+
