@@ -111,6 +111,16 @@ $(function(){
       
      
    }
+   const stotal={
+     subTotal:subtotal,
+     id:result[0].orderId
+     
+   }
+   $.ajax({
+    method: "PUT",
+    url: "/shoppingCard/charges",
+    data:stotal
+   }).done(function(db){console.log(db)})
    });
 
   }); 

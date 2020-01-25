@@ -18,11 +18,15 @@ module.exports = function (app) {
     const manageAccount= require('./routes/manageAccounts');
     const menu= require('./routes/menu');
 
+    
 
+    
 
-    app.use('/shoppingCard/:id', shoppingCard);
+    //app.use('/shoppingCard/:id', shoppingCard);
     app.use('/shoppingCard', shoppingCard);
     app.use('/api/shoppingCard', shoppingCardAPI);
+
+    app.use('/api/shoppingCard/:id', shoppingCardAPI);
 
 
 

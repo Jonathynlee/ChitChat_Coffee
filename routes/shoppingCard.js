@@ -6,8 +6,10 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 //router.get('/', isAuthenticated, trips_controller.index);
 router.get('/',isAuthenticated, cart_controller.index);
+router.put('/charges',isAuthenticated,cart_controller.updateSubtotal);
 router.put('/',isAuthenticated,cart_controller.updateShoppingCard);
 router.delete('/:id',isAuthenticated,cart_controller.deleteShoppingCard);
+
 
 //router.post('/new', isAuthenticated, trips_controller.createTrip);
 

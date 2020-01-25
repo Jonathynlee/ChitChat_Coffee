@@ -6,7 +6,8 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 //router.get('/', isAuthenticated, trips_controller.index);
 router.get('/',isAuthenticated, cart_controller.apiIndex);
-router.put('/',isAuthenticated,cart_controller.updateShoppingCard);
+
+//router.put('/',isAuthenticated,cart_controller.updateShoppingCard);
 
 //router.post('/new', isAuthenticated, trips_controller.createTrip);
 
