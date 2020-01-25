@@ -20,7 +20,12 @@ module.exports = function (sequelize, DataTypes) {
         subtotal:{
             type: DataTypes.FLOAT, 
             allowNull:false
-        }
+        },
+        ready:{
+          type: DataTypes.BOOLEAN, 
+          allowNull:true,
+          defaultValue:0
+      }
 
         
     });
@@ -35,7 +40,8 @@ module.exports = function (sequelize, DataTypes) {
         orderitem.belongsTo(models.product, {
             foreignKey: {
               allowNull: false
-            }
+            },
+            
           })
           
         };

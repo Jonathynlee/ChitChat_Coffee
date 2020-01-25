@@ -8,14 +8,13 @@ exports.index=function(req,res){
 }
 
 exports.getOrderItems=function(req, res){
-   //console.log(req.body)
-   db.orders.findOne({
+   console.log(req.body)
+   db.order.findOne({
       where:{userId:parseInt(req.body.userId),
       status:"in_cart"}
    }).then(function(order){
-      //console.log(order)
-      db.orderitem.findAll({
-         where:{orderId:order.id}
+      db.orderItem.findAll({
+         where:{orderId:parseInt(order.id)}
       }).then(function(items){
          res.json(items);
       })
@@ -26,7 +25,7 @@ exports.getOrderItems=function(req, res){
 
 exports.getProduct=function(req, res){
    console.log(req.body)
-   db.products.findOne({
+   db.product.findOne({
       where:{id:req.body.productId}
    }).then(function(product){
          res.json(product);

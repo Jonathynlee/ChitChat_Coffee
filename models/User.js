@@ -82,12 +82,13 @@ module.exports = function(sequelize, DataTypes) {
   }
   User.associate = function(models) {
     // associations can be defined here
+    User.hasMany(models.past_order, {
+      onDelete:"cascade"
+    });
     User.hasMany(models.order, {
       onDelete: "cascade"
     });
-    User.hasMany(models.past_order, {
-      onDelete: "cascade"
-    });
+    
   }
   return User;
 };

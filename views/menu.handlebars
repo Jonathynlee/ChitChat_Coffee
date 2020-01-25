@@ -1,3 +1,4 @@
+
 <div class="row">
         <div class="col-2">
             <h3>Drinks</h3>
@@ -233,3 +234,158 @@
 <script type="javascript/text" src="/assets/js/menu.js"> //Functionality for showing cart items
 
 </script>
+
+
+     
+              
+                <!--//////////////////////////CONTENT BEGIN//////////////////////////-->
+
+                <div class="modal fade" id="productModal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 class="modal-title" id="productModalTitle">Edit Product - Product Name</h2>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+
+
+
+
+                                <div class="row firstRow notLastRow">
+                                    <div class="col-md-4 productPicture">
+                                        <div id="pictureBox">
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8 productTextInputs">
+                                        <div class="row subRow">
+                                            <!-- TEMP SELECTION-->
+                                            <div class="col-md-6 productTemp priceCalc" question = "0" >
+                                                <div class="form-check " id="icedSelection" title="Iced" >
+                                                    <input class="form-check-input " type="radio" name="tempSelection"
+                                                        id="icedDrinkRadio" value="icedDrink" >
+                                                    <label class="form-check-label" for="icedDrinkRadio">
+                                                        Iced - $0.50
+                                                    </label>
+                                                </div>
+                                                <div class="form-check" id="hotSelection" title="Hot">
+                                                    <input class="form-check-input " type="radio" name="tempSelection"
+                                                        id="hotDrinkRadio" value="hotDrink">
+                                                    <label class="form-check-label" for="hotDrinkRadio">
+                                                        Hot - $0.00
+                                                    </label>
+                                                </div>
+
+                                                <div class="form-check form-check">
+
+
+                                                </div>
+
+                                            </div>
+                                            <!-- SIZE SELECTION-->
+                                            <div class="col-md-6 productSize priceCalc" question = "1">
+                                                <div class="form-check" id="smallSelection" title="Small" >
+                                                    <input class="form-check-input " type="radio" name="sizeSelection"
+                                                        id="smallDrinkRadio" value="smallDrink" >
+                                                    <label class="form-check-label" for="smallDrinkRadio">
+                                                        Small
+                                                    </label>
+                                                </div>
+                                                <div class="form-check " id="mediumSelection" title="Medium" >
+                                                    <input class="form-check-input" type="radio" name="sizeSelection"
+                                                        id="mediumDrinkRadio" value="mediumDrink">
+                                                    <label class="form-check-label" for="mediumDrinkRadio">
+                                                        Medium - $0.25
+                                                    </label>
+                                                </div>
+                                                <div class="form-check " id="largeSelection" title="Large">
+                                                    <input class="form-check-input" type="radio" name="sizeSelection"
+                                                        id="largeDrinkRadio" value="largeDrink">
+                                                    <label class="form-check-label" for="largeDrinkRadio">
+                                                        Large - $0.50
+                                                    </label>
+                                                </div>
+                                                <div class="form-check " id="xLargeSelection" title="X-Large">
+                                                    <input class="form-check-input" type="radio" name="sizeSelection"
+                                                        id="xLargeDrinkRadio" value="xLargeDrink">
+                                                    <label class="form-check-label" for="xLargeDrinkRadio">
+                                                        X-Large - $0.75
+                                                    </label>
+                                                </div>
+
+                                                <div class="form-check form-check">
+
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="row secondRow productRow " id="addQuestionsRow">
+                                    
+                                </div>
+
+                                <div class="row finalRow productRow" id="priceRow">
+                                    <div class="col-md-6" id = "renderItems">
+                                        <div class="row">
+                                            <h2>Items:</h2>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6" id = "itemizeProductName">Product Name</div>
+                                            <div class="col-md-6" id = "itemizeProductPrice">$2.30</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6" id = "itemsTempTitle">Temp</div>
+                                            <div class="col-md-6" id = "itemsTempPrice">$0.00</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6" id = "itemsSizeTitle">Size</div>
+                                            <div class="col-md-6" id = "itemsSizePrice">$0.00</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <h2>Total Price:</h2>
+                                        </div>
+                                        <div class="row">
+                                            <div id="priceBox">
+                                                $2.80
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+
+
+
+
+
+
+                                <!--
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCategoryModal" data-whatever="@mdo">Open modal for @mdo</button>
+    -->
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" id="addProductToCart">Add
+                                    to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+

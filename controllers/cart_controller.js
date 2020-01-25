@@ -25,7 +25,7 @@ exports.index = function (req, res) {
                                }  
       ).then(function(reslt){
       
-         
+         if(reslt){
             for(let i=0;i<reslt.orderItems.length;i++){
                 //console.log(reslt.orderItems[i].product);
                 if(reslt.orderItems[i].product.quantity){
@@ -35,6 +35,10 @@ exports.index = function (req, res) {
                 }
             }
           res.render("shoppingCart",{item:reslt.orderItems});
+         }
+         else{
+            res.render("shoppingCart")
+         } 
       });
       
    });
@@ -59,7 +63,7 @@ exports.index = function (req, res) {
                                   }  
          ).then(function(reslt){
          
-            
+            if(reslt){
                for(let i=0;i<reslt.orderItems.length;i++){
                   // console.log(reslt.orderItems[i].product);
                    if(reslt.orderItems[i].product.quantity){
@@ -69,6 +73,10 @@ exports.index = function (req, res) {
                    }
                }
              res.send(reslt.orderItems);
+            }
+            else{
+               res.send(null);
+            } 
          });
          
       });

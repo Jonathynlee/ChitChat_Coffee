@@ -4,17 +4,18 @@ module.exports = function (sequelize, DataTypes) {
         name: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                len: [1]
-            }
+            
         },
         quantity: {
             type: DataTypes.INTEGER,
             allowNull: true
-            
-
+        },    
+        EstimatedTime:{
+            type:DataTypes.INTEGER
+        
 
         },
+        
         basePrice: {
             type: DataTypes.FLOAT,
             allowNull: false
@@ -35,9 +36,9 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: true
         }, 
         seasonal:{
-            type:DataTypes.BOOLEAN
-        }
-
+            type:DataTypes.STRING
+        },    
+       
         
     });
     products.associate = function(models) {

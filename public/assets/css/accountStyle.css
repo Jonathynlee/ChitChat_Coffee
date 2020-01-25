@@ -14,14 +14,23 @@ body{
     color: rgb(248, 234, 234);
 }
 
-.background{
-background: linear-gradient( rgb(255, 255, 255), rgb(255, 255, 255) );
-background-size: cover;
+.backgroundMain{
+background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(espressoV3.jpg);
+background-size: cover!important;
 min-width: 100%;
 min-height: 100%;
 display:flex;
 align-items: stretch;
 flex-direction: column;
+}
+
+.bottomer {
+    margin-top: 100%;
+}
+
+.mainCard{
+    margin-top: 400px;
+    max-width: 100%!important;
 }
 
 .content{
@@ -197,6 +206,12 @@ a:focus { color: pink !important; }
 
 
 /*////MANAGE ACCOUNTS STYLES////*/
+
+.manageDivider {
+    border: none;
+    border-top: 1px solid!important;
+    /* margin-bottom: 25px; */
+}
 
 .manageAccount{
     color: black

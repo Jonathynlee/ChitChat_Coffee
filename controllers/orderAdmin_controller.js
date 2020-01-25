@@ -6,21 +6,106 @@ exports.OrderFill=function(req,res){
 }
 
 exports.OrderList=function(req,res){
-   res.render("orderList");
+      
+    db.order.findAll({where: {status:"placed"},order: ['orderDate'],
+                                                                        
+            include:[
+                     {
+                        model:db.orderItem,
+                        include:[db.product],
+                        group:"orderId"
+                     },
+                     db.user
+            ] 
+            
+      
+ } 
+).then(function(reslt){
+     console.log(reslt)
+
+/
+//res.render("orderList");
+res.render('orderList', {
+    layout: 'main-admin'
+   // trip: dbTrip
+  });
+  
+});
+  
+}
+ 
+ exports.apiOrderList = function (req, res) {
+
+    db.order.findAll({where: {status:"placed"},order: ['orderDate'],
+                                                                        
+    include:[
+             {
+                model:db.orderItem,
+                include:[db.product],
+                group:"orderId"
+             },
+             db.user
+    ] 
+    
+
+} 
+).then(function(reslt){
+console.log(reslt);
+  res.send(reslt);
+  
+});
 }
 
-//It's going to be fetched from database
+exports.orderPartReady=function(req,res){
+    const id=req.params.id;
+    
+       db.orderItem.update(req.body,
+         {
+           where: {
+             id:id
+           }
+         })
+         .then(function(dbPost) {
+           res.json(dbPost);
+         }); 
+    
+}
 
+exports.updateStatusOrder=function(req,res){
+    const id=req.params.id;
+    
+    
+        db.order.update(req.body,
+            {
+              where: {
+                id:id
+              }
+            })
+            .then(function(dbPost) {
+              res.json(dbPost);
+              
+            }); 
+    }
 
+    exports.sendSMS=function(req,res){
 
- /*router.get("/orderFullfill",async function(req,res){
-     
-  console.log("here");
-  res.render("orderFullfill");
- });*/
+        const accountSid = process.env.TWILIO_ACCOUNT_SID;
+        const authToken = process.env.TWILIO_AUTH_TOKEN;
+        const client = require('twilio')(accountSid, authToken);
+        
+      client.messages
+      .create(req.body)
+      .then(message =>res.send(message.sid))
+
+      
+      
+    }   
+
+    
+    
 
  
+    
+    
+    
 
-
-
-//module.exports=router;
