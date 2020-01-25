@@ -23,7 +23,8 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "password": "^0.1.1",
-    "sequelize": "^5.21.3"
+    "sequelize": "^5.21.3",
+    "twilio": "^3.39.3"
   },
   "devDependencies": {
     "handlebars": "^4.5.0"
