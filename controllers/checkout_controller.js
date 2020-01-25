@@ -13,7 +13,6 @@ exports.getOrderItems=function(req, res){
       where:{userId:parseInt(req.body.userId),
       status:"in_cart"}
    }).then(function(order){
-      console.log(order)
       db.orderItem.findAll({
          where:{orderId:parseInt(order.id)}
       }).then(function(items){
