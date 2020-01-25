@@ -202,3 +202,85 @@
 
 </div>
 
+<script>
+
+
+
+
+function startPageFunc(){
+    $.ajax({
+        method: "POST",
+        url: "/checkout/getOrderItems",
+        data: { userId:2}
+        
+    }).done(function (response) {
+            console.log(response);
+            $(".subTotalPrice").html(`$${response[0].subtotal}`)
+            const taxes = response[0].subtotal*.075;
+            $(".taxPrice").html(`$${taxes.toFixed(2)}`)
+            const total = (response[0].subtotal + taxes)
+            $(".orderTotalPrice").html(`$${total.toFixed(2)}`)
+            for(orderItems in response){
+                 let currentSubItemList = ""
+                console.log(response[orderItems].addons)
+                let currentAddons = JSON.parse(response[orderItems].addons);
+                console.log(currentAddons)
+            $.ajax({
+        method: "POST",
+        url: "/checkout/getProduct",
+        data: { productId:response[orderItems].productId}
+        
+    }).then(function(product){ 
+            
+               
+            for (let addon =0 ;addon<  currentAddons.length;addon++) {
+                for (ans in currentAddons[addon].question.answers){
+                
+                console.log(currentAddons);
+                console.log(currentAddons[addon].question.answers[ans].title)
+                let currentText = `<div class='row subItem'><p class='leftText text1'>${currentAddons[addon].question.answers[ans].title}</p><p class='rightText text2'>$${currentAddons[addon].question.answers[ans].price}</p></div>`
+                    console.log(currentText)
+                        currentSubItemList += currentText;
+                }
+                    }
+                    console.log(currentSubItemList)
+
+                   
+                $(".cartBreakdown").append(`<div class='item row' id='item_${orderItems}'><p class='itemname itemName${orderItems}' state='closed'>${product.name}<i class='fas fa-caret-right'></i></p><p class='itemPrice'>$${product.basePrice} </p><div class='itemizedList'> ${currentSubItemList}  </div></div>`)
+
+
+            
+            } ).then(function(){
+                    $(".itemName"+orderItems).on("click", function (event) {
+                        let state = $(event.target).attr("state");
+                        if (state === "open") {
+                            $(event.target).attr("state", "closed")
+                            $(event.target).parent().children(".itemizedList").css("height", "0px").css("padding", "0px")
+                            $(event.target).parent().children(".itemizedList").css("margin-bottom", "0px");
+                            $(event.target).children("i").css("transform", "rotate(0deg)")
+                        } else {
+                            $(event.target).attr("state", "open")
+                    
+                            let sectionHeight = $(event.target).parent().children(".itemizedList")[0].scrollHeight;
+                    
+                            $(event.target).parent().children(".itemizedList").css("height", (sectionHeight + 10) + "px").css("padding", "0px");
+                            $(event.target).parent().children(".itemizedList").css("margin-bottom", "40px");
+                            $(event.target).children("i").css("transform", "rotate(90deg)")
+                        }
+                    
+                    
+                    });
+                })
+            }
+                    
+                })
+            }
+
+
+
+
+document.addEventListener("DOMContentLoaded", function(event) { 
+startPageFunc()
+});
+
+</script>

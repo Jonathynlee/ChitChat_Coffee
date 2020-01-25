@@ -1,11 +1,34 @@
 let priceArray = [[{ title: null, price: 0, qty: 1 }], [{ title: null, price: 0, qty: 1 }]];
 let checkedArray = [null, null];
-
+let exportArray = [];
 
 $("#openProductModal").on("click", function () {
 
     $("#productModal").modal();
 
+
+function renderExport(product){
+    let addOns = JSON.parse(product.addOns);
+    for(let e = 0; e< priceArray.length; e++){
+        
+exportArray[e]={};
+exportArray[e].question={};
+exportArray[e].question.answers = [];
+exportArray[e].question.title=addOns[e].question.title;
+
+        for(let o = 0; o< priceArray[e].length;o++){
+
+
+
+            exportArray[e].question.answers[o] = {}
+            exportArray[e].question.answers[o].title=addOns[e].question.answers[o].title;
+            exportArray[e].question.answers[o].price=addOns[e].question.answers[o].price;
+
+
+
+
+        }}
+}
 
   function renderItems(basePrice, productName){
     $("#renderItems").html(`<div class="row">
@@ -58,7 +81,7 @@ let totalPrice = parseFloat(basePrice);
         data: { productId: 1 }
     }).then(function (product) {
 
-        addOns = JSON.parse(product.addOns);
+        let addOns = JSON.parse(product.addOns);
 
         checkedArray.length = addOns.length + 2;
         $("#productModalTitle").html(`Edit Product - ${product.name}`);
@@ -219,6 +242,7 @@ let totalPrice = parseFloat(basePrice);
             priceArray[questionNumber][0].qty = 1;
 
             renderItems(product.basePrice,product.name);
+            renderExport(product);
         })
 
         $(".selectPriceCalc").change(function (event) {
@@ -235,6 +259,7 @@ let totalPrice = parseFloat(basePrice);
             //console.log($(event.target).children(":selected").attr("title"))
 
             renderItems(product.basePrice,product.name);
+            renderExport(product);
         })
         $(".priceCalcCheck").click(function (event) {
             let questionNumber = parseInt($(event.target).attr("question"));
@@ -271,6 +296,7 @@ let totalPrice = parseFloat(basePrice);
             //  console.log($(event.target).attr("price"))
             //  console.log($(event.target).attr("title"))
             renderItems(product.basePrice,product.name);
+            renderExport(product);
         })
 
 
@@ -298,6 +324,7 @@ let totalPrice = parseFloat(basePrice);
 
 
             renderItems(product.basePrice,product.name);
+            renderExport(product);
         })
 
     })

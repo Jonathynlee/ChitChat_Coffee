@@ -20,6 +20,10 @@ module.exports = function (sequelize, DataTypes) {
         total:{
             type: DataTypes.FLOAT, 
             allowNull:false
+        }, 
+        subTotal:{
+            type: DataTypes.FLOAT, 
+            allowNull:false
         }
 
         
