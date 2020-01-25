@@ -54,7 +54,7 @@ function createProduct() {
     
 
     //Set Up Temp
-    let temp ={question:{title:"Size",questionType: "pickOne",answers:[{title:"Iced",include:"false", price:0},{title:"Hot",include:"false", price:0}] }};
+    let temp ={question:{title:"Temp",questionType: "pickOne",answers:[{title:"Iced",include:"false", price:0},{title:"Hot",include:"false", price:0}] }};
     if ($("#icedCheck").is(":checked")){
         temp.question.answers[0].include = true;
         temp.question.answers[0].price = $("#icedAdd").val();

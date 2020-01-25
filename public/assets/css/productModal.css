@@ -1,0 +1,69 @@
+*{
+    color:black
+}
+#productModal{
+    width:80%;
+    margin: 0 10%;
+    height:auto;
+    max-height:90%;
+}
+.productTemp{
+    border-right: 2px solid grey;
+    border-bottom: none;
+    height: 100%;
+}
+
+.subRow{
+   
+    margin:10px 0px;
+}
+.productRow{
+    margin:10px 0px!important;
+}
+.notLastRow{
+    border-bottom:2px solid grey;
+}
+#priceBox{
+    color:white;
+    font-size: 30px;
+    line-height: 40px;
+    padding:0px 10px;
+    border:2px solid black;
+    text-align:center;
+    border-radius: 10px;
+    background-color: #ffafbc
+    ;
+
+}
+#addProductToCart{
+    background-color: #ffafbc;
+    border-color: grey;
+    transition: .25s;
+}
+#addProductToCart:hover{
+    transition: .25s;
+    background-color: white;
+    border-color: grey;
+    color:black;
+}
+.productQuestionRow{
+    padding:10px;
+}
+.productQuestionRow h2{
+    font-size: 25px;
+}
+
+.productRow h2{
+    font-size: 25px;
+}
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+.productTemp{
+    border-right: none;
+    border-bottom: 2px solid grey;
+}
+}

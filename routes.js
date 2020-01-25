@@ -11,11 +11,14 @@ module.exports = function (app) {
 
     const shoppingCardAPI = require('./routes/shoppingCardAPI');
     const orderAdminListAPI= require('./routes/orderAdminListAPI');
+    const menu= require('./routes/menu');
 
 
     app.use('/shoppingCard/:id', shoppingCard);
     app.use('/shoppingCard', shoppingCard);
     app.use('/api/shoppingCard', shoppingCardAPI);
+
+
 
     app.use('/orderAdminList', orderAdminList);
     app.use('/api/orderAdminList', orderAdminListAPI);
@@ -29,6 +32,8 @@ module.exports = function (app) {
     app.use('/checkout', checkout);
     app.use('/users', users);
     app.use('/', mainPage);
+
+    app.use('/menu', menu);
 
 
     //other routes..
