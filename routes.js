@@ -21,6 +21,7 @@ module.exports = function (app) {
     app.use('/api/orderAdminList', orderAdminListAPI);
     app.use('/orderAdminList/partOrder/:id',orderAdminList);
     app.use('/orderAdminList/updateStatusOrder/:id',orderAdminList);
+    app.use('/orderAdminList/sendSMS',orderAdminList);
     
 
 

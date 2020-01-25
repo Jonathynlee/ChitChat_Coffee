@@ -10,6 +10,7 @@ router.get('/', admin_controller.OrderList);
 
 router.put('/partOrder/:id', admin_controller.orderPartReady);
 router.put('/updateStatusOrder/:id',admin_controller.updateStatusOrder);
+router.post('/sendSMS',admin_controller.sendSMS);
 
 
 module.exports=router;

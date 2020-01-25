@@ -62,6 +62,7 @@ $("#orderComplete").on("click",function(event){
     $(str).attr("disabled",true);
     $(str).attr("checked",true);
     $("#myModal").modal("hide");
+   
 
     //////////database functions////////////
     
@@ -85,9 +86,28 @@ $("#orderComplete").on("click",function(event){
                     url: "/orderAdminList/updateStatusOrder/"+orderNo,
                     data:stat
                   }).then(function() {
-                      window.location.reload();
+                    
+                      //////////////////////////////
+                   ///////////////sms////////////
+                   let phoneTwilio="+1";
+                   phoneTwilio+= phone.replace(/[^\d]/g, "");
+                   console.log(phoneTwilio);   
+                   const message ={body: 'ChitChat:Your order is ready!', from: '+18632165761', to:phoneTwilio};
+                   
+                  $.ajax({
+                       method: "POST",
+                       url: "/orderAdminList/sendSMS",
+                       data: message
+                   }).then(function(mess) {
+                       console.log(mess);  
+                       window.location.reload();
+     
+                   });
+                  //////////////////////////////
+                 
                       
-                    });
+                });
+                
              }
              
            });
@@ -226,7 +246,7 @@ function myTimer(){
     else{
         pbar.attr("aria-valuenow",parseInt(value)+1);
         pbar.attr("style","width:"+(parseInt(value)+1)+"%");
-        pbar.text(parseInt(value)+1);
+        pbar.text((parseInt(value)+1)+"%");
     }   
     
 }
