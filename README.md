@@ -20,31 +20,31 @@
  
 
 
-![User Account](Documentation/screenShots/account.png)
+![User Account](Documentation/screenShots/account.PNG)
 
-![Checkout](Documentation/screenShots/checkout.png)
+![Checkout](Documentation/screenShots/checkout.PNG)
 
-![Create Product](Documentation/screenShots/createProduct.png)
+![Create Product](Documentation/screenShots/createProduct.PNG)
 
-![Main Page 1](Documentation/screenShots/mainLarge1.png)
+![Main Page 1](Documentation/screenShots/mainLarge1.PNG)
 
-![Main Page 2](Documentation/screenShots/mainLarge2.png)
+![Main Page 2](Documentation/screenShots/mainLarge2.PNG)
 
-![Main Page 3](Documentation/screenShots/mainLarge3.png)
+![Main Page 3](Documentation/screenShots/mainLarge3.PNG)
 
-![Main Page 4](Documentation/screenShots/mainLarge4.png)
+![Main Page 4](Documentation/screenShots/mainLarge4.PNG)
 
-![Mobile Main Page 1](Documentation/screenShots/mainSmall1.png)
+![Mobile Main Page 1](Documentation/screenShots/mainSmall1.PNG)
 
-![Mobile Main Page 2](Documentation/screenShots/mainSmall2.png)
+![Mobile Main Page 2](Documentation/screenShots/mainSmall2.PNG)
 
-![Merchandise](Documentation/screenShots/merch.png)
+![Merchandise](Documentation/screenShots/merch.PNG)
 
-![Menu](Documentation/screenShots/order.png)
+![Menu](Documentation/screenShots/order.PNG)
 
-![Barista Order Screen](Documentation/screenShots/orderAdmin.png)
+![Barista Order Screen](Documentation/screenShots/orderAdmin.PNG)
 
-![User Registration](Documentation/screenShots/register.png)
+![User Registration](Documentation/screenShots/register.PNG)
 
 
 
