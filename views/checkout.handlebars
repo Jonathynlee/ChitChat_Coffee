@@ -211,7 +211,7 @@ function startPageFunc(){
     $.ajax({
         method: "POST",
         url: "/checkout/getOrderItems",
-        data: { userId:2}
+       // data: { userId:1}
         
     }).done(function (response) {
             console.log(response);
@@ -226,14 +226,14 @@ function startPageFunc(){
                 let currentAddons = JSON.parse(response[orderItems].addons);
                 console.log(currentAddons)
             $.ajax({
-        method: "POST",
-        url: "/checkout/getProduct",
-        data: { productId:response[orderItems].productId}
+               method: "POST",
+               url: "/checkout/getProduct",
+               data: { productId:response[orderItems].productId}
         
-    }).then(function(product){ 
+            }).then(function(product){ 
             
                
-            for (let addon =0 ;addon<  currentAddons.length;addon++) {
+            for (let addon =0 ;addon<currentAddons.length;addon++) {
                 for (ans in currentAddons[addon].question.answers){
                 
                 console.log(currentAddons);

@@ -116,7 +116,7 @@ console.log(addOnObject)
 
 
 $("#submitProductButton").on("click", function () {
-    createProduct();
+    submitProduct();
 });
 
 $("#categorySelect").on("change", function () {
