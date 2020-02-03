@@ -157,6 +157,7 @@ $("#table").on("click",function(event){
    const id=event.target.getAttribute("data-id");
    
    let addon=""
+   let add="";
    if(db[i].orderItems[j].id==id){
     $("#ono").text(db[i].orderItems[j].orderId);
     $("#ino").text(db[i].orderItems[j].id);
@@ -170,7 +171,10 @@ $("#table").on("click",function(event){
     $('#et').text(db[i].orderItems[j].product.EstimatedTime);
     
     /////////ADD ON//////////////////////////////////////
-    add=JSON.parse(db[i].orderItems[j].addons);
+    if (db[i].orderItems[j].addons){
+      add=JSON.parse(db[i].orderItems[j].addons);
+    }  
+
     ////////////////Basic set up///////////////////
       const div1=$('#detcol');
       div1.empty();

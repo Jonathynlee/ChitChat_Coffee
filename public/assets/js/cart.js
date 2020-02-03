@@ -37,7 +37,7 @@ $(function(){
    
    $.ajax({
     method: "GET",
-    url: "api/shoppingCard",
+    url: "/api/shoppingCard",
 
    }).done(function(result){
      
@@ -111,7 +111,8 @@ $(function(){
       
      
    }
-   const stotal={
+   console.log(result);
+   /*const stotal={
      subTotal:subtotal,
      id:result[0].orderId
      
@@ -120,7 +121,7 @@ $(function(){
     method: "PUT",
     url: "/shoppingCard/charges",
     data:stotal
-   }).done(function(db){console.log(db)})
+   }).done(function(db){console.log(db)})*/
    });
 
   }); 

@@ -1,7 +1,7 @@
 let priceArray = [[{ title: null, price: 0, qty: 1 }], [{ title: null, price: 0, qty: 1 }]];
 let checkedArray = [null, null];
 let exportArray = [];
-let exportData = { baseProductPrice:0, userId:2,basePrice:0, addons:"",subtotal:0, productId:0}
+let exportData = { baseProductPrice:0, userId:1,basePrice:0, addons:"",subtotal:0, productId:0}
 $("#addProductToCart").on("click",function(){
     console.log(exportData);
     $.ajax({

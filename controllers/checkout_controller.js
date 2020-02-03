@@ -8,9 +8,9 @@ exports.index=function(req,res){
 }
 
 exports.getOrderItems=function(req, res){
-   console.log(req.body)
+  // console.log("user_id:"+req.user.id);
    db.order.findOne({
-      where:{userId:parseInt(req.body.userId),
+      where:{userId:parseInt(req.user.id),
       status:"in_cart"}
    }).then(function(order){
       db.orderItem.findAll({

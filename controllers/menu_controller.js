@@ -40,6 +40,18 @@ exports.getAllProducts = function(req, res){
   })
 }
 
+////Aysen////
+//Find all categories
+exports.getAllCategories = function(req, res){
+   console.log(req.body)
+  db.category.findAll({}).then(function(response){
+     console.log(response);
+     res.json(response)
+  })
+}
+
+/////////////
+
 exports.addProductToOrder = function(req, res){
    
   db.order.findOne({

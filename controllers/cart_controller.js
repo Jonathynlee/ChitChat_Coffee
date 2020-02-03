@@ -62,7 +62,7 @@ exports.index = function (req, res) {
                                        
                                   }  
          ).then(function(reslt){
-         
+             console.log(reslt);
             if(reslt){
                for(let i=0;i<reslt.orderItems.length;i++){
                   // console.log(reslt.orderItems[i].product);
