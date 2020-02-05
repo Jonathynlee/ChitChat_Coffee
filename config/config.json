@@ -19,12 +19,11 @@
     "operatorsAliases": false
   },
   "production": {
-    "username": "b920b45bf491df",
-    "password": "4574ee04",
-    "database": "heroku_79585f282200611",
+    "username": "b2c14953c56d65",
+    "password": "d895ac5c",
+    "database": "heroku_bc60808ebb31d90",
     "host": "us-cdbr-iron-east-05.cleardb.net",
-    "dialect": "mysql",
-    "operatorsAliases": false
+    "dialect": "mysql"
   }
 }
 
