@@ -17,7 +17,7 @@ function openModalProduct(inProductId) {
 
     $("#productModal").modal();
     $("#addQuestionsRow").html("")
-
+   
 function renderExport(product){
     let addOns = JSON.parse(product.addOns);
     for(let e = 0; e< priceArray.length; e++){
@@ -43,6 +43,7 @@ exportArray[e].question.title=addOns[e].question.title;
 }
 
   function renderItems(basePrice, productName){
+    priceArray = [];
     $("#renderItems").html(`<div class="row">
     <h2>Items:</h2>
 </div>
@@ -56,6 +57,7 @@ exportData.basePrice = basePrice;
 let totalPrice = parseFloat(basePrice);
       for(let e = 0; e< priceArray.length; e++){
           for(let o = 0; o< priceArray[e].length;o++){
+              console.log(priceArray)
             if (priceArray[e][o].title != null && priceArray[e][o].title!=undefined && priceArray[e][o].title != ""){
             let listItem ="";
             totalPrice += (parseFloat(priceArray[e][o].price)*(parseFloat(priceArray[e][o].qty)));
