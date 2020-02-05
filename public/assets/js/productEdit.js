@@ -346,7 +346,7 @@ let totalPrice = parseFloat(basePrice);
 
 
 ////--------------------------------///-----------------------------------////
-let productString = "";
+/*let productString = "";
 $.ajax({
     method:"get",
     url:"/menu/getAllProducts"
@@ -380,7 +380,7 @@ $(".productBox").on("click", function(event){
     }
 
 })
-})
+})*/
 
 
 
