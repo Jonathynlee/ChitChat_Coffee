@@ -10,5 +10,7 @@ router.get('/', checkout_controller.index);
 router.post('/getOrderItems', checkout_controller.getOrderItems);
 router.post('/getProduct', checkout_controller.getProduct);
 
+router.get('/payment',checkout_controller.setPayment);
+
 
 module.exports=router;

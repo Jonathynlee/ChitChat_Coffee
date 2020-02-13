@@ -31,6 +31,8 @@
     <link rel="stylesheet" href="/assets/css/footer_style.css">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link href="/assets/css/accountStyle.css" rel="stylesheet">
+    <!--<link href="manifest.webmanifest"rel="manifest">-->
+    <!--<script src="https://js.stripe.com/v3/"></script>-->
   
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -162,6 +164,20 @@
      <script src="/assets/js/cart.js"> //Functionality for showing cart items</script>
     <!-- <script src="/assets/js/productEdit.js"></script> -->
     <script src="/assets/js/menu.js"></script>
+    
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("/assets/js/service-worker.js").then(reg => {
+            console.log("We found your service worker file!", reg);
+          });
+        });
+      }
+    </script>
+
+
+
+
     </div>
 </body>
 </html>
