@@ -40,6 +40,8 @@ module.exports = function (app) {
 
     app.use('/orderAdminDetails', orderAdminDetails);
     app.use('/createProductAdmin', createProductAdmin);
+
+
     app.use('/checkout', checkout);
     app.use('/checkout', checkout);
 

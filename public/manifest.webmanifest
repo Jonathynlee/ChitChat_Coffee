@@ -1,0 +1,15 @@
+{
+  "name": "chitchat",
+  "short_name": "chitchat",
+  "icons": [
+    {
+      "src": "assets/images/icon-72x72.jpeg",
+      "sizes": "72x72",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "start_url": "/",
+  "display": "standalone"
+}
