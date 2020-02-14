@@ -43,7 +43,7 @@ module.exports = function (app) {
 
 
     app.use('/checkout', checkout);
-    app.use('/checkout', checkout);
+   
 
 
     app.use('/users', users);

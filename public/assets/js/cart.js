@@ -46,14 +46,13 @@ $(function(){
     /////////////////////////Price Calculations, Listing Add Ons
      let subtotal=0.0;
     
-     console.log(result);
+     //console.log(result);
     
     for(let i=0;i<result.length;i++){
       ////////////SELECT BUTTON FOR QUANTITY UPDATE//////////
         let sid="#s"+result[i].id;
         if(result[i].product.quantity===null){
           // $(sid).empty();
-          console.log("GRRRRRRRRRRR");
            for(let m=-1;m<10;m++){
              let n=m+1;
              let el= $("<option value="+n+'>'+n+'</option>');
@@ -112,18 +111,22 @@ $(function(){
         
       }
       sub.text(subtotal.toFixed(2)); 
-   }
-   
-    const stotal={
-      subtotal:subtotal.toFixed(2),
-      orderId:result[0].orderId
-     
     }
-    $.ajax({
-     method: "PUT",
-     url: "/shoppingCard/charges",
-     data:stotal
-    }).done(function(db){console.log(db)});
+
+    if (result.length!=0){
+     const stotal={
+       subtotal:subtotal.toFixed(2),
+       orderId:result[0].orderId
+     
+     }
+     $.ajax({
+       method: "PUT",
+       url: "/shoppingCard/charges",
+       data:stotal
+     }).done(function(db){console.log(db)});
+    } 
+
    });
+   
 
   }); 
