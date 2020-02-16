@@ -6,11 +6,13 @@ const logger         = require('morgan');
 const session        = require('express-session'); 
 const passport 		 = require("./config/passport");
 const config		 = require("./config/extra-config");
+
 // Express settings
 // ================
 
 // instantiate our app
 const app            = express();
+
 
 //allow sessions
 // app.use(session({ secret: 'booty Mctootie', cookie: { maxAge: 60000 }}));
@@ -24,9 +26,13 @@ app.engine('handlebars', exphbs({
     defaultLayout: 'main',
     extname: '.handlebars'
 }));
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+////////////////////
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+///////////////////
+//app.use(express.json());
+//app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'handlebars');
 
 const isAuth 				 = require("./config/middleware/isAuthenticated");

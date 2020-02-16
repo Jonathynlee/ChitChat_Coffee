@@ -8,9 +8,6 @@ var db = require("../models");
 
 exports.index = function (req, res) {
 
-   //find user id from email
-   //db.user.findOne({where:{email:req.session.email}}).then(function(result){
-    //  let userID=result.id;
       
      db.order.findOne({where: {status:"in_cart",
                               userID:req.user.id} ,
@@ -27,7 +24,6 @@ exports.index = function (req, res) {
          if(reslt){
          
             for(let i=0;i<reslt.orderItems.length;i++){
-                //console.log(reslt.orderItems[i].product);
                 if(reslt.orderItems[i].product.quantity){
                    if(reslt.orderItems[i].product.quantity<3){
                      reslt.orderItems[i].product.flag=true;
@@ -41,7 +37,7 @@ exports.index = function (req, res) {
          } 
       });
       
-  // });
+  
 }
 
    exports.apiIndex = function (req, res) {
