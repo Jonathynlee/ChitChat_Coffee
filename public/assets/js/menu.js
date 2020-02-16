@@ -19,7 +19,7 @@ $(document).ready(function () {
             method: "POST",
             data: exportData
 
-        })
+        });
     })
 
 

@@ -1,5 +1,5 @@
 var db=require("../models");
-const stripe = require('stripe')('SECRET KEY');
+const stripe = require('stripe')('SECRET KEY');//REPLACE WITH YOUR OWN
 
 exports.index=function(req,res){
    res.render("checkout");
@@ -52,44 +52,70 @@ exports.getProduct=function(req, res){
            total={total:total2,
                   status:"placed"};
            db.order.update(total,{where:{id:ordr.id}})
-           .then(ordr2=>{
+           .then(async function(ordr2){
                 
                   const amount=total2.toFixed(2);
                   console.log(amount);
-                  stripe.customers.create({
-                     email:req.body.stripeEmail,
-                     source:req.body.stripeToken
-                  },((err,customer)=>{
-                        
-                       stripe.charges.create({customer:customer.id,
-                                               description:"chitchat purchase",
-                                                amount:parseInt(amount)*100,
-                                                currency:'usd'})
-                       .then(charge=>{
-                          res.send("Successfull Transaction!!");
-                       }) ;  
-                                      
-                       
-                     })
-                  )  
+                  console.log(req.body);
+                  try {
+                     let intent;
+                     if (req.body.payment_method_id) {
+                       // Create the PaymentIntent
+                       intent = await stripe.paymentIntents.create({
+                         payment_method: req.body.payment_method_id,
+                         amount: amount*100,
+                         currency: 'usd',
+                         confirmation_method: 'manual',
+                         confirm: true
+                       });
+                     } else if (req.body.payment_intent_id) {
+                       intent = await stripe.paymentIntents.confirm(
+                         req.body.payment_intent_id
+                       );
+                     }
+                     // Send the response to the client
+                     res.send(generateResponse(intent));
+                   } catch (e) {
+                     // Display error on client
+                     return res.send({ error: e.message });
+                   }
+            });
+                 
+                    
 
-           });
+         }) ; 
 
+        //   });
 
-        } ); 
         //////////////////////////////////////////////////////////////////////
+        const generateResponse = (intent) => {
+         // Note that if your API version is before 2019-02-11, 'requires_action'
+         // appears as 'requires_source_action'.
+         if (
+           intent.status === 'requires_action' &&
+           intent.next_action.type === 'use_stripe_sdk'
+         ) {
+           // Tell the client to handle the action
+           return {
+             requires_action: true,
+             payment_intent_client_secret: intent.client_secret
+           };
+         } else if (intent.status === 'succeeded') {
+           // The payment didn’t need any additional actions and completed!
+           // Handle post-payment fulfillment
+          
+           return {
+             success: true
+           };
+         } else {
+           // Invalid status
+           return {
+             error: 'Invalid PaymentIntent status'
+           }
+         }
+       };
 
-         
-         
-
-         
-
-         
-       
-     
-            
-    
-   }
+}
     
      
    

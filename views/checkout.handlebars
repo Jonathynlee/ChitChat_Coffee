@@ -85,49 +85,147 @@
             <div class="vert_line"></div>
               <div id="paymentArea">
                
-                    <form action="/checkout/charge" method="post" id="payment-form">
-                     <button class="btn btn-primary btn-lg" id="stripe-button">
-                             <span>Checkout </span>
-                     </button>
-                   </form>
-                     <script>
-                          $('#stripe-button').click(function(){
-                               var stripe = Stripe('PUBLIC KEY');
-                               var token = function(res){
-                                    var $id = $('<input type=hidden name=stripeToken />').val(res.id);
-                                    var $email = $('<input type=hidden name=stripeEmail />').val(res.email);
-                                    $('form').append($id).append($email).submit();
-                                };
+                   <form action="/checkout/charge" method="post" id="payment-form">
+                       <!--<div class="form-row">-->
+                            <label for="card-element">
+                                 Credit or debit card
+                            </label>
+                            <div id="card-element" class="mt-2">
+                                  <!-- A Stripe Element will be inserted here. -->
+                            </div>
 
-                               var amount = $("#orderTotalPrice").val();
-                               StripeCheckout.open({
-                                     key: 'PUBLIC KEY',
-                                     amount: parseInt(amount),
-                                     name: 'chitchat',
-                                     image: "https://stripe.com/img/documentation/checkout/marketplace.png",
-                                     description: 'Purchase Products',
-                                     panelLabel:  'Checkout',
-                                     token:token
-                             });
-                         });
+                            <!-- Used to display form errors. -->
+                            <div id="card-errors" role="alert"></div>
+                      <!-- </div>-->
 
-                             //return false;
-                         //});
-                   </script>
-               
+                     <button class="mt-4">Submit Payment</button>
+                  </form>
+                <script src="https://js.stripe.com/v3/"></script>
+                <script>
+                        // Create a Stripe client.
+                        var stripe = Stripe('PUBLIC KEY');//CHANGE IT T YOUR OWN
+
+                        // Create an instance of Elements.
+                        var elements = stripe.elements();
+
+                        // Custom styling can be passed to options when creating an Element.
+                        // (Note that this demo uses a wider set of styles than the guide below.)
+                        var style = {
+                                 base: {
+                                        color: '#32325d',
+                                                 width:'auto',
+                                                 height:'auto',
+                                                lineHeight: '18px',
+                                                fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+                                                fontSmoothing: 'antialiased',
+                                                fontSize: '16px',
+                                                '::placeholder': {
+                                                 color: '#aab7c4',}
+                                                
+                               },
+                               invalid: {
+                                 color: '#fa755a',
+                                 iconColor: '#fa755a'
+                               }
+                       };
+
+                    // Create an instance of the card Element.
+                        var card = elements.create('card', { style: style });
+
+                    // Add an instance of the card Element into the `card-element` <div>.
+                    card.mount('#card-element');
+
+                    // Handle real-time validation errors from the card Element.
+                    card.addEventListener('change', function (event) {
+                            var displayError = document.getElementById('card-errors');
+                             if (event.error) {
+                                  displayError.textContent = event.error.message;
+                             } else {
+                                 displayError.textContent = '';
+                               }
+                    });
+
+                    // Handle form submission.
+                    var form = document.getElementById('payment-form');
+                    form.addEventListener('submit', function (event) {
+                            event.preventDefault();
+                            stripe.createPaymentMethod({
+                                type: 'card',
+                                card: card,
+                                billing_details: {
+                                        // Include any additional collected billing details.
+                                     name: 'Jenny Rosen',
+                                },
+                            }).then(result=>{
+                                    if (result.error) {
+                                            // Show error in payment form
+                                   } else {
+                                // Otherwise send paymentMethod.id to your server (see Step 4)
+                                      $.ajax({
+                                        method: "POST",
+                                       url: "/checkout/charge",
+                                      data: {  payment_method_id: result.paymentMethod.id,}
+        
+                                     }).then(function(message){ 
+                                         console.log(message)
+                                         if(message.success){
+                                            alert("Your Payment was successfull!!");
+                                            window.location.replace("/menu");
+                                         }   
+                                         else{
+                                             alert(message.message);
+                                         }
+                                      });
+                                   }  
+                            
+
+                                });
+
+                    });
+</script>
+
+<style>
+  /**
+ * The CSS shown here will not be introduced in the Quickstart guide, but shows
+ * how you can use CSS to style your Element's container.
+ */
+
+  .StripeElement {
+    background-color: white;
+    height: 40px;
+    padding: 10px 12px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+  }
+
+  .StripeElement--focus {
+    box-shadow: 0 1px 3px 0 #cfd7df;
+  }
+
+  .StripeElement--invalid {
+    border-color: #fa755a;
+  }
+
+  .StripeElement--webkit-autofill {
+    background-color: #fefde5 !important;
+  }
+</style>
+
 
                     
                
              
-
+<!--///////////////////////////////////////////////////////////////////////////////-->
              </div>
         </div>     
 
 
 </div>
-<script src="https://js.stripe.com/v3/"></script>
-<script src="https://checkout.stripe.com/checkout.js">           
-</script>
+
+
 <script>
 
 
