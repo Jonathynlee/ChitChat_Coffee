@@ -85,7 +85,7 @@ function createProduct(cb) {
 
         }
     }
-console.log(addOnObject)
+
     //set Up Seasonal
    let seasonal = ""; 
    if ($("#seasonalCheck").is(":checked")){
@@ -109,7 +109,7 @@ console.log(addOnObject)
     
     
 
-    console.log(itemDetail);
+    
     cb();
 }
 
@@ -277,11 +277,56 @@ const submitProduct = function () {
             url:"/createProductAdmin/addProduct",
             data:itemDetail,
             success:function(data){
-                console.log(itemDetail) 
+               
             }
     
         })
     })
-    
+    console.log(itemDetail)
 
 }
+
+$("#imageForm").on("change", function(event){
+    
+    /*
+    $.ajax({
+        method:"post",
+        url:"/uploadImage",
+        data:event.files,
+        success:function(data){
+           
+        }
+    })
+      */
+      // You need to use standard javascript object here
+    
+     var formData = new FormData();
+     formData.append('image', $('input[type=file]')[0].files[0]); 
+     console.log(formData.get("image"))
+
+     $.ajax({
+        method:"post",
+        url:"/imageUpload",
+        data:formData,
+        contentType: false, 
+        processData: false,
+        success:function(data){
+           $("#pictureBox").css("background-image", `url("${data}")`)
+           itemDetail.image = data;
+           
+        }
+    })
+})
+$("#pictureBox").on("click", function(event){
+event.preventDefault();
+    $("#uploadImage").click();
+    
+    
+})
+
+
+$("#pictureBox").on("formdata", function(event){
+    console.log(e.formData)
+        
+        
+    })

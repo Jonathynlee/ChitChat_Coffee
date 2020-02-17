@@ -8,6 +8,8 @@ var db = require("../models");
 
 exports.index = function (req, res) {
 
+
+
       
      db.order.findOne({where: {status:"in_cart",
                               userID:req.user.id} ,
@@ -24,6 +26,7 @@ exports.index = function (req, res) {
          if(reslt){
          
             for(let i=0;i<reslt.orderItems.length;i++){
+
                 if(reslt.orderItems[i].product.quantity){
                    if(reslt.orderItems[i].product.quantity<3){
                      reslt.orderItems[i].product.flag=true;
@@ -41,7 +44,7 @@ exports.index = function (req, res) {
 }
 
    exports.apiIndex = function (req, res) {
-      console.log(req.session.name+":"+req.session.email);
+      
    
       //find user id from email
       db.user.findOne({where:{email:req.session.email}}).then(function(result){
@@ -58,10 +61,10 @@ exports.index = function (req, res) {
                                        
                                   }  
          ).then(function(reslt){
-             console.log(reslt);
+             
             if(reslt){
                for(let i=0;i<reslt.orderItems.length;i++){
-                  // console.log(reslt.orderItems[i].product);
+                 
                    if(reslt.orderItems[i].product.quantity){
                       if(reslt.orderItems[i].product.quantity<3){
                         reslt.orderItems[i].product.flag=true;
@@ -79,7 +82,7 @@ exports.index = function (req, res) {
    }
 
    exports.updateShoppingCard = function (req, res) {
-      console.log(req.session.name+":"+req.session.email);
+      
        const id=req.body.id;
        const number=req.body.quantity;
        db.orderItem.update({quantity:number},
@@ -105,9 +108,11 @@ exports.index = function (req, res) {
 
        exports.updateSubtotal=function (req,res){
           //const id=req.params.id;
+
          console.log(req.body);
          const amount=req.body.subtotal;
          db.orderItem.update({subtotal:amount},{
+
             where:{
                orderId:req.body.orderId
             }

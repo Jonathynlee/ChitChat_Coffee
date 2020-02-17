@@ -13,7 +13,7 @@ $(document).ready(function () {
     //////////////////////////////////////
 
     $("#addProductToCart").on("click", function () {
-        console.log(exportData);
+        
         $.ajax({
             url: "/menu/addProductToOrder",
             method: "POST",
@@ -32,7 +32,7 @@ $(document).ready(function () {
         numCategories = result.length;
         ////Load the categories
         for (let i = 0; i < result.length; i++) {
-            //console.log(result[i].name);
+           
             let div = $("<div>");
             div.attr("class", "col-md-6");
             let div2 = $("<div>");
@@ -91,6 +91,7 @@ $(document).ready(function () {
                     div.attr("categoryid", products[i].categoryId);
                     let div2 = $("<div>");
                     div2.attr("class", "productBox");
+                    div2.css("background-image", `url("${products[i].image}")`)
                     let div3 = $("<div>");
                     div3.attr("class", "productTextBox");
                     let h2 = $("<h2>");
@@ -110,7 +111,7 @@ $(document).ready(function () {
         }
         $(".productBox").off("click");
         $(".productBox").on("click", function (event) {
-            console.log(parseInt($(event.target).parent().attr("productid")));
+            
             if (parseInt($(event.target).parent().attr("productid")) > 0) {
                 openModalProduct(parseInt($(event.target).parent().attr("productid")));
             }
@@ -122,6 +123,15 @@ $(document).ready(function () {
 
     //////////////////////////////////////////////////////////////////
     function openModalProduct(inProductId) {
+        //uncheck all static options
+        $("#icedDrinkRadio").prop('checked', false);
+        $("#hotDrinkRadio").prop('checked', false);
+        $("#smallDrinkRadio").prop('checked', false);
+        $("#mediumDrinkRadio").prop('checked', false);
+        $("#largeDrinkRadio").prop('checked', false);
+        $("#xlargeDrinkRadio").prop('checked', false);
+        
+
 
         $("#productModal").modal();
         $("#addQuestionsRow").html("")
@@ -169,7 +179,7 @@ $(document).ready(function () {
             let totalPrice = parseFloat(basePrice);
             for (let e = 0; e < priceArray.length; e++) {
                 for (let o = 0; o < priceArray[e].length; o++) {
-                    console.log(priceArray);
+                    
                     if (priceArray[e][o].title != null && priceArray[e][o].title != undefined && priceArray[e][o].title != "") {
                         let listItem = "";
                         totalPrice += (parseFloat(priceArray[e][o].price) * (parseFloat(priceArray[e][o].qty)));
@@ -198,7 +208,7 @@ $(document).ready(function () {
         }).then(function (product) {
             exportData.productId = product.id;
             let addOns = JSON.parse(product.addOns);
-            console.log(addOns);
+            
             checkedArray.length = addOns.length + 2;
             $("#productModalTitle").html(`Edit Product - ${product.name}`);
             listItem = `<div class="row"><div class="col-md-6 itemizeProductName">${product.name} </div>
@@ -255,7 +265,7 @@ $(document).ready(function () {
             }
 
             for (let q = 2; q < addOns.length; q++) {
-                console.log(q)
+                
                 let answersTextArray = [];
                 let finalAnswer = ""
 

@@ -3,7 +3,7 @@ let checkedArray = [null, null];
 let exportArray = [];
 let exportData = { baseProductPrice:0, userId:1,basePrice:0, addons:"",subtotal:0, productId:0}
 $("#addProductToCart").on("click",function(){
-    console.log(exportData);
+   
     $.ajax({
         url:"/menu/addProductToOrder",
         method:"POST",
@@ -57,7 +57,7 @@ exportData.basePrice = basePrice;
 let totalPrice = parseFloat(basePrice);
       for(let e = 0; e< priceArray.length; e++){
           for(let o = 0; o< priceArray[e].length;o++){
-              console.log(priceArray)
+              
             if (priceArray[e][o].title != null && priceArray[e][o].title!=undefined && priceArray[e][o].title != ""){
             let listItem ="";
             totalPrice += (parseFloat(priceArray[e][o].price)*(parseFloat(priceArray[e][o].qty)));

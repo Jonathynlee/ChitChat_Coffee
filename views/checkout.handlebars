@@ -248,7 +248,9 @@ function startPageFunc(){
 
             for(orderItems in response){
                  let currentSubItemList = ""
+
                 let currentAddons = JSON.parse(response[orderItems].addons);
+
             $.ajax({
                method: "POST",
                url: "/checkout/getProduct",
@@ -260,11 +262,13 @@ function startPageFunc(){
             for (let addon =0 ;addon<currentAddons.length;addon++) {
                 for (ans in currentAddons[addon].question.answers){
                 
+
                 let currentText = `<div class='row subItem'><p class='leftText text1'>${currentAddons[addon].question.answers[ans].title}</p><p class='rightText text2'>$${currentAddons[addon].question.answers[ans].price}</p></div>`
                         currentSubItemList += currentText;
                 }
                     }
                    
+
 
                    
                 $(".cartBreakdown").append(`<div class='item row' id='item_${orderItems}'><p class='itemname itemName${orderItems}' state='closed'>${product.name}<i class='fas fa-caret-right'></i></p><p class='itemPrice'>$${product.basePrice} </p><div class='itemizedList'> ${currentSubItemList}  </div></div>`)

@@ -7,12 +7,19 @@ const session        = require('express-session');
 const passport 		 = require("./config/passport");
 const config		 = require("./config/extra-config");
 
+var fileUpload = require('express-fileupload');
+
+
+
 // Express settings
 // ================
 
 // instantiate our app
-const app            = express();
 
+
+
+const app            = express();
+app.use(fileUpload());
 
 //allow sessions
 // app.use(session({ secret: 'booty Mctootie', cookie: { maxAge: 60000 }}));

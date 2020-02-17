@@ -110,6 +110,7 @@ $(function(){
          
         
       }
+
       sub.text(subtotal.toFixed(2)); 
     }
 
@@ -117,6 +118,7 @@ $(function(){
      const stotal={
        subtotal:subtotal.toFixed(2),
        orderId:result[0].orderId
+
      
      }
      $.ajax({
