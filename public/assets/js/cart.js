@@ -111,7 +111,7 @@ $(function(){
       
      
    }
-   console.log(result);
+   
    /*const stotal={
      subTotal:subtotal,
      id:result[0].orderId

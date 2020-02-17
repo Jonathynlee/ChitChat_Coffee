@@ -17,7 +17,7 @@ module.exports = function (app) {
     const orderAdminListAPI= require('./routes/orderAdminListAPI');
     const manageAccount= require('./routes/manageAccounts');
     const menu= require('./routes/menu');
-
+    const imageUpload = require('./routes/imageUpload');
     
 
     
@@ -27,6 +27,7 @@ module.exports = function (app) {
     app.use('/api/shoppingCard', shoppingCardAPI);
 
     app.use('/api/shoppingCard/:id', shoppingCardAPI);
+   app.use('/imageUpload', imageUpload);
 
 
 
@@ -51,7 +52,7 @@ module.exports = function (app) {
     app.use('/merch', merch);
 
     app.use('/menu', menu);
-
+   
 
     //other routes..
 }

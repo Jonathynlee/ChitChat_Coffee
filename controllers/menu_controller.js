@@ -10,7 +10,7 @@ var db=require("../models");
 
 
 exports.getProduct = function(req, res){
-    console.log(req.body)
+    
    db.product.findOne({
       where:{id:req.body.productId}
    }).then(function(response){
@@ -32,7 +32,7 @@ exports.addOrderItem  =function(req, res){
 }
 
 exports.getAllProducts = function(req, res){
-   console.log(req.body)
+   
   db.product.findAll({
      
   }).then(function(response){
@@ -43,9 +43,9 @@ exports.getAllProducts = function(req, res){
 ////Aysen////
 //Find all categories
 exports.getAllCategories = function(req, res){
-   console.log(req.body)
+   
   db.category.findAll({}).then(function(response){
-     console.log(response);
+    
      res.json(response)
   })
 }

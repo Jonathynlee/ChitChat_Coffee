@@ -21,7 +21,7 @@ exports.addCategory =function(req, res){
 }
 
 exports.addProduct  =function(req, res){
-   console.log(req.body.addOns)
+  
    db.product.create({
       name:req.body.name,
       quantity:1,
@@ -39,3 +39,4 @@ exports.addProduct  =function(req, res){
 
    res.json(req.body);
 }
+

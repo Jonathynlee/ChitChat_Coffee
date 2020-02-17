@@ -21,9 +21,9 @@ exports.OrderList=function(req,res){
       
  } 
 ).then(function(reslt){
-     console.log(reslt)
+     
 
-/
+
 //res.render("orderList");
 res.render('orderList', {
     layout: 'main-admin'
@@ -50,7 +50,7 @@ res.render('orderList', {
 
 } 
 ).then(function(reslt){
-console.log(reslt);
+
   res.send(reslt);
   
 });

@@ -3,9 +3,7 @@
 {
   "development": {
     "username": "root",
-
     "password": "abmis",
-
     "database": "chitchat",
     "host": "localhost",
     "port":"3306",
