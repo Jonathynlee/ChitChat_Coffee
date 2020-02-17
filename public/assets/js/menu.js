@@ -217,49 +217,55 @@ $(document).ready(function () {
 
             $("#renderItems").append(listItem);
 
-            if (addOns[1].question.answers[0].include == false) {
+            if (addOns[1].question.answers[0].include === "false") {
                 $("#icedSelection").css("display", "none");
 
             } else {
+                $("#icedSelection").css("display", "block");
                 $("#icedSelection").children("label").html(`Iced - $${parseFloat(addOns[1].question.answers[0].price).toFixed(2)}`)
                 $("#icedSelection").attr("price", parseFloat(addOns[1].question.answers[0].price).toFixed(2))
             }
 
-            if (addOns[1].question.answers[1].include == false) {
+            if (addOns[1].question.answers[1].include === "false") {
                 $("#hotSelection").css("display", "none");
 
             } else {
+                $("#hotSelection").css("display", "block");
                 $("#hotSelection").children("label").html(`Hot - $${parseFloat(addOns[1].question.answers[1].price).toFixed(2)}`)
                 $("#hotSelection").attr("price", parseFloat(addOns[1].question.answers[1].price).toFixed(2))
             }
 
 
-            if (addOns[0].question.answers[0].include == false) {
+            if (addOns[0].question.answers[0].include === "false") {
                 $("#smallSelection").css("display", "none");
 
             } else {
+                $("#smallSelection").css("display", "block");
                 $("#smallSelection").children("label").html(`Small - $${parseFloat(addOns[0].question.answers[0].price).toFixed(2)}`)
                 $("#smallSelection").attr("price", parseFloat(addOns[0].question.answers[0].price).toFixed(2))
             }
-            if (addOns[0].question.answers[1].include == false) {
+            if (addOns[0].question.answers[1].include === "false") {
                 $("#mediumSelection").css("display", "none");
 
             } else {
+                $("#mediumSelection").css("display", "block");
                 $("#mediumSelection").children("label").html(`Medium - $${parseFloat(addOns[0].question.answers[1].price).toFixed(2)}`)
                 $("#mediumSelection").attr("price", parseFloat(addOns[0].question.answers[1].price).toFixed(2))
             }
 
-            if (addOns[0].question.answers[2].include == false) {
+            if (addOns[0].question.answers[2].include === "false") {
                 $("#largeSelection").css("display", "none");
 
             } else {
+                $("#largeSelection").css("display", "block");
                 $("#largeSelection").children("label").html(`Large - $${parseFloat(addOns[0].question.answers[2].price).toFixed(2)}`)
                 $("#largeSelection").attr("price", parseFloat(addOns[0].question.answers[2].price).toFixed(2))
             }
-            if (addOns[0].question.answers[3].include == false) {
+            if (addOns[0].question.answers[3].include === "false") {
                 $("#xlargeSelection").css("display", "none");
 
             } else {
+                $("#xlargeSelection").css("display", "block");
                 $("#xLargeSelection").children("label").html(`X-Large - $${parseFloat(addOns[0].question.answers[3].price).toFixed(2)}`)
                 $("#xLargeSelection").attr("price", parseFloat(addOns[0].question.answers[3].price).toFixed(2))
             }
