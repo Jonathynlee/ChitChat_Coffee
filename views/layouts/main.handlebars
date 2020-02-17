@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="/assets/css/footer_style.css">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link href="/assets/css/accountStyle.css" rel="stylesheet">
+    <link rel="manifest" href="manifest.webmanifest">
   
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -153,12 +154,21 @@
 
     <!-- Theme JavaScript -->
     <!--<script src="/assets/js/grayscale.js"></script>-->
-    
+    <script src="/assets/js/manageAcc.js"></script>
     <script src="/assets/js/checkout_func.js"> //Functionality for Checkout... Needs to be after Jquery</script>
     <script src="/assets/js/createProduct_func.js"> //Functionality for Checkout... Needs to be after Jquery</script>
      <script src="/assets/js/login.js"></script>
      <script src="/assets/js/cart.js"> //Functionality for showing cart items</script>
     <script src="/assets/js/productEdit.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("service-worker.js").then(reg => {
+            console.log("We found your service worker file!", reg);
+          });
+        });
+      }
+    </script>
     </div>
 </body>
 </html>

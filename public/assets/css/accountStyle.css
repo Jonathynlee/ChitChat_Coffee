@@ -32,7 +32,6 @@ flex-direction: column;
 }
 
 .mainCard{
-    margin-top: 400px;
     max-width: 100%!important;
     border-radius: unset!important;
 }
@@ -193,7 +192,6 @@ a:focus { color: pink !important; }
     margin-top: 250px;
     background-color: transparent;
     text-align: center;
-
 }
 
 .orderCoffeeButton {
@@ -206,6 +204,7 @@ a:focus { color: pink !important; }
     outline: none;
     padding: 30px;
     border-radius: 30px;
+    margin-bottom: 620px;
 }
 .orderCoffeeButton:focus {
     border: solid;

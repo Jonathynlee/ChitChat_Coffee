@@ -4,7 +4,7 @@ const session        = require('express-session');
 
 exports.manageAccounts=function(req,res){
 
-    console.log(req.session);
+    //console.log(JSON.parse(req.session.user.datavalues));
 
 
     db.user.findAll({
