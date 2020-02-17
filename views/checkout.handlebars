@@ -64,7 +64,7 @@
                             <div class="orderTotalText">
                                 <p>Order Total:</p>
                             </div>
-                            <div class="orderTotalPrice">$0.52</div>
+                            <div class="orderTotalPrice" id="orderTotalPrice">$0.52</div>
 
                         </div>
                     </div>
@@ -83,124 +83,148 @@
         <!--Right Column For Checkout Information-->
         <div class="col-md-5">
             <div class="vert_line"></div>
-            <div id="paymentArea">
-                <div class="paymentTitle row">
-                    <div class="col-sm-12">
-                        <h2> Payment:</h2>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="inputEmail4">Name on Card:</label>
-                        <input type="email" class="form-control" id="inputEmail4">
-                    </div>
-                    <div class="form-group col-md-6">
+              <div id="paymentArea">
+               
+                   <form action="/checkout/charge" method="post" id="payment-form">
+                       <!--<div class="form-row">-->
+                            <label for="card-element">
+                                 Credit or debit card
+                            </label>
+                            <div id="card-element" class="mt-2">
+                                  <!-- A Stripe Element will be inserted here. -->
+                            </div>
 
-                        <label for="inputState">Where to Pay:</label>
-                        <select id="inputState" class="form-control">
-                            <option selected>In Store</option>
-                            <option>Credit Card</option>
+                            <!-- Used to display form errors. -->
+                            <div id="card-errors" role="alert"></div>
+                      <!-- </div>-->
+
+                     <button class="mt-4">Submit Payment</button>
+                  </form>
+                <script src="https://js.stripe.com/v3/"></script>
+                <script>
+                        // Create a Stripe client.
+                        var stripe = Stripe('PUBLIC KEY');//CHANGE IT T YOUR OWN
+
+                        // Create an instance of Elements.
+                        var elements = stripe.elements();
+
+                        // Custom styling can be passed to options when creating an Element.
+                        // (Note that this demo uses a wider set of styles than the guide below.)
+                        var style = {
+                                 base: {
+                                        color: '#32325d',
+                                                 width:'auto',
+                                                 height:'auto',
+                                                lineHeight: '18px',
+                                                fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+                                                fontSmoothing: 'antialiased',
+                                                fontSize: '16px',
+                                                '::placeholder': {
+                                                 color: '#aab7c4',}
+                                                
+                               },
+                               invalid: {
+                                 color: '#fa755a',
+                                 iconColor: '#fa755a'
+                               }
+                       };
+
+                    // Create an instance of the card Element.
+                        var card = elements.create('card', { style: style });
+
+                    // Add an instance of the card Element into the `card-element` <div>.
+                    card.mount('#card-element');
+
+                    // Handle real-time validation errors from the card Element.
+                    card.addEventListener('change', function (event) {
+                            var displayError = document.getElementById('card-errors');
+                             if (event.error) {
+                                  displayError.textContent = event.error.message;
+                             } else {
+                                 displayError.textContent = '';
+                               }
+                    });
+
+                    // Handle form submission.
+                    var form = document.getElementById('payment-form');
+                    form.addEventListener('submit', function (event) {
+                            event.preventDefault();
+                            stripe.createPaymentMethod({
+                                type: 'card',
+                                card: card,
+                                billing_details: {
+                                        // Include any additional collected billing details.
+                                     name: 'Jenny Rosen',
+                                },
+                            }).then(result=>{
+                                    if (result.error) {
+                                            // Show error in payment form
+                                   } else {
+                                // Otherwise send paymentMethod.id to your server (see Step 4)
+                                      $.ajax({
+                                        method: "POST",
+                                       url: "/checkout/charge",
+                                      data: {  payment_method_id: result.paymentMethod.id,}
+        
+                                     }).then(function(message){ 
+                                         console.log(message)
+                                         if(message.success){
+                                            alert("Your Payment was successfull!!");
+                                            window.location.replace("/menu");
+                                         }   
+                                         else{
+                                             alert(message.message);
+                                         }
+                                      });
+                                   }  
+                            
+
+                                });
+
+                    });
+</script>
+
+<style>
+  /**
+ * The CSS shown here will not be introduced in the Quickstart guide, but shows
+ * how you can use CSS to style your Element's container.
+ */
+
+  .StripeElement {
+    background-color: white;
+    height: 40px;
+    padding: 10px 12px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+  }
+
+  .StripeElement--focus {
+    box-shadow: 0 1px 3px 0 #cfd7df;
+  }
+
+  .StripeElement--invalid {
+    border-color: #fa755a;
+  }
+
+  .StripeElement--webkit-autofill {
+    background-color: #fefde5 !important;
+  }
+</style>
 
 
-                        </select>
-
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputAddress">Card Number</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="">
-                </div>
-
-
-
-                <div class="row">
-                    <div class="col-md-3">
-
-                        <label for="inputState">Month</label>
-                        <select id="inputState" class="form-control">
-                            <option selected month="1">Jan</option>
-                            <option month="2">Feb</option>
-                            <option month="3">Mar</option>
-                            <option month="4">Apr</option>
-                            <option month="5">May</option>
-                            <option month="6">Jun</option>
-                            <option month="7">Jul</option>
-                            <option month="8">Aug</option>
-                            <option month="9">Sep</option>
-                            <option month="10">Oct</option>
-                            <option month="11">Nov</option>
-                            <option month="12">Dec</option>
-
-
-                        </select>
-                    </div>
-                    <div class="col-md-3">
-
-                        <label for="inputState">Year</label>
-                        <select id="inputState" class="form-control">
-                            <option selected year="2020">2020</option>
-                            <option year="2021">2021</option>
-                            <option year="2022">2022</option>
-                            <option year="2023">2023</option>
-                            <option year="2024">2024</option>
-                            <option year="2025">2025</option>
-                            <option year="2026">2026</option>
-                            <option year="2027">2027</option>
-
-
-
-
-                        </select>
-                    </div>
-                    <div class="col-md-6">
-
-                        <label for="cardCCV">CCV</label>
-                        <input type="text" class="form-control" id="CCV" placeholder="xxx">
-                    </div>
-
-                </div>
-
-
-
-
-                <div class="form-group">
-                    <label for="inputAddress">Card Number</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="">
-                </div>
-
-                <div class="form-group">
-                    <label for="inputAddress">Address</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                </div>
-                <div class="form-group">
-                    <label for="inputAddress2">Address 2</label>
-                    <input type="text" class="form-control" id="inputAddress2"
-                        placeholder="Apartment, studio, or floor">
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="inputCity">City</label>
-                        <input type="text" class="form-control" id="inputCity">
-                    </div>
-
-                    <div class="form-group col-md-2">
-                        <label for="inputZip">Zip</label>
-                        <input type="text" class="form-control" id="inputZip">
-                    </div>
-                </div>
-
-                <button type="submit" class="btn btn-primary" id = "submitButton"
-                    style="background-color: #9cd6c0; border-color:#9cd6c0">Send Order</button>
-                </form>
-
-            </div>
-
-        </div>
-
-    </div>
+                    
+               
+             
+<!--///////////////////////////////////////////////////////////////////////////////-->
+             </div>
+        </div>     
 
 
 </div>
+
 
 <script>
 
@@ -208,10 +232,10 @@
 
 
 function startPageFunc(){
+     
     $.ajax({
         method: "POST",
         url: "/checkout/getOrderItems",
-       // data: { userId:1}
         
     }).done(function (response) {
             
@@ -219,12 +243,14 @@ function startPageFunc(){
             const taxes = response[0].subtotal*.075;
             $(".taxPrice").html(`$${taxes.toFixed(2)}`)
             const total = (response[0].subtotal + taxes)
-            $(".orderTotalPrice").html(`$${total.toFixed(2)}`)
+            $(".orderTotalPrice").html(`$${total.toFixed(2)}`);
+            
+
             for(orderItems in response){
                  let currentSubItemList = ""
-                
+
                 let currentAddons = JSON.parse(response[orderItems].addons);
-                
+
             $.ajax({
                method: "POST",
                url: "/checkout/getProduct",
@@ -236,14 +262,13 @@ function startPageFunc(){
             for (let addon =0 ;addon<currentAddons.length;addon++) {
                 for (ans in currentAddons[addon].question.answers){
                 
-                
-                
+
                 let currentText = `<div class='row subItem'><p class='leftText text1'>${currentAddons[addon].question.answers[ans].title}</p><p class='rightText text2'>$${currentAddons[addon].question.answers[ans].price}</p></div>`
-                    
                         currentSubItemList += currentText;
                 }
                     }
-                    
+                   
+
 
                    
                 $(".cartBreakdown").append(`<div class='item row' id='item_${orderItems}'><p class='itemname itemName${orderItems}' state='closed'>${product.name}<i class='fas fa-caret-right'></i></p><p class='itemPrice'>$${product.basePrice} </p><div class='itemizedList'> ${currentSubItemList}  </div></div>`)
@@ -268,19 +293,21 @@ function startPageFunc(){
                             $(event.target).children("i").css("transform", "rotate(90deg)")
                         }
                     
-                    
                     });
-                })
-            }
                     
-                })
+                });
             }
+         
+                    
+        });
+    }
 
 
 
 
 document.addEventListener("DOMContentLoaded", function(event) { 
 startPageFunc()
+
 });
 
 </script>

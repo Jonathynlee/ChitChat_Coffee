@@ -53,13 +53,13 @@ exports.getAllCategories = function(req, res){
 /////////////
 
 exports.addProductToOrder = function(req, res){
-   
+   console.log(req.body);
   db.order.findOne({
-     where:{userId :req.body.userId, status:"in_cart"}
+     where:{userId :req.user.id, status:"in_cart"} //req.body.userId
   }).then(function(response){
      if(response != undefined){
       db.orderItem.create({
-         basePrice:req.body.baseProductPrice,
+         basePrice:req.body.basePrice,//baseProductPrice
          addons:req.body.addons,
          subtotal:req.body.subtotal,
          orderId:response.id,
@@ -72,7 +72,7 @@ exports.addProductToOrder = function(req, res){
         //create order
         db.order.create({
          status:"in_cart",
-         userId:req.body.userId,
+         userId:req.user.id,//req.body.userId
          subtotal:req.body.subtotal,
          orderDate:"1970-01-01 00:00:01",
          pickUpDate:"1970-01-01 00:00:01",
@@ -80,16 +80,16 @@ exports.addProductToOrder = function(req, res){
          
         }).then(function(resp){
         db.order.findOne({
-         where:{userId :req.body.userId, status:"in_cart"}
+         where:{userId :req.user.id, status:"in_cart"}//req.body.userId
       }).then(function(ord){
 
          db.orderItem.create({
-            basePrice:req.body.baseProductPrice,
+            basePrice:req.body.basePrice,//baseProductPrice
             addons:req.body.addons,
             subtotal:req.body.subtotal,
             orderId:ord.id,
             productId:req.body.productId,
-            userId:req.body.userId
+            userId:req.user.id//req.body.userId
 
          })
      

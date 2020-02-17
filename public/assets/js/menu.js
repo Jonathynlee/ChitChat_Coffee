@@ -19,7 +19,7 @@ $(document).ready(function () {
             method: "POST",
             data: exportData
 
-        })
+        });
     })
 
 
@@ -60,7 +60,7 @@ $(document).ready(function () {
 
         }).done(function (reslt) {
             products = reslt;
-            console.log(products)
+            //console.log(products)
             pcolumn.empty();
 
         });

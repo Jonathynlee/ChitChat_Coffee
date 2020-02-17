@@ -7,27 +7,26 @@
 var db = require("../models");
 
 exports.index = function (req, res) {
-   
 
-   //find user id from email
-   db.user.findOne({where:{email:req.session.email}}).then(function(result){
-      let userID=result.id;
+
+
       
      db.order.findOne({where: {status:"in_cart",
-                              userID:userID} ,
+                              userID:req.user.id} ,
                               include:[
                                         {
                                           model:db.orderItem,
-                                          include:[db.product],
+                                          include:[db.product]
                                         }
                                ] 
                                     
                                }  
-      ).then(function(reslt){
-      
+         ).then(function(reslt){
+
          if(reslt){
+         
             for(let i=0;i<reslt.orderItems.length;i++){
-                
+
                 if(reslt.orderItems[i].product.quantity){
                    if(reslt.orderItems[i].product.quantity<3){
                      reslt.orderItems[i].product.flag=true;
@@ -41,7 +40,7 @@ exports.index = function (req, res) {
          } 
       });
       
-   });
+  
 }
 
    exports.apiIndex = function (req, res) {
@@ -109,13 +108,24 @@ exports.index = function (req, res) {
 
        exports.updateSubtotal=function (req,res){
           //const id=req.params.id;
-         
-         db.order.update({subTotal:req.body.subTotal},{
+
+         console.log(req.body);
+         const amount=req.body.subtotal;
+         db.orderItem.update({subtotal:amount},{
+
             where:{
-               id:req.body.id
+               orderId:req.body.orderId
             }
          }).then(function(dbPost) {
-           res.json(dbPost);
+            console.log("Heyyy:"+dbPost);
+            db.order.update({subtotal:amount},{
+            where:{
+               id:req.body.orderId
+            }
+         }).then(function(dbPost) {
+            res.json(dbPost);
+         });  
+
          }); 
       }
    
