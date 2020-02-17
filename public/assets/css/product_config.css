@@ -138,6 +138,35 @@ margin:2px;
 #submitProductButton:hover{
     background-color: grey;
 }
+.finishAddingProductContent{
+    width:432px!important;
+    height:632px!important;
+}
+ #finishAddingProductContent{
+
+    width:400px;
+    height:600px!important;
+ }
+
+.greenCircle{
+    height: 0px;
+    width:0px;
+    background-color: rgba(0, 255, 255, 0);
+    border:0px solid #9cd6c000;
+    border-radius:50%;
+    margin:auto;
+    transition:1.5s;
+}
+.greenCircle p{
+    color:#9cd6c000;
+    margin:25px 10px;
+    width:130px;
+    font-size:0px;
+    transition:1.5s;
+}
+
+
+
  @media only screen and (max-width: 576px){
     .icons{
         height: auto;
