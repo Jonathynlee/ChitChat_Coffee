@@ -3,8 +3,8 @@ let itemDetail = { name: "", basePrice: 0, addOns: [], image: "", description: "
 let questionCount = 1;
 let answersCount = [1];
 renderCategories();
-
-
+ 
+$("#finishAddingProductModal").modal();
 // This will render the categories with all categories available in the database
 function renderCategories() {
     $.ajax({
