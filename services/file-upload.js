@@ -15,6 +15,7 @@ exports.upload = function(file, response) {
        Bucket: ''
 
 
+
     });
     console.log("credentials submitted")
     s3bucket.createBucket(function () {

@@ -50,7 +50,8 @@ exports.getProduct=function(req, res){
            tax=ordr.subtotal*0.25;
            total2=ordr.subtotal+tax;
            total={total:total2,
-                  status:"placed"};
+                  status:"placed",
+                  orderDate:Date.now()};
            db.order.update(total,{where:{id:ordr.id}})
            .then(async function(ordr2){
                 

@@ -28,7 +28,7 @@ function isCompleted(orderId){
         
 
     }
-   
+    
     return true;
 }
 
@@ -75,8 +75,15 @@ $("#orderComplete").on("click",function(event){
            url: "/orderAdminList/partOrder/"+itemNo,
            data: data
          }).then(function() {
-            
-             if(isCompleted(orderNo)){
+            $.ajax({
+                method: "GET",
+                url: "/api/orderAdminList",
+                 
+             }).done(function(result){
+                 db=result;
+                let completed=isCompleted(orderNo);
+               
+               if(completed){
                 
                  const stat={
                      status:"completed"
@@ -89,9 +96,9 @@ $("#orderComplete").on("click",function(event){
                     
                       //////////////////////////////
                    ///////////////sms////////////
-                   let phoneTwilio="+1";
+                  /* let phoneTwilio="+16099334965";
                    phoneTwilio+= phone.replace(/[^\d]/g, "");
-                   console.log(phoneTwilio);   
+                   console.log(phoneTwilio);
                    const message ={body: 'ChitChat:Your order is ready!', from: '+18632165761', to:phoneTwilio};
                    
                   $.ajax({
@@ -103,14 +110,16 @@ $("#orderComplete").on("click",function(event){
                        window.location.reload();
      
                    });
-                  //////////////////////////////
-                 
+                  //////////////////////////////*/
+                
                       
                 });
                 
              }
+            });
              
            });
+          
        
 
     
@@ -261,7 +270,7 @@ $.ajax({
    url: "/api/orderAdminList",
     
 }).done(function(result){
-
+           tbodyEl.empty();
            console.log(result);
            if (result){
                db=result;
@@ -277,8 +286,6 @@ $.ajax({
                    let td=$("<td>");
                    let btn=$("<button>");
                    btn.attr("type","submit");
-                  // btn.attr("data-toggle","modal");
-                  // btn.attr("data-target","#myModal");
                    btn.attr("data-i",i);
                    btn.attr("data-j",j);
                    btn.attr("data-id",result[i].orderItems[j].id);
@@ -310,25 +317,12 @@ $.ajax({
 
                    td=$("<td>");
                    td.text(result[i].orderItems[j].product.EstimatedTime+" min");
-                  /* input=$("<input>");
-                   input.attr("type","checkbox");
-                   input.attr("class","form-check-input");
-                   input.attr("id","c"+result[i].orderItems[j].id);
-                   input.attr("disabled",true);
-                    div=$("<div>");
-                   div.attr("class","form-check text-center");
-                   div.append(input);
-                    div2=$("<div>");
-                   div2.attr("class","form-group");
-                   div2.append(div);
-                   td.append(div2);*/
-                   //row.append(td);
                    row.append(td);
                    tbodyEl.append(row);
 
                   }
                   if (color_index==0){color_index=1}else{color_index=0}
-                //  table_index++;
+                
                }
                
            }
