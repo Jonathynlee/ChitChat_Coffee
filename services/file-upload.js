@@ -12,12 +12,15 @@ exports.upload = function(file, response) {
     let s3bucket = new aws.S3({
         accessKeyId:'',
         secretAccessKey:'',
-       Bucket: 'chitchatcoffeeimages'
+       Bucket: ''
+
+
+
     });
     console.log("credentials submitted")
     s3bucket.createBucket(function () {
         var params = {
-          Bucket: 'chitchatcoffeeimages',
+          Bucket: '',
           Key: file.name,
           Body: file.data,
           ACL: 'public-read'

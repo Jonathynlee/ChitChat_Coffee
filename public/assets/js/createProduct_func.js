@@ -4,9 +4,16 @@ let questionCount = 1;
 let answersCount = [1];
 renderCategories();
  
-$("#finishAddingProductModal").modal()
 
 
+    
+
+$("#pictureBox").on("click", function(event){
+    event.preventDefault();
+        $("#uploadImage").click();
+        
+        
+    })
 
     
 
@@ -24,7 +31,7 @@ function renderCategories() {
         $("#categorySelect").html("")
         $("#categorySelect").append(`<option class = "disable">Select Category</option id = "addCategory">`)
         for (category in allCategories) {
-            $("#categorySelect").append(`<option value = "${allCategories[category].id}">${allCategories[category].name}</option id = "addCategory">`)
+            $("#categorySelect").append(`<option value = "${allCategories[category].id}">${allCategories[category].name} </option id = "addCategory">`)
 
 
         }
@@ -133,7 +140,7 @@ $("#categorySelect").on("change", function () {
     if (this.value == "addCategory") {
         $('#addCategoryModal').modal()
     }
-
+    
 })
 
 $("#finishAddCategory").on("click", function () {
@@ -146,17 +153,41 @@ $("#finishAddCategory").on("click", function () {
             url: "/createProductAdmin/addCategory",
             data: { name: $("#addedCategoryName").val(), description: $("#addedCategoryDescritpion").val() },
 
+        }).then(function(){
+           renderCategories();
         })
-        renderCategories();
+        
     } else {
         alert("add title");
     }
-
+    
 })
 
 
 
+$("#deleteCategory").on("click", function (event) {
+    let selectedText = $("#categorySelect").children("option")[$("#categorySelect")[0].selectedIndex].textContent;
+    
 
+    
+    if (selectedText != "Select Category" && selectedText != "Add Category") {
+        let shouldDelete = confirm(`Are you sure you want to delete ${selectedText}`)
+        console.log(shouldDelete)
+        if(shouldDelete == true){
+        $.ajax({
+            method: "DELETE",
+            url: "/createProductAdmin/deleteCategory",
+            data: { id: parseInt(($("#categorySelect").children("option")[$("#categorySelect")[0].selectedIndex]).getAttribute("value"))},
+
+        }).done(function(data){
+            console.log(data)
+            renderCategories();
+        })
+    }
+        
+    }
+    
+})
 
 
 
@@ -284,16 +315,35 @@ const submitProduct = function () {
         $.ajax({
             method:"post",
             url:"/createProductAdmin/addProduct",
-            data:itemDetail,
-            success:function(data){
-               
-            }
+            data:itemDetail
+            
     
         })
     })
+    $(".greenCircle").append(` <p> ${itemDetail.name} Has Been Added</p>`)
+    $("#finishAddingProductModal").modal()
+    
+
     console.log(itemDetail)
 
 }
+
+$("#makeSimilarProduct").on("click", function(){
+    $("#finishAddingProductModal").modal("hide");
+})
+
+$("#addANewProduct").on("click", function(){
+    location.reload();
+
+})
+$("#goToProductsPage").on("click", function(){
+    location.replace("../menu");
+
+})
+
+
+
+
 
 $("#imageForm").on("change", function(event){
     
@@ -326,12 +376,7 @@ $("#imageForm").on("change", function(event){
         }
     })
 })
-$("#pictureBox").on("click", function(event){
-event.preventDefault();
-    $("#uploadImage").click();
-    
-    
-})
+
 
 
 $("#pictureBox").on("formdata", function(event){

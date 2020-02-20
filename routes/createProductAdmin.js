@@ -8,6 +8,7 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");*/
 var createProduct_controller = require('../controllers/createProduct_controller');
 router.get('/', createProduct_controller.index);
 router.post('/addCategory', createProduct_controller.addCategory);
+router.delete('/deleteCategory', createProduct_controller.deleteCategory);
 router.get('/getCategories', createProduct_controller.getCategories);
 router.post('/addProduct', createProduct_controller.addProduct);
 
