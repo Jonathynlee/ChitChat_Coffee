@@ -11,7 +11,15 @@ $(document).ready(function () {
 
 
     //////////////////////////////////////
-
+    $("#addMoreItems").on("click", function(){
+        $("#finishAddingProductModal").modal("hide");
+    })
+    
+    $("#goToCartPage").on("click", function(){
+        location.replace("../shoppingCard");
+    
+    })
+    
     $("#addProductToCart").on("click", function () {
         
         $.ajax({
@@ -20,6 +28,9 @@ $(document).ready(function () {
             data: exportData
 
         });
+
+        $("#productModal").modal("hide");
+    $("#finishAddingProductModal").modal();
     })
 
 
@@ -60,7 +71,7 @@ $(document).ready(function () {
 
         }).done(function (reslt) {
             products = reslt;
-            //console.log(products)
+            console.log(products)
             pcolumn.empty();
 
         });
@@ -174,7 +185,7 @@ $(document).ready(function () {
             <div class="col-md-6" id = "itemizeProductPrice">$${basePrice}</div>
             </div>`);
 
-
+            
             exportData.basePrice = basePrice;
             let totalPrice = parseFloat(basePrice);
             for (let e = 0; e < priceArray.length; e++) {
@@ -206,9 +217,11 @@ $(document).ready(function () {
             url: "/menu/getProduct",
             data: { productId: inProductId }
         }).then(function (product) {
+            $("#pictureBox").css('background-image',`url(${product.image})`)
+            $(".greenCircle").append(` <p> ${product.name} Has Been Added</p>`)
             exportData.productId = product.id;
             let addOns = JSON.parse(product.addOns);
-            
+            console.log(product)
             checkedArray.length = addOns.length + 2;
             $("#productModalTitle").html(`Edit Product - ${product.name}`);
             listItem = `<div class="row"><div class="col-md-6 itemizeProductName">${product.name} </div>
@@ -262,10 +275,10 @@ $(document).ready(function () {
                 $("#largeSelection").attr("price", parseFloat(addOns[0].question.answers[2].price).toFixed(2))
             }
             if (addOns[0].question.answers[3].include === "false") {
-                $("#xlargeSelection").css("display", "none");
+                $("#xLargeSelection").css("display", "none");
 
             } else {
-                $("#xlargeSelection").css("display", "block");
+                $("#xLargeSelection").css("display", "block");
                 $("#xLargeSelection").children("label").html(`X-Large - $${parseFloat(addOns[0].question.answers[3].price).toFixed(2)}`)
                 $("#xLargeSelection").attr("price", parseFloat(addOns[0].question.answers[3].price).toFixed(2))
             }
@@ -347,9 +360,17 @@ $(document).ready(function () {
             $(".priceCalc").on("click", function (event) {
 
                 let questionNumber = parseInt($(event.target).parent().parent().attr("question"));
-                priceArray[questionNumber] = [];
-                priceArray[questionNumber][0] = {};
-
+                console.log(questionNumber)
+                for(let i = 0; i<questionNumber+1;i++){
+                    console.log(priceArray[i])
+                    if(priceArray[i]== undefined){
+                priceArray[i] = [];
+                    }
+                    if(priceArray[i][0]== undefined){
+                priceArray[i][0] = {};
+                    }
+                }
+                console.log(priceArray)
                 priceArray[questionNumber][0].title = $(event.target).parent().attr("title");
                 priceArray[questionNumber][0].price = $(event.target).parent().attr("price");
                 priceArray[questionNumber][0].qty = 1;
@@ -361,9 +382,15 @@ $(document).ready(function () {
             $(".selectPriceCalc").change(function (event) {
                 let questionNumber = parseInt($(event.target).attr("question"));
                 //let priceArray = [{title:null, price:0},{title:null, price:0} ];
-                priceArray[questionNumber] = [];
-                priceArray[questionNumber][0] = {};
-
+                for(let i = 0; i<questionNumber;i++){
+                    console.log(priceArray[i])
+                    if(priceArray[i]=== undefined){
+                priceArray[i] = [];
+                    }
+                    if(priceArray[i][0]=== undefined){
+                priceArray[i][0] = {};
+                    }
+                }
                 priceArray[questionNumber][0].title = $(event.target).children(":selected").attr("title");
                 priceArray[questionNumber][0].price = $(event.target).children(":selected").attr("price");
                 priceArray[questionNumber][0].qty = 1;
