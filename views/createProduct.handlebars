@@ -15,7 +15,9 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label>Product Category</label>
+                    <label>Category</label>
+                    <button id = "refreshCategories" onclick = "renderCategories();"><i class="fas fa-sync-alt"></i> </button>
+                    <button id = "deleteCategory"><i class="far fa-trash-alt"></i> </button>
                     <select class="form-control" id = "categorySelect">
                         <option class = "disable">Select Category</option id = "addCategory">
 
@@ -190,7 +192,7 @@
 <div class="row additionalRow">
     <div class="col-md-4"></div>
     <div class="col-md-4">
-        <button id="submitProductButton" onclick=submitProduct();>
+        <button id="submitProductButton">
             <h3>Submit Product</h3>
         </button>
     </div>
@@ -241,13 +243,13 @@
       </div>
       <div class="modal-body">
         <div class = "greenCircle">
-            <p> Name Has Been Added</p>
+           
         </div>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer" id = "finishButtons">
         <button type="button" class="btn btn-primary" id = "makeSimilarProduct">Build Similar Product</button>
         <button type="button" class="btn btn-primary" id = "addANewProduct">Add A New Product</button>
-        <button type="button" class="btn btn-primary" id = "goToProductsPage">Add A New Product</button>
+        <button type="button" class="btn btn-primary" id = "goToProductsPage" >Go To Products Page</button>
       </div>
     </div>
   </div>

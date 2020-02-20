@@ -10,14 +10,16 @@ exports.testThis = function(){
 exports.upload = function(file, response) {
     console.log("trying to Upload File")
     let s3bucket = new aws.S3({
-        accessKeyId:'AKIAJZUZ54CNWKKEKSSQ',
-        secretAccessKey:'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',
-       Bucket: 'chitchatcoffeeimages'
+        accessKeyId:'',
+        secretAccessKey:'',
+       Bucket: ''
+
+
     });
     console.log("credentials submitted")
     s3bucket.createBucket(function () {
         var params = {
-          Bucket: 'chitchatcoffeeimages',
+          Bucket: '',
           Key: file.name,
           Body: file.data,
           ACL: 'public-read'

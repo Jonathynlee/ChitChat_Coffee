@@ -17,6 +17,8 @@ exports.addCategory =function(req, res){
    db.category.create({
       name:req.body.name,
       description:req.body.description
+   }).then(function(response){
+      res.json(response)
    })
 }
 
@@ -40,3 +42,10 @@ exports.addProduct  =function(req, res){
    res.json(req.body);
 }
 
+exports.deleteCategory  =function(req, res){
+db.category.destroy({
+   where:{id:req.body.id}
+}).then(function(response){
+   res.json(response)
+})
+}
