@@ -10,9 +10,9 @@ exports.testThis = function(){
 exports.upload = function(file, response) {
     console.log("trying to Upload File")
     let s3bucket = new aws.S3({
-      accessKeyId:'AKIAIDMWTIYKYXKNCNWQ',
-      secretAccessKey:'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',
-     Bucket: 'chitchatcoffeeimages'
+      accessKeyId:'',
+      secretAccessKey:'',
+     Bucket: ''
 
 
 
