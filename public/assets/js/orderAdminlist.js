@@ -51,6 +51,7 @@ function hasStarted(orderId){
     return false;
 
 }
+$("#orderComplete").off("click");
 $("#orderComplete").on("click",function(event){
     clearInterval(myVar)
     const orderNo=document.getElementById("ono").innerText;
@@ -93,24 +94,39 @@ $("#orderComplete").on("click",function(event){
                     url: "/orderAdminList/updateStatusOrder/"+orderNo,
                     data:stat
                   }).then(function() {
-                    
+                      //Here send the orderNo,from orderNo, get product ids and get product names ,orderDate,userId and Total
+                      //Then delete all the items in the orderitems related to order , than delete order at orders table.
+                      //insert  into past orders.
                       //////////////////////////////
+                      $.ajax({
+                        method: "POST",
+                        url: "/orderAdminList/placePastOrder/"+orderNo,
+                        data:{}
+                      }).then(function(data) {
+                         
+                          
                    ///////////////sms////////////
-                  /* let phoneTwilio="+16099334965";
-                   phoneTwilio+= phone.replace(/[^\d]/g, "");
-                   console.log(phoneTwilio);
-                   const message ={body: 'ChitChat:Your order is ready!', from: '+18632165761', to:phoneTwilio};
+                   //let phoneTwilio="+16099334965";
+                   let phoneTwilio=phone;
+                   if (phone!==""){
+                       phoneTwilio= phone.replace(/[^\d]/g, "");
+                       console.log(phoneTwilio);
+                       const message ={body: 'ChitChat:Your order is ready!', from: '+18632165761', to:phoneTwilio};
                    
-                  $.ajax({
-                       method: "POST",
-                       url: "/orderAdminList/sendSMS",
-                       data: message
-                   }).then(function(mess) {
-                       console.log(mess);  
-                       window.location.reload();
+                       $.ajax({
+                          method: "POST",
+                          url: "/orderAdminList/sendSMS",
+                          data: message
+                      }).then(function(mess) { 
+                       window.location.replace("/orderAdminList");
      
+                       });
+                    } 
+                    else{
+                        window.location.replace("/orderAdminList");
+                    }   
+                  //////////////////////////////
                    });
-                  //////////////////////////////*/
                 
                       
                 });
@@ -126,7 +142,7 @@ $("#orderComplete").on("click",function(event){
     //////////////////////////////////////// 
 
 });
-
+$("#orderCancel").off("click");
 $("#orderCancel").on("click",function(event){
     
     const orderNo=document.getElementById("ono").innerText;
@@ -150,11 +166,34 @@ $("#orderCancel").on("click",function(event){
             data:data
 
           }).then(function() {
-             
-              window.location.reload();
+            $.ajax({
+                method: "POST",
+                url: "/orderAdminList/placePastOrder/"+orderNo,
+                data:{}
+              }).then(function(data) {
+                  console.log(data)
+            //let phoneTwilio="+16099334965";
+             let phoneTwilio=phone;
+             if (phone!=""){
+               phoneTwilio= phone.replace(/[^\d]/g, "");
+               console.log(phoneTwilio);
+               const message ={body: 'ChitChat:Your order is canceled!', from: '+18632165761', to:phoneTwilio};
+            
+               $.ajax({
+                  method: "POST",
+                  url: "/orderAdminList/sendSMS",
+                  data: message
+               }).then(function(mess) {
+                console.log(mess);  
+                window.location.replace("/orderAdminList");
               
+               });
+            } 
+            else{
+                window.location.replace("/orderAdminList");
+            }
             });
-
+        });
     }
    
 
