@@ -7,12 +7,7 @@ module.exports = function (sequelize, DataTypes) {
             
         },
        
-        paymentType: {
-            type: DataTypes.STRING,
-            allowNull: false
-            
-        },
-        addons: {
+        products: {
             type: DataTypes.TEXT,
             allowNull: false
             
@@ -20,6 +15,11 @@ module.exports = function (sequelize, DataTypes) {
         amount:{
             type: DataTypes.FLOAT, 
             allowNull:false
+        },
+        status: {
+            type: DataTypes.TEXT,
+            allowNull: false
+            
         }
 
         

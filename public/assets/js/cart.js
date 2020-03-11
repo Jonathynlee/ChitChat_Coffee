@@ -77,9 +77,11 @@ $(function(){
 
       //////////////////////////////////////////////////////
       subtotal+=result[i].quantity*result[i].basePrice;
+      
       let add=JSON.parse(result[i].addons);
       
       let label=$("#l"+result[i].id);
+      console.log("Here Here: "+JSON.stringify(add));
       label.append("<br>");
      
       const btn=$("<div class='btn-group dropleft'><button type='button' class='btn-info btn-sm dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Add On</button></div>");

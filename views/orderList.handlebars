@@ -93,7 +93,7 @@
 </div>
 
 <div id="myModal" class="modal fade" role="dialog" tabindex="-1" style="width:%100;height:%100;color:black" aria-hidden="true" style="display:none;">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
    <!-- <div class="container-fluid">-->
      <div class="modal-content">  
 
@@ -117,7 +117,11 @@
               </div>
 
               <div class="card" style="width:100%">
-                    <h5 class="card-header" > <span id="customerName"></span><a  class="btn btn-success btn-sm" id="orderComplete">COMPLETE</a> <a  class="btn btn-danger btn-sm" id="orderCancel">CANCEL</a></h5> 
+                    <h5 class="card-header d-flex" > 
+                          <span id="customerName" class="border-right p-2"></span>
+                          <a  class="btn btn-success btn-sm" id="orderComplete">COMPLETE</a> 
+                          <a  class="btn btn-danger btn-sm" id="orderCancel">CANCEL</a>
+                     </h5>  
                     <div class="card-body">
                        <h5 class="card-title">Customer ID:&nbsp<span id="customerID"class="Aspan"></span></h5>
                        <h5 class="card-title">Phone#:&nbsp <span id="phone"class="Aspan"></span></h5> 
@@ -126,8 +130,8 @@
               </div>
 
               <div class="card" style="width:100%">
-                    <h5 class="card-header">#Number of Items in Order Left:&nbsp<span id="numILeft"class="Aspan">1</span><br>
-                                            #Total Orders Left:&nbsp<span id="numOLeft"class="Aspan">35</span></h5> 
+                    <h6 class="card-header"><b>Number of Items in Order Left:&nbsp</b><span id="numILeft"class="Aspan">1</span><br>
+                                           <b>Total Orders Left:&nbsp</b><span id="numOLeft"class="Aspan">35</span></h5> 
                     <div class="card-body">
                        <h5 class="card-title ml-2">Estimated Time:&nbsp<span class="Aspan" id="et"></span></h5>
                        <div class="progress">

@@ -1,5 +1,6 @@
 var db=require("../models");
-const stripe = require('stripe')('SECRET KEY');//REPLACE WITH YOUR OWN
+const stripe = require('stripe')(process.env.SK_TEST);
+//process.env.SK_TEST
 
 exports.index=function(req,res){
    res.render("checkout");
@@ -47,7 +48,7 @@ exports.getProduct=function(req, res){
          where:{userId:parseInt(req.user.id),
          status:"in_cart"}
         }).then(function(ordr){
-           tax=ordr.subtotal*0.25;
+           tax=ordr.subtotal*0;
            total2=ordr.subtotal+tax;
            total={total:total2,
                   status:"placed",

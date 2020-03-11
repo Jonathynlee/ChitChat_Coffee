@@ -641,8 +641,16 @@ input[type=text]:focus, input[type=password]:focus,input[type=email]:focus {
 #myModal,.Aspan {
 font-family:'Pacifico';
     font-size:1.5rem;
+    
 }    
 /************STRIPE**************/
 .container-fluid {
     margin-top: 15px;
+}
+/****ORDER ADMIN***************/
+#orderComplete,#orderCancel{
+    font-size:0.4rem;
+    margin:0.5rem;
+    margin-left:0.7rem;
+    padding:0.5rem;
 }

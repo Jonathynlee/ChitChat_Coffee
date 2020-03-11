@@ -33,7 +33,8 @@ exports.index = function (req, res) {
                    }
                 }
             }
-          res.render("shoppingCart",{item:reslt.orderItems});
+            const answer=reslt.orderItems;
+          res.render("shoppingCart",{item:answer});
          }
          else{
             res.render("shoppingCart")

@@ -36,6 +36,8 @@ module.exports = function (app) {
     app.use('/orderAdminList/partOrder/:id',orderAdminList);
     app.use('/orderAdminList/updateStatusOrder/:id',orderAdminList);
     app.use('/orderAdminList/sendSMS',orderAdminList);
+    app.use('/orderAdminList/placePastOrder/:id',orderAdminList);
+    
     
 
 
